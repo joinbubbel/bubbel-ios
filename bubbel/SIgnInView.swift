@@ -47,29 +47,44 @@ struct SignInView: View {
                     keyboardFocused = true
                 }
             }
-        
-        Text("Email Address")
-            .padding(.top, 10)
-            .padding(.trailing, 270)
-        TextField("johndoe@gmail.com", text: $email)
-            .padding(.leading, 15)
-            .focused($keyboardFocused)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    keyboardFocused = true
+        VStack{
+            Text("Email Address")
+                .padding(.top, 10)
+                .padding(.trailing, 270)
+            TextField("johndoe@gmail.com", text: $email)
+                .padding(.leading, 15)
+            Rectangle()
+                .frame(height: 1.0, alignment: .bottom)
+                .foregroundColor(Color.gray)
+                .baselineOffset(10)
+                .padding(.trailing, 10)
+                .padding(.leading, 10)
+            
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        keyboardFocused = true
+                    }
                 }
-            }
+        }
         
         Text("Password")
             .padding(.top, 10)
             .padding(.trailing, 290)
         TextField("••••••••", text: $password)
             .padding(.leading, 15)
+        Rectangle()
+            .frame(height: 1.0, alignment: .bottom)
+            .foregroundColor(Color.gray)
+            .baselineOffset(10)
+            .padding(.trailing, 10)
+            .padding(.leading, 10)
+        
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     keyboardFocused = true
                 }
             }
+        
         
         Button(action: SignUp){
             Text("Sign Up")
@@ -82,16 +97,17 @@ struct SignInView: View {
         }
         
         .padding(30)
-        
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
         Spacer()
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
             .edgesIgnoringSafeArea(.all)
     }
-}
-
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView()
+    
+    
+    
+    struct SignInView_Previews: PreviewProvider {
+        static var previews: some View {
+            SignInView()
+        }
     }
 }

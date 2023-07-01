@@ -26,6 +26,7 @@ struct ContentView: View {
 					)
 					.padding(10)
 				Text("Username")
+					.padding(.top, 80)
 					.padding(.trailing, 290)
 				TextField("jonedoe", text: $username)
 					.padding(.leading, 15)
@@ -70,7 +71,12 @@ struct ContentView: View {
 				
 				.padding(30)
 				
+			
+				
 				Spacer()
+					.navigationBarHidden(true)
+					.navigationBarBackButtonHidden(true)
+
 				
 					.padding(30)
 				NavigationLink(destination: SignInView()) {
