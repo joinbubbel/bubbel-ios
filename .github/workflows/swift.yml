@@ -1,26 +1,40 @@
-name: SwiftUI CI/CD
+name: SwiftUI
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
-      - main
+      - develop
+  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: macos-latest
-
+  test:
+    runs-on: macos-11
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Set up Xcode
-        uses: xcpretty/setup-xcode@v1
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
         with:
-          xcode-version: 12.5
+          access_token: ${{ github.token }}
 
-      - name: Build and test
-        run: |
-          xcodebuild clean build test -project bubbel.xcodeproj -scheme bubbel -destination 'platform=iOS Simulator,name=iPhone 12'
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - uses: ruby/setup-ruby@v1
+
+      - name: Install Bundler
+        run: gem install bundler
+
+      - name: Install gems
+        run: bundle install
+
+      - name: Swift Packages Cache
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            Build/SourcePackages
+            Build/Build/Products
+          key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-deps-v1-
