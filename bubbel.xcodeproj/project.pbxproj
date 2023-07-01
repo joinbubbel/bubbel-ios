@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		D2DCB2D12A4F8C1000A4F0F7 /* bubbel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bubbel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelApp.swift; sourceTree = "<group>"; };
-		D2DCB2D62A4F8C1000A4F0F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2DCB2D62A4F8C1000A4F0F7 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		D2DCB2D82A4F8C1100A4F0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2DCB2DB2A4F8C1100A4F0F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D2DCB2E12A4F8C1100A4F0F7 /* bubbelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bubbelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
