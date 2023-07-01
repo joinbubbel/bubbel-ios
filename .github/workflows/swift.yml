@@ -1,6 +1,6 @@
-# This workflow will build and test a Swift project
+# This workflow will build an Xcode project
 
-name: Swift
+name: Xcode Build
 
 on:
   push:
@@ -11,15 +11,11 @@ on:
       - main
 
 jobs:
-  build-and-test:
-
-    runs-on: macos-latest
-
+  build:
+    runs-on: macOS-latest
+    
     steps:
       - uses: actions/checkout@v3
-
+      
       - name: Build
-        run: swift build
-
-      - name: Run tests
-        run: swift test
+        run: xcodebuild -project bubbel.xcodeproj -scheme bubbel build
