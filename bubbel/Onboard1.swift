@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Onboard1: View {
     var body: some View {
-        NavigationView{
             VStack{
                 Text("")
                     .padding(170)
@@ -24,7 +23,6 @@ struct Onboard1: View {
                     .edgesIgnoringSafeArea(.all)
             }
         }
-    }
 }
 
 struct Onboard1_Previews: PreviewProvider {

@@ -18,6 +18,9 @@
 		D2DCB2E62A4F8C1100A4F0F7 /* bubbelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2E52A4F8C1100A4F0F7 /* bubbelTests.swift */; };
 		D2DCB2F02A4F8C1100A4F0F7 /* bubbelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2EF2A4F8C1100A4F0F7 /* bubbelUITests.swift */; };
 		D2DCB2F22A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2F12A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift */; };
+		D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE412A52214A0035DC62 /* Onboard3.swift */; };
+		D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE432A52221D0035DC62 /* Onboard4.swift */; };
+		D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE452A5225590035DC62 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		D2DCB2EB2A4F8C1100A4F0F7 /* bubbelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bubbelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DCB2EF2A4F8C1100A4F0F7 /* bubbelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelUITests.swift; sourceTree = "<group>"; };
 		D2DCB2F12A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2F1BE412A52214A0035DC62 /* Onboard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard3.swift; sourceTree = "<group>"; };
+		D2F1BE432A52221D0035DC62 /* Onboard4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard4.swift; sourceTree = "<group>"; };
+		D2F1BE452A5225590035DC62 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,9 @@
 			children = (
 				D292034A2A51F0090051B1DC /* Onboard1.swift */,
 				D292034C2A51F01E0051B1DC /* Onboard2.swift */,
+				D2F1BE412A52214A0035DC62 /* Onboard3.swift */,
+				D2F1BE432A52221D0035DC62 /* Onboard4.swift */,
+				D2F1BE452A5225590035DC62 /* OnboardingView.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -287,7 +296,10 @@
 			files = (
 				D2DCB2D72A4F8C1000A4F0F7 /* ContentView.swift in Sources */,
 				D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */,
+				D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */,
+				D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */,
 				D2DC0BE72A506C1700AF9F68 /* SIgnInView.swift in Sources */,
+				D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */,
 				D29203482A51E4020051B1DC /* VerificationView.swift in Sources */,
 				D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */,
 				D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */,
