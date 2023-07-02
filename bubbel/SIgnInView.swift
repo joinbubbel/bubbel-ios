@@ -21,9 +21,9 @@ struct SignInView: View {
     var body: some View {
         VStack{
             Text("")
-                .padding(50)
+                .padding(60)
                 .background(
-                    Image("LoginBanner")
+                    Image("SignupBanner")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -97,7 +97,7 @@ struct SignInView: View {
                 
             }
             
-            .padding(30)
+            .padding(.top, 40)
             Spacer()
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)

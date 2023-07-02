@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D29203482A51E4020051B1DC /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29203472A51E4020051B1DC /* VerificationView.swift */; };
+		D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034A2A51F0090051B1DC /* Onboard1.swift */; };
+		D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034C2A51F01E0051B1DC /* Onboard2.swift */; };
 		D2DC0BE72A506C1700AF9F68 /* SIgnInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DC0BE62A506C1700AF9F68 /* SIgnInView.swift */; };
 		D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */; };
 		D2DCB2D72A4F8C1000A4F0F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2D62A4F8C1000A4F0F7 /* ContentView.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D29203472A51E4020051B1DC /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		D292034A2A51F0090051B1DC /* Onboard1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard1.swift; sourceTree = "<group>"; };
+		D292034C2A51F01E0051B1DC /* Onboard2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard2.swift; sourceTree = "<group>"; };
 		D2DC0BE62A506C1700AF9F68 /* SIgnInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInView.swift; sourceTree = "<group>"; };
 		D2DCB2D12A4F8C1000A4F0F7 /* bubbel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bubbel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelApp.swift; sourceTree = "<group>"; };
@@ -73,6 +79,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D29203462A51E1A80051B1DC /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				D2DC0BE62A506C1700AF9F68 /* SIgnInView.swift */,
+				D29203472A51E4020051B1DC /* VerificationView.swift */,
+			);
+			name = Signin;
+			sourceTree = "<group>";
+		};
+		D29203492A51ECC10051B1DC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D292034A2A51F0090051B1DC /* Onboard1.swift */,
+				D292034C2A51F01E0051B1DC /* Onboard2.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 		D2DCB2C82A4F8C1000A4F0F7 = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +120,8 @@
 		D2DCB2D32A4F8C1000A4F0F7 /* bubbel */ = {
 			isa = PBXGroup;
 			children = (
-				D2DC0BE62A506C1700AF9F68 /* SIgnInView.swift */,
+				D29203492A51ECC10051B1DC /* Onboarding */,
+				D29203462A51E1A80051B1DC /* Signin */,
 				D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */,
 				D2DCB2D62A4F8C1000A4F0F7 /* ContentView.swift */,
 				D2DCB2D82A4F8C1100A4F0F7 /* Assets.xcassets */,
@@ -263,6 +288,9 @@
 				D2DCB2D72A4F8C1000A4F0F7 /* ContentView.swift in Sources */,
 				D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */,
 				D2DC0BE72A506C1700AF9F68 /* SIgnInView.swift in Sources */,
+				D29203482A51E4020051B1DC /* VerificationView.swift in Sources */,
+				D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */,
+				D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
