@@ -17,7 +17,7 @@ struct ContentView: View {
 			VStack {
 				
 				Text("")
-					.padding(105)
+					.padding(110)
 					.background(
 						Image("LoginBanner")
 							.resizable()
