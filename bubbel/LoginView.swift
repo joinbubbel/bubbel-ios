@@ -27,17 +27,17 @@ struct LoginView: View {
 					.padding(10)
 				Text("Username")
 					.padding(.top, 80)
-					.padding(.trailing, 290)
+					.padding(.trailing, 280)
 				TextField("jonedoe", text: $username)
-					.padding(.leading, 15)
+					.padding(.leading, 20)
 				Rectangle()
 					.frame(height: 1.0, alignment: .bottom)
 					.foregroundColor(Color.gray)
 					.baselineOffset(10)
 					.focused($keyboardFocused)
 					.font(.system(size: 16))
-					.padding(.trailing, 10)
-					.padding(.leading, 10)
+					.padding(.trailing, 20)
+					.padding(.leading, 20)
 					.onAppear {
 						DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 							keyboardFocused = true
@@ -45,20 +45,22 @@ struct LoginView: View {
 					}
 				Text("Password")
 					.padding(.top ,10)
-					.padding(.trailing, 290)
+					.padding(.trailing, 285)
 				TextField("••••••••", text: $password)
-					.padding(.leading, 15)
+					.padding(.leading, 20)
 				Rectangle()
 					.frame(height: 1.0, alignment: .bottom)
 					.foregroundColor(Color.gray)
 					.focused($keyboardFocused)
+					.padding(.trailing, 20)
+					.padding(.leading, 20)
 				
 					.onAppear {
 						DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 							keyboardFocused = true
 						}
 					}
-					.padding(8)
+					.padding(.top, 2)
 				Button(action: LogIn){
 					Text("Log In")
 						.foregroundColor(.white)
