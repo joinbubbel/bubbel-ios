@@ -20,13 +20,21 @@ struct VerificationView: View {
         NavigationView {
             VStack{
                 Text("")
-                    .padding(50)
+                    .padding(60)
                     .background(
                         Image("VerifyBanner")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     )
+                Text("Verification")
+                    .font(Font.custom("CircularStd-Medium", size: 26))
+                    .foregroundColor(.white)
+                    .position(x:80 , y: -90)
+                Text("Check email inbox for OTP.")
+                    .font(Font.custom("CircularStd-Book", size: 18))
+                    .foregroundColor(.white)
+                    .position(x: 120 , y: -90)
                 HStack{
                     Image("verifi")
                     TextField("Verification Code", text: $verify)
@@ -36,7 +44,7 @@ struct VerificationView: View {
                 .textContentType(.oneTimeCode)
                 .keyboardType(.numberPad)
                 .padding(.leading, 20)
-                .padding(.top, 100)
+                .padding(.top, 10)
                 
                 Rectangle()
                     .frame(height: 1.0, alignment: .bottom)
