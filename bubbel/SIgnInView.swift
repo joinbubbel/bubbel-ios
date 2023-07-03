@@ -30,10 +30,17 @@ struct SignInView: View {
                 )
             
             Text("Username")
-                .padding(.trailing, 290)
+                .font(Font.custom("CircularStd-Book", size: 14))
+                .foregroundColor(Color(red: 0.39, green: 0.45, blue: 0.58))
+                .padding(.trailing, 265)
                 .padding(.top, 100)
-            TextField("jonedoe", text: $username)
-                .padding(.leading, 15)
+            HStack{
+                Image("picon")
+                TextField("John Doe", text: $username)
+                    .font(Font.custom("CircularStd-Book", size: 16))
+                    .foregroundColor(.black)
+            }
+                .padding(.leading, 20)
             
             Rectangle()
                 .frame(height: 1.0, alignment: .bottom)
@@ -41,8 +48,8 @@ struct SignInView: View {
                 .baselineOffset(10)
                 .focused($keyboardFocused)
                 .font(.system(size: 16))
-                .padding(.trailing, 10)
-                .padding(.leading, 10)
+                .padding(.trailing, 20)
+                .padding(.leading, 20)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         keyboardFocused = true
@@ -50,16 +57,23 @@ struct SignInView: View {
                 }
             VStack{
                 Text("Email Address")
-                    .padding(.top, 10)
-                    .padding(.trailing, 270)
-                TextField("johndoe@gmail.com", text: $email)
-                    .padding(.leading, 15)
+                    .font(Font.custom("CircularStd-Book", size: 14))
+                    .foregroundColor(Color(red: 0.39, green: 0.45, blue: 0.58))
+                    .padding(.top, 20)
+                    .padding(.trailing, 240)
+                HStack{
+                    Image("mail")
+                    TextField("johndoe@gmail.com", text: $email)
+                        .font(Font.custom("CircularStd-Book", size: 16))
+                        .foregroundColor(.black)
+                }
+                    .padding(.leading, 20)
                 Rectangle()
                     .frame(height: 1.0, alignment: .bottom)
                     .foregroundColor(Color.gray)
                     .baselineOffset(10)
-                    .padding(.trailing, 10)
-                    .padding(.leading, 10)
+                    .padding(.trailing, 20)
+                    .padding(.leading, 20)
                 
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -69,16 +83,23 @@ struct SignInView: View {
             }
             
             Text("Password")
-                .padding(.top, 10)
-                .padding(.trailing, 290)
-            TextField("••••••••", text: $password)
-                .padding(.leading, 15)
+                .font(Font.custom("CircularStd-Book", size: 14))
+                .foregroundColor(Color(red: 0.39, green: 0.45, blue: 0.58))
+                .padding(.top, 20)
+                .padding(.trailing, 275)
+            HStack{
+                Image("lock")
+                TextField("••••••••", text: $password)
+                    .font(Font.custom("CircularStd-Book", size: 16))
+                    .foregroundColor(.black)
+            }
+                .padding(.leading, 20)
             Rectangle()
                 .frame(height: 1.0, alignment: .bottom)
                 .foregroundColor(Color.gray)
                 .baselineOffset(10)
-                .padding(.trailing, 10)
-                .padding(.leading, 10)
+                .padding(.trailing, 20)
+                .padding(.leading, 20)
             
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -89,6 +110,8 @@ struct SignInView: View {
             
             Button(action: SignUp){
                 Text("Sign Up")
+                    .font(Font.custom("CircularStd-Book", size: 16))
+                    .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .frame(width: 309, height: 56)
                     .background(Color(red: 0, green: 0.34, blue: 1))

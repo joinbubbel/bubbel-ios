@@ -20,18 +20,14 @@ struct Onboard1: View {
                     
                 )
             Text("Team-up yourself globally")
-                .font(
-                    Font.custom("Circular Std", size: 20)
-                        .weight(.medium)
-                )
-                .foregroundColor(.black)
+                .font(Font.custom("CircularStd-Medium", size: 20))                .foregroundColor(.black)
                 .padding(.top, 80)
                 .padding(.trailing, 90)
             
             Text("With bubbel clubs can earn global\nrecognisation. Promote your club\nonline, connect new members and\nbe the new sensation in media.")
                 .padding(.top, 10)
                 .padding(.trailing, 10)
-                .font(Font.custom("Circular Std", size: 20))
+                .font(Font.custom("CircularStd-Book", size: 20))
                 .foregroundColor(Color(red: 0.48, green: 0.52, blue: 0.6))
             Spacer()
                 .edgesIgnoringSafeArea(.all)

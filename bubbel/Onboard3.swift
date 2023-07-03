@@ -20,10 +20,7 @@ struct Onboard3: View {
                     
                 )
             Text("Keep upto date with trends")
-                .font(
-                    Font.custom("Circular Std", size: 20)
-                        .weight(.medium)
-                )
+                .font(Font.custom("CircularStd-Medium", size: 20))
                 .foregroundColor(.black)
                 .padding(.top, 120)
                 .padding(.trailing, 70)
@@ -31,7 +28,7 @@ struct Onboard3: View {
             Text("Get the latest updates from your\nfavorite teams and clubs. News at\na glance and watch top trending\nshows of the week.")
                 .padding(.top, 10)
                 .padding(.trailing, 10)
-                .font(Font.custom("Circular Std", size: 20))
+                .font(Font.custom("CircularStd-Book", size: 20))
                 .foregroundColor(Color(red: 0.48, green: 0.52, blue: 0.6))
             
             Spacer()

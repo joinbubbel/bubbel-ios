@@ -23,16 +23,14 @@ struct Onboard4: View {
                 )
             
             Text("Please allow below permissions")
-                .font(
-                    Font.custom("Circular Std", size: 20)
-                        .weight(.medium)
-                )
+                .font(Font.custom("CircularStd-Medium", size: 20))
                 .foregroundColor(.black)
                 .padding(.top, 100)
                 .padding(.trailing, 50)
             
             VStack {
                 Toggle("Camera", isOn: $camera)
+                    .font(Font.custom("CircularStd-Book", size: 18))
                     .padding(.top, 30)
                     .padding(.trailing, 30)
                     .padding(.leading, 30)
@@ -44,6 +42,7 @@ struct Onboard4: View {
                     }
                 
                 Toggle("Use Microphone", isOn: $mic)
+                    .font(Font.custom("CircularStd-Book", size: 18))
                     .padding(.top, 30)
                     .padding(.trailing, 30)
                     .padding(.leading, 30)

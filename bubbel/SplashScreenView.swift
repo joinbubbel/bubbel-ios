@@ -11,14 +11,14 @@ struct SplashScreenView: View {
     @State var isActive : Bool = false
     var body: some View {
         if isActive{
-           LoginView()
+            LoginView()
         }
         else{
             VStack{
                 Image("Logo")
                     .frame(width: 475, height: 812)
                     .background(Color(red: 0, green: 0.34, blue: 1))
-                   
+                
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

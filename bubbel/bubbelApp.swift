@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct bubbelApp: App {
+    @Environment(\.colorScheme) var colorScheme
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
+                .environment(\.colorScheme, .light)
         }
     }
 }

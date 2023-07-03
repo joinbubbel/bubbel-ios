@@ -5,6 +5,17 @@ struct LoginView: View {
 	@State private var username: String = ""
 	@State private var password: String = ""
 	@FocusState private var keyboardFocused: Bool
+	
+	init(){
+		for family in UIFont.familyNames {
+			print(family)
+			
+			for names in UIFont.fontNames(forFamilyName: family){
+				print("== \(names)")
+			}
+		}
+	}
+	
 	func LogIn(){
 		print("Login Button Works")
 	}
@@ -26,10 +37,18 @@ struct LoginView: View {
 					)
 					.padding(10)
 				Text("Username")
+					.font(Font.custom("CircularStd-Book", size: 14))
+					.foregroundColor(Color(red: 0.39, green: 0.45, blue: 0.58))
 					.padding(.top, 80)
-					.padding(.trailing, 280)
-				TextField("jonedoe", text: $username)
-					.padding(.leading, 20)
+					.padding(.trailing, 275)
+				HStack {
+					Image("picon")
+					TextField("jonedoe", text: $username)
+						.font(Font.custom("CircularStd-Book", size: 16))
+						.foregroundColor(.black)
+				}
+				
+				.padding(.leading, 20)
 				Rectangle()
 					.frame(height: 1.0, alignment: .bottom)
 					.foregroundColor(Color.gray)
@@ -44,10 +63,16 @@ struct LoginView: View {
 						}
 					}
 				Text("Password")
+					.font(Font.custom("CircularStd-Book", size: 14))
+					.foregroundColor(Color(red: 0.39, green: 0.45, blue: 0.58))
 					.padding(.top ,10)
 					.padding(.trailing, 285)
-				TextField("••••••••", text: $password)
-					.padding(.leading, 20)
+				HStack{
+					Image("lock")
+					TextField("••••••••", text: $password)
+					
+				}
+				.padding(.leading, 20)
 				Rectangle()
 					.frame(height: 1.0, alignment: .bottom)
 					.foregroundColor(Color.gray)
@@ -60,9 +85,10 @@ struct LoginView: View {
 							keyboardFocused = true
 						}
 					}
-					.padding(.top, 2)
+				
 				Button(action: LogIn){
 					Text("Log In")
+						.font(Font.custom("CircularStd-Book", size: 16))
 						.foregroundColor(.white)
 						.frame(width: 309, height: 56)
 						.background(Color(red: 0, green: 0.34, blue: 1))
@@ -73,17 +99,17 @@ struct LoginView: View {
 				
 				.padding(30)
 				
-			
+				
 				
 				Spacer()
 					.navigationBarHidden(true)
 					.navigationBarBackButtonHidden(true)
-
+				
 				
 					.padding(30)
 				NavigationLink(destination: SignInView()) {
 					Text("Sign Up")
-						.font(Font.custom("Circular Std", size: 16))
+						.font(Font.custom("CircularStd-Book", size: 16))
 						.multilineTextAlignment(.center)
 						.foregroundColor(Color(red: 0, green: 0.34, blue: 1))
 						.padding(50)
