@@ -12,12 +12,13 @@
 		D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034C2A51F01E0051B1DC /* Onboard2.swift */; };
 		D2DC0BE72A506C1700AF9F68 /* SIgnInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DC0BE62A506C1700AF9F68 /* SIgnInView.swift */; };
 		D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */; };
-		D2DCB2D72A4F8C1000A4F0F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2D62A4F8C1000A4F0F7 /* ContentView.swift */; };
+		D2DCB2D72A4F8C1000A4F0F7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2D62A4F8C1000A4F0F7 /* LoginView.swift */; };
 		D2DCB2D92A4F8C1100A4F0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DCB2D82A4F8C1100A4F0F7 /* Assets.xcassets */; };
 		D2DCB2DC2A4F8C1100A4F0F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2DCB2DB2A4F8C1100A4F0F7 /* Preview Assets.xcassets */; };
 		D2DCB2E62A4F8C1100A4F0F7 /* bubbelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2E52A4F8C1100A4F0F7 /* bubbelTests.swift */; };
 		D2DCB2F02A4F8C1100A4F0F7 /* bubbelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2EF2A4F8C1100A4F0F7 /* bubbelUITests.swift */; };
 		D2DCB2F22A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2F12A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift */; };
+		D2EFA28D2A5321D400C29566 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */; };
 		D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE412A52214A0035DC62 /* Onboard3.swift */; };
 		D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE432A52221D0035DC62 /* Onboard4.swift */; };
 		D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE452A5225590035DC62 /* OnboardingView.swift */; };
@@ -47,7 +48,7 @@
 		D2DC0BE62A506C1700AF9F68 /* SIgnInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInView.swift; sourceTree = "<group>"; };
 		D2DCB2D12A4F8C1000A4F0F7 /* bubbel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bubbel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelApp.swift; sourceTree = "<group>"; };
-		D2DCB2D62A4F8C1000A4F0F7 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; usesTabs = 1; };
+		D2DCB2D62A4F8C1000A4F0F7 /* LoginView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		D2DCB2D82A4F8C1100A4F0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2DCB2DB2A4F8C1100A4F0F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D2DCB2E12A4F8C1100A4F0F7 /* bubbelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bubbelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +56,7 @@
 		D2DCB2EB2A4F8C1100A4F0F7 /* bubbelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bubbelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DCB2EF2A4F8C1100A4F0F7 /* bubbelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelUITests.swift; sourceTree = "<group>"; };
 		D2DCB2F12A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		D2F1BE412A52214A0035DC62 /* Onboard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard3.swift; sourceTree = "<group>"; };
 		D2F1BE432A52221D0035DC62 /* Onboard4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard4.swift; sourceTree = "<group>"; };
 		D2F1BE452A5225590035DC62 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -129,10 +131,11 @@
 		D2DCB2D32A4F8C1000A4F0F7 /* bubbel */ = {
 			isa = PBXGroup;
 			children = (
+				D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */,
 				D29203492A51ECC10051B1DC /* Onboarding */,
 				D29203462A51E1A80051B1DC /* Signin */,
 				D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */,
-				D2DCB2D62A4F8C1000A4F0F7 /* ContentView.swift */,
+				D2DCB2D62A4F8C1000A4F0F7 /* LoginView.swift */,
 				D2DCB2D82A4F8C1100A4F0F7 /* Assets.xcassets */,
 				D2DCB2DA2A4F8C1100A4F0F7 /* Preview Content */,
 			);
@@ -294,13 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2DCB2D72A4F8C1000A4F0F7 /* ContentView.swift in Sources */,
+				D2DCB2D72A4F8C1000A4F0F7 /* LoginView.swift in Sources */,
 				D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */,
 				D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */,
 				D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */,
 				D2DC0BE72A506C1700AF9F68 /* SIgnInView.swift in Sources */,
 				D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */,
 				D29203482A51E4020051B1DC /* VerificationView.swift in Sources */,
+				D2EFA28D2A5321D400C29566 /* SplashScreenView.swift in Sources */,
 				D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */,
 				D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */,
 			);
