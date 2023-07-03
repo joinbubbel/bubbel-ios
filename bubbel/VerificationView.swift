@@ -22,7 +22,7 @@ struct VerificationView: View {
                 Text("")
                     .padding(50)
                     .background(
-                        Image("LoginBanner")
+                        Image("VerifyBanner")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)

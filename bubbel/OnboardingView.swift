@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    init() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .blue
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
+    }
     var body: some View {
         VStack{
             TabView {
-               Onboard1()
+                Onboard1()
                     .tag(1)
                 Onboard2()
                     .tag(2)
@@ -22,6 +26,7 @@ struct OnboardingView: View {
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            
             
             Spacer()
         }

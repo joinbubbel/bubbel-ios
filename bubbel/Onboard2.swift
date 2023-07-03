@@ -19,6 +19,20 @@ struct Onboard2: View {
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     
                 )
+            Text("Find your desire clubs")
+                .font(
+                    Font.custom("Circular Std", size: 20)
+                        .weight(.medium)
+                )
+                .foregroundColor(.black)
+                .padding(.top, 120)
+                .padding(.trailing, 110)
+            
+            Text("Explore trending clubs around the\nworld. Conjoin your friend parties\nand jam with new friends.")
+                .padding(.top, 10)
+                .padding(.trailing, 10)
+                .font(Font.custom("Circular Std", size: 20))
+                .foregroundColor(Color(red: 0.48, green: 0.52, blue: 0.6))
             Spacer()
                 .edgesIgnoringSafeArea(.all)
         }

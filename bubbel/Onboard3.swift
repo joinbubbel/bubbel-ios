@@ -19,9 +19,24 @@ struct Onboard3: View {
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     
                 )
+            Text("Keep upto date with trends")
+                .font(
+                    Font.custom("Circular Std", size: 20)
+                        .weight(.medium)
+                )
+                .foregroundColor(.black)
+                .padding(.top, 120)
+                .padding(.trailing, 70)
+            
+            Text("Get the latest updates from your\nfavorite teams and clubs. News at\na glance and watch top trending\nshows of the week.")
+                .padding(.top, 10)
+                .padding(.trailing, 10)
+                .font(Font.custom("Circular Std", size: 20))
+                .foregroundColor(Color(red: 0.48, green: 0.52, blue: 0.6))
+            
             Spacer()
                 .edgesIgnoringSafeArea(.all)
-        
+            
         }
     }
 }
