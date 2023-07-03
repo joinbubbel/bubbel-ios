@@ -14,7 +14,7 @@ struct VerificationView: View {
     @FocusState private var keyboardFocused: Bool
     
     func Resend() {
-        print("Sign Up Button Works")
+        print("Verification Button Clicked")
     }
     var body: some View {
         NavigationView {
@@ -28,6 +28,8 @@ struct VerificationView: View {
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     )
                 TextField("Verification Code", text: $verify)
+                    .textContentType(.oneTimeCode)
+                    .keyboardType(.numberPad)
                     .padding(.leading, 20)
                     .padding(.top, 100)
                 
