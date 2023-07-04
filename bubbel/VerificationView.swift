@@ -30,11 +30,11 @@ struct VerificationView: View {
                 Text("Verification")
                     .font(Font.custom("CircularStd-Medium", size: 26))
                     .foregroundColor(.white)
-                    .position(x:80 , y: -90)
+                    .position(x:90 , y: -90)
                 Text("Check email inbox for OTP.")
                     .font(Font.custom("CircularStd-Book", size: 18))
                     .foregroundColor(.white)
-                    .position(x: 120 , y: -90)
+                    .position(x: 130 , y: -90)
                 HStack{
                     Image("verifi")
                     TextField("Verification Code", text: $verify)
