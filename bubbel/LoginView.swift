@@ -123,7 +123,7 @@ struct LoginView: View {
 				
 				
 					
-				NavigationLink(destination: SignInView()) {
+				NavigationLink(destination: SignUpView()) {
 					Text("Sign Up")
 						.font(Font.custom("CircularStd-Book", size: 16))
 						.multilineTextAlignment(.center)

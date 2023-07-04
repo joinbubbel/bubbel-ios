@@ -7,17 +7,39 @@
 
 import SwiftUI
 
-struct SignInView: View {
+struct SignUpView: View {
     @State private var username: String = ""
     @State private var password: String = ""
-    @State private var comfirmpassword: String = ""
     @State private var email: String = ""
+    @State private var isUsernameAvailable = true
     @FocusState private var keyboardFocused: Bool
     
+    
     func SignUp() {
-        print("Sign Up Button Works")
+        guard isValidEmail(email) else {
+            print("Invalid email format")
+            return
+        }
+        
+        guard isValidPassword(password) else {
+            print("Invalid password format")
+            return
+        }
+        
+        print("Sign Up successful")
     }
     
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+    
+    private func isValidPassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d).{8,}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
+    }
     var body: some View {
         VStack{
             Text("")
@@ -38,7 +60,7 @@ struct SignInView: View {
                     .foregroundColor(.white)
                     .position(x: 135, y: -180)
             }
-                Text("Username")
+            Text("Username")
                 .font(Font.custom("CircularStd-Book", size: 14))
                 .foregroundColor(Color(red: 0.39, green: 0.45, blue: 0.58))
                 .padding(.trailing, 270)
@@ -50,7 +72,7 @@ struct SignInView: View {
                     .foregroundColor(.black)
             }
             .padding(.top, -180)
-                .padding(.leading, 20)
+            .padding(.leading, 20)
             
             Rectangle()
                 .frame(height: 1.0, alignment: .bottom)
@@ -76,11 +98,12 @@ struct SignInView: View {
                 HStack{
                     Image("mail")
                     TextField("johndoe@gmail.com", text: $email)
+                        .autocapitalization(.none)
                         .font(Font.custom("CircularStd-Book", size: 16))
                         .foregroundColor(.black)
                 }
                 .padding(.top, -110)
-                    .padding(.leading, 20)
+                .padding(.leading, 20)
                 Rectangle()
                     .frame(height: 1.0, alignment: .bottom)
                     .foregroundColor(Color.gray)
@@ -104,11 +127,12 @@ struct SignInView: View {
             HStack{
                 Image("lock")
                 TextField("••••••••", text: $password)
+                    .autocapitalization(.none)
                     .font(Font.custom("CircularStd-Book", size: 16))
                     .foregroundColor(.black)
             }
             .padding(.top, -40)
-                .padding(.leading, 20)
+            .padding(.leading, 20)
             Rectangle()
                 .frame(height: 1.0, alignment: .bottom)
                 .foregroundColor(Color.gray)
@@ -135,25 +159,25 @@ struct SignInView: View {
                         .shadow(color: Color(red: 0, green: 0.34, blue: 1).opacity(0.35), radius: 20, x: 0, y: 20)
                     
                 }
-
+                
                 Spacer()
             }
             
             .padding(.top, 30)
-         
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
-                .edgesIgnoringSafeArea(.all)
-        }
-    }
-
-        
-        
-        struct SignInView_Previews: PreviewProvider {
-            static var previews: some View {
-                SignInView()
-            }
+            
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            .edgesIgnoringSafeArea(.all)
         }
     }
     
+    
+    
+    struct SignUpView_Previews: PreviewProvider {
+        static var previews: some View {
+            SignUpView()
+        }
+    }
+}
+
 

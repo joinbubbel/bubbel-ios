@@ -102,7 +102,7 @@ struct VerificationView: View {
                     
                 }
                 
-                NavigationLink(destination: SignInView()) {
+                NavigationLink(destination: SignUpView()) {
                     HStack{
                         Image("Back")
                         Text("Change Email")
