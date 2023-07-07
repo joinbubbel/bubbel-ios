@@ -151,7 +151,7 @@ struct SignUpView: View {
         return passwordPredicate.evaluate(with: password)
     }
     
-    let bubbelBathDev = "https://bubbel-bath.onrender.com/";
+    let bubbelBathDev = "https://bubbel-bath.onrender.com";
     
     enum BubbelError: Error {
         case fetchError
