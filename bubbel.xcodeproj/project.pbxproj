@@ -71,7 +71,6 @@
 		D2EFA2992A533D5000C29566 /* CircularStd-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Black.ttf"; sourceTree = "<group>"; };
 		D2EFA29B2A533D6200C29566 /* CircularStd-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-BlackItalic.ttf"; sourceTree = "<group>"; };
 		D2EFA29D2A533D6A00C29566 /* CircularStd-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Bold.ttf"; sourceTree = "<group>"; };
-		D2EFA2A42A534D2D00C29566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2F1BE412A52214A0035DC62 /* Onboard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard3.swift; sourceTree = "<group>"; };
 		D2F1BE432A52221D0035DC62 /* Onboard4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard4.swift; sourceTree = "<group>"; };
 		D2F1BE452A5225590035DC62 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -146,7 +145,6 @@
 		D2DCB2D32A4F8C1000A4F0F7 /* bubbel */ = {
 			isa = PBXGroup;
 			children = (
-				D2EFA2A42A534D2D00C29566 /* Info.plist */,
 				D2EFA28E2A53364400C29566 /* Font */,
 				D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */,
 				D29203492A51ECC10051B1DC /* Onboarding */,
