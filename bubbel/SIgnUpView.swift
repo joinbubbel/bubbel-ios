@@ -118,7 +118,7 @@ struct SignUpView: View {
         let json = try encoder.encode(request)
         let jsonString = String(data: json, encoding: .utf8) ?? ""
             print(jsonString)
-        let url = URL(string: bubbelBathDev + "/create_user")! // Update the endpoint based on your API
+        let url = URL(string: bubbelBathDev + "/api/create_user")! // Update the endpoint based on your API
         var urlRequest = URLRequest(url: url)
         urlRequest.addValue("Content-Type", forHTTPHeaderField: "application/json")
         urlRequest.httpMethod = "POST"
@@ -151,7 +151,7 @@ struct SignUpView: View {
         return passwordPredicate.evaluate(with: password)
     }
     
-    let bubbelBathDev = "https://bubbel-bath.onrender.com/api";
+    let bubbelBathDev = "https://bubbel-bath.onrender.com/";
     
     enum BubbelError: Error {
         case fetchError
@@ -234,6 +234,7 @@ struct SignUpView: View {
             HStack{
                 Image("picon")
                 TextField("John Doe", text: $username)
+                    .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .font(Font.custom("CircularStd-Book", size: 16))
                     .foregroundColor(.black)
@@ -287,6 +288,7 @@ struct SignUpView: View {
             }
             
             Text("Password")
+                .disableAutocorrection(true)
                 .font(Font.custom("CircularStd-Book", size: 14))
                 .foregroundColor(Color(red: 0.39, green: 0.45, blue: 0.58))
                 .padding(.top, -60)
