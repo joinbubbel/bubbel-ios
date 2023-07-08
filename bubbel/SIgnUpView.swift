@@ -117,21 +117,17 @@ struct SignUpView: View {
         let encoder = JSONEncoder()
         let json = try encoder.encode(request)
         let jsonString = String(data: json, encoding: .utf8) ?? ""
-            print(jsonString)
+        print(jsonString)
+        
         let url = URL(string: bubbelBathDev + "/api/create_user")! // Update the endpoint based on your API
         var urlRequest = URLRequest(url: url)
-        urlRequest.addValue("Content-Type", forHTTPHeaderField: "application/json")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type") // Set the Content-Type header correctly
         urlRequest.httpMethod = "POST"
         urlRequest.httpBody = json
+        
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
         let (dataString) = String(data: data, encoding: .utf8) ?? ""
         print(dataString)
-        
-        /*
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw BubbelError.fetchError
-        }
-         */
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -167,13 +163,13 @@ struct SignUpView: View {
         request.httpBody = json
         let (data, response) = try await URLSession.shared.data(for: request)
         /*
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-            throw BubbelError.fetchError
-        }
+         guard let httpResponse = response as? HTTPURLResponse,
+         httpResponse.statusCode == 200 else {
+         throw BubbelError.fetchError
+         }
          */
         if let dataString = String(data: data, encoding: .utf8) {
-
+            
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             guard let jsonData = dataString.data(using: .utf8) else {
@@ -199,11 +195,11 @@ struct SignUpView: View {
         request.httpMethod = "POST"
         request.httpBody = json
         let (_, response) = try await URLSession.shared.data(for: request)
-/*        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-            throw BubbelError.fetchError
-        }
- */
+        /*        guard let httpResponse = response as? HTTPURLResponse,
+         httpResponse.statusCode == 200 else {
+         throw BubbelError.fetchError
+         }
+         */
     }
     
     var body: some View {
