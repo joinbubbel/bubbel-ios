@@ -1,79 +1,45 @@
-//
-//  SignInView.swift
-//  bubbel
-//
-//  Created by Ivoine Strachan on 01/07/2023.
-//
-
 import SwiftUI
 
-class InCreateUser: Codable {
+struct InCreateUser: Codable {
     var email: String
     var username: String
     var password: String
-    
-    init(email: String, username: String, password: String) {
-        self.email = email
-        self.username = username
-        self.password = password
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        email = try container.decode(String.self, forKey: .email)
-        username = try container.decode(String.self, forKey: .username)
-        password = try container.decode(String.self, forKey: .password)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(email, forKey: .email)
-        try container.encode(username, forKey: .username)
-        try container.encode(password, forKey: .password)
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case email
-        case username
-        case password
-    }
 }
 
-class DatabaseError: Codable {
+struct DatabaseError: Codable {
     var type: String
     var uerror: String?
 }
 
-class CreateUserError: Codable {
+struct CreateUserError: Codable {
     var type: String
     var dberror: DatabaseError?
 }
 
-class ResCreateUser: Codable {
+struct ResCreateUser: Codable {
     var error: CreateUserError?
 }
 
-class InAuthUser: Codable {
+struct InAuthUser: Codable {
     var username: String
     var password: String
 }
 
-class AuthUserError: Codable {
+struct AuthUserError: Codable {
     var type: String
     var dberror: DatabaseError?
 }
 
-class ResAuthUser: Codable {
+struct ResAuthUser: Codable {
     var error: AuthUserError?
-    var token: String
-    var username: String
-    var email: String
+    var token: String?
+    var username: String?
+    var email: String?
 }
 
-class InDeauthUser: Codable {
+struct InDeauthUser: Codable {
     var token: String
 }
-
 struct SignUpView: View {
     @State private var username: String = ""
     @State private var password: String = ""
@@ -92,6 +58,7 @@ struct SignUpView: View {
             print("Invalid password format")
             return
         }
+        
         
         let createUserRequest = InCreateUser(email: email, username: username, password: password)
         do {
@@ -153,53 +120,58 @@ struct SignUpView: View {
         case fetchError
     }
     
+    func bubbelApiCreateUser(bath: String, req: InCreateUser) async throws -> ResCreateUser {
+        let encoder = JSONEncoder()
+        let json = try encoder.encode(req)
+        let jsonString = String(data: json, encoding: .utf8) ?? ""
+        
+        let url = URL(string: bath + "/api/create_user")!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = json
+        
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        let (dataString) = String(data: data, encoding: .utf8) ?? ""
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let result = try decoder.decode(ResCreateUser.self, from: data)
+        return result
+    }
+    
     func bubbelApiAuthUser(bath: String, req: InAuthUser) async throws -> ResAuthUser {
         let encoder = JSONEncoder()
         let json = try encoder.encode(req)
+        let jsonString = String(data: json, encoding: .utf8) ?? ""
+        
         let url = URL(string: bath + "/api/auth_user")!
-        var request = URLRequest(url: url)
-        request.addValue("Content-Type", forHTTPHeaderField: "application/json")
-        request.httpMethod = "POST"
-        request.httpBody = json
-        let (data, response) = try await URLSession.shared.data(for: request)
-        /*
-         guard let httpResponse = response as? HTTPURLResponse,
-         httpResponse.statusCode == 200 else {
-         throw BubbelError.fetchError
-         }
-         */
-        if let dataString = String(data: data, encoding: .utf8) {
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            guard let jsonData = dataString.data(using: .utf8) else {
-                throw BubbelError.fetchError
-            }
-            print(dataString)
-            return try decoder.decode(ResAuthUser.self, from: jsonData)
-        } else {
-            throw BubbelError.fetchError
-        }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = json
+        
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        let (dataString) = String(data: data, encoding: .utf8) ?? ""
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let result = try decoder.decode(ResAuthUser.self, from: data)
+        return result
     }
-    
-    
-    
-    
     
     func bubbelApiDeauthUser(bath: String, req: InDeauthUser) async throws {
         let encoder = JSONEncoder()
         let json = try encoder.encode(req)
+        let jsonString = String(data: json, encoding: .utf8) ?? ""
+        
         let url = URL(string: bath + "/api/deauth_user")!
-        var request = URLRequest(url: url)
-        request.addValue("Content-Type", forHTTPHeaderField: "application/json")
-        request.httpMethod = "POST"
-        request.httpBody = json
-        let (_, response) = try await URLSession.shared.data(for: request)
-        /*        guard let httpResponse = response as? HTTPURLResponse,
-         httpResponse.statusCode == 200 else {
-         throw BubbelError.fetchError
-         }
-         */
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = json
+        
+        try await URLSession.shared.data(for: urlRequest)
     }
     
     var body: some View {
