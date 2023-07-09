@@ -40,6 +40,7 @@ struct ResAuthUser: Codable {
 struct InDeauthUser: Codable {
     var token: String
 }
+
 struct SignUpView: View {
     @State private var username: String = ""
     @State private var password: String = ""
@@ -59,19 +60,20 @@ struct SignUpView: View {
             return
         }
         
-        
         let createUserRequest = InCreateUser(email: email, username: username, password: password)
         do {
             let response = try await createUserAPIRequest(request: createUserRequest)
             // Handle the response
-            if response.error != nil {
+            if let error = response.error {
                 // Handle CreateUserError
+                if let dberror = error.dberror {
+                    print("CreateUserError: \(dberror.type), \(dberror.uerror ?? "")")
+                } else {
+                    print("CreateUserError: \(error.type)")
+                }
             } else {
                 // User creation success
-                _ = response.token
-                _ = response.username
-                _ = response.email
-                
+                print("User created successfully")
             }
         } catch {
             // Handle the error
@@ -79,16 +81,15 @@ struct SignUpView: View {
         }
     }
     
-    
-    func createUserAPIRequest(request: InCreateUser) async throws -> ResAuthUser {
+    func createUserAPIRequest(request: InCreateUser) async throws -> ResCreateUser {
         let encoder = JSONEncoder()
         let json = try encoder.encode(request)
         let jsonString = String(data: json, encoding: .utf8) ?? ""
         print(jsonString)
         
-        let url = URL(string: bubbelBathDev + "/api/create_user")! // Update the endpoint based on your API
+        let url = URL(string: bubbelBathDev + "/api/create_user")!
         var urlRequest = URLRequest(url: url)
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type") // Set the Content-Type header correctly
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "POST"
         urlRequest.httpBody = json
         
@@ -98,7 +99,7 @@ struct SignUpView: View {
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let result = try decoder.decode(ResAuthUser.self, from: data)
+        let result = try decoder.decode(ResCreateUser.self, from: data)
         return result
     }
     
@@ -114,7 +115,7 @@ struct SignUpView: View {
         return passwordPredicate.evaluate(with: password)
     }
     
-    let bubbelBathDev = "https://bubbel-bath.onrender.com";
+    let bubbelBathDev = "https://bubbel-bath.onrender.com"
     
     enum BubbelError: Error {
         case fetchError
