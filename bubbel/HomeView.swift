@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    var username: String
+    
     var body: some View {
         VStack{
             HStack{
@@ -21,6 +23,8 @@ struct HomeView: View {
                 
             }
             .padding(.top, 30)
+            
+            Text("Welcome, \(username)!")
             Spacer()
                 .edgesIgnoringSafeArea(.all)
         }
@@ -29,6 +33,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(username: "JohnDoe")
     }
 }
