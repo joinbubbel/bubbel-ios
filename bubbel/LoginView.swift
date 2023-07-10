@@ -7,18 +7,65 @@ struct LoginView: View {
 	@FocusState private var keyboardFocused: Bool
 	
 	/*
-	init(){
-		for family in UIFont.familyNames {
-			print(family)
-			
-			for names in UIFont.fontNames(forFamilyName: family){
-				print("== \(names)")
+	 init(){
+	 for family in UIFont.familyNames {
+	 print(family)
+	 
+	 for names in UIFont.fontNames(forFamilyName: family){
+	 print("== \(names)")
+	 }
+	 }
+	 }
+	 */
+	
+	func LogIn() {
+		Task {
+			do {
+				guard !username.isEmpty && !password.isEmpty else {
+					print("Please enter both username and password.")
+					return
+				}
+				
+				let authUserRequest = InAuthUser(username: username, password: password)
+				let response = try await authUserAPIRequest(request: authUserRequest)
+				if let error = response.error {
+				
+					if let dberror = error.dberror {
+						print("AuthUserError: \(dberror.type), \(dberror.uerror ?? "")")
+					} else {
+						print("AuthUserError: \(error.type)")
+					}
+				} else {
+					// Login success
+					print("Login successful")
+				}
+			} catch {
+				// Handle the error
+				print("Error: \(error)")
 			}
 		}
 	}
-	*/
-	func LogIn(){
-		print("Login Button Works")
+	
+	func authUserAPIRequest(request: InAuthUser) async throws -> ResAuthUser {
+		let encoder = JSONEncoder()
+		let json = try encoder.encode(request)
+		let jsonString = String(data: json, encoding: .utf8) ?? ""
+		print(jsonString)
+		
+		let url = URL(string: "https://bubbel-bath.onrender.com/api/auth_user")! 
+		var urlRequest = URLRequest(url: url)
+		urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+		urlRequest.httpMethod = "POST"
+		urlRequest.httpBody = json
+		
+		let (data, response) = try await URLSession.shared.data(for: urlRequest)
+		let (dataString) = String(data: data, encoding: .utf8) ?? ""
+		print(dataString)
+		
+		let decoder = JSONDecoder()
+		decoder.keyDecodingStrategy = .convertFromSnakeCase
+		let result = try decoder.decode(ResAuthUser.self, from: data)
+		return result
 	}
 	
 	func ForgetPass(){
@@ -56,6 +103,8 @@ struct LoginView: View {
 					HStack {
 						Image("picon")
 						TextField("jonedoe", text: $username)
+							.disableAutocorrection(true)
+							.autocapitalization(.none)
 							.font(Font.custom("CircularStd-Book", size: 16))
 							.foregroundColor(.black)
 					}
@@ -86,6 +135,8 @@ struct LoginView: View {
 					TextField("••••••••", text: $password)
 					
 				}
+				.disableAutocorrection(true)
+				.autocapitalization(.none)
 				.padding(.leading, 20)
 				Rectangle()
 					.frame(height: 1.0, alignment: .bottom)
@@ -123,7 +174,7 @@ struct LoginView: View {
 					.navigationBarBackButtonHidden(true)
 				
 				
-					
+				
 				NavigationLink(destination: SignUpView()) {
 					Text("Sign Up")
 						.font(Font.custom("CircularStd-Book", size: 16))
