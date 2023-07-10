@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     var username: String
+   
     
     var body: some View {
         VStack{
@@ -27,9 +28,15 @@ struct HomeView: View {
             Text("Welcome, \(username)!")
             Spacer()
                 .edgesIgnoringSafeArea(.all)
+            
         }
     }
+    
 }
+
+
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

@@ -1,5 +1,9 @@
 import SwiftUI
 
+struct User: Codable {
+	let username: String
+}
+
 
 struct LoginView: View {
 	@State private var username: String = ""
@@ -19,10 +23,35 @@ struct LoginView: View {
 	 }
 	 }
 	 */
+
+	private var storedLoginStatus: Bool {
+		UserDefaults.standard.bool(forKey: "isLoggedIn")
+	}
+	 
+	
+	private func setLoginStatus(_ isLoggedIn: Bool) {
+		UserDefaults.standard.set(isLoggedIn, forKey: "isLoggedIn")
+	}
+	
+	private var storedUser: User? {
+		   guard let userData = UserDefaults.standard.data(forKey: "user"),
+				 let user = try? JSONDecoder().decode(User.self, from: userData)
+		   else {
+			   return nil
+		   }
+		   return user
+	   }
+	private func setLoggedInUser(_ user: User) {
+		if let encodedData = try? JSONEncoder().encode(user) {
+			UserDefaults.standard.set(encodedData, forKey: "user")
+		}
+	}
 	
 	func LogIn() {
+		let user = User(username: username)
 		isLoggedIn = true
-		
+		setLoginStatus(true)
+		setLoggedInUser(user)
 		Task {
 			do {
 				guard !username.isEmpty && !password.isEmpty else {
@@ -38,21 +67,25 @@ struct LoginView: View {
 					} else {
 						errorMessage = "AuthUserError: \(error.type)"
 					}
-					isLoggedIn = false // Set isLoggedIn to false on failed login
+					isLoggedIn = false
 				} else {
-					// Login success
 					print("Login successful")
-					isLoggedIn = true // Set isLoggedIn to true on successful login
-					errorMessage = "" // Reset error message
+					isLoggedIn = true
+					errorMessage = ""
 				}
 			} catch {
-				// Handle the error
 				errorMessage = "Error: \(error)"
-				isLoggedIn = false // Set isLoggedIn to false on failed login
+				isLoggedIn = false
+				
 			}
 		}
 	}
 	
+	func logOut() {
+		UserDefaults.standard.removeObject(forKey: "user")
+		isLoggedIn = false
+		setLoginStatus(false)
+	}
 	func authUserAPIRequest(request: InAuthUser) async throws -> ResAuthUser {
 		let encoder = JSONEncoder()
 		let json = try encoder.encode(request)
@@ -80,11 +113,17 @@ struct LoginView: View {
 	}
 	var body: some View {
 		NavigationView {
-			if isLoggedIn {
-				HomeView(username: username)
+			if isLoggedIn || storedUser != nil {
+				HomeView(username: storedUser?.username ?? "")
+					.onAppear {
+						isLoggedIn = true
+					}
+					.onDisappear {
+						isLoggedIn = false
+					}
+				
 			} else {
 				VStack {
-					
 					Text("")
 						.padding(110)
 						.background(
