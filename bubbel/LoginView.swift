@@ -23,24 +23,24 @@ struct LoginView: View {
 	 }
 	 }
 	 */
-
+	
 	private var storedLoginStatus: Bool {
 		UserDefaults.standard.bool(forKey: "isLoggedIn")
 	}
-	 
+	
 	
 	private func setLoginStatus(_ isLoggedIn: Bool) {
 		UserDefaults.standard.set(isLoggedIn, forKey: "isLoggedIn")
 	}
 	
 	private var storedUser: User? {
-		   guard let userData = UserDefaults.standard.data(forKey: "user"),
-				 let user = try? JSONDecoder().decode(User.self, from: userData)
-		   else {
-			   return nil
-		   }
-		   return user
-	   }
+		guard let userData = UserDefaults.standard.data(forKey: "user"),
+			  let user = try? JSONDecoder().decode(User.self, from: userData)
+		else {
+			return nil
+		}
+		return user
+	}
 	private func setLoggedInUser(_ user: User) {
 		if let encodedData = try? JSONEncoder().encode(user) {
 			UserDefaults.standard.set(encodedData, forKey: "user")
@@ -77,6 +77,15 @@ struct LoginView: View {
 				errorMessage = "Error: \(error)"
 				isLoggedIn = false
 				
+			}
+			
+			if !isLoggedIn {
+				// Redirect to the login screen
+				DispatchQueue.main.async {
+					isLoggedIn = false
+					username = ""
+					password = ""
+				}
 			}
 		}
 	}
