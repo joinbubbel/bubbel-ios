@@ -9,18 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        HStack{
-            Text("Home")
-                .padding(.bottom, 680)
-                .padding(.trailing, 220)
-            Image("Discover")
-                .padding(.bottom, 680)
-            Image("Noti")
-            .padding(.bottom, 680)
-               
+        VStack{
+            HStack{
+                Text("Home")
+                    .padding(.bottom, 680)
+                    .padding(.trailing, 220)
+                Image("Discover")
+                    .padding(.bottom, 680)
+                Image("Noti")
+                    .padding(.bottom, 680)
+                
+            }
+            Spacer()
+                .edgesIgnoringSafeArea(.all)
         }
-        Spacer()
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
