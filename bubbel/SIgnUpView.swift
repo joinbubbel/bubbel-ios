@@ -6,14 +6,9 @@ struct InCreateUser: Codable {
     var password: String
 }
 
-struct DatabaseError: Codable {
-    var type: String
-    var uerror: String?
-}
-
 struct CreateUserError: Codable {
     var type: String
-    var dberror: DatabaseError?
+    var ierror: String?
 }
 
 struct ResCreateUser: Codable {
@@ -27,7 +22,7 @@ struct InAuthUser: Codable {
 
 struct AuthUserError: Codable {
     var type: String
-    var dberror: DatabaseError?
+    var ierror: String?
 }
 
 struct ResAuthUser: Codable {
@@ -66,8 +61,8 @@ struct SignUpView: View {
             // Handle the response
             if let error = response.error {
                 // Handle CreateUserError
-                if let dberror = error.dberror {
-                    print("CreateUserError: \(dberror.type), \(dberror.uerror ?? "")")
+                if let ierror = error.ierror {
+                    print("CreateUserError: Got internal error: \(ierror.type)")
                 } else {
                     print("CreateUserError: \(error.type)")
                 }
