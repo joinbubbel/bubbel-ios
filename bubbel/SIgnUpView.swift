@@ -62,7 +62,7 @@ struct SignUpView: View {
             if let error = response.error {
                 // Handle CreateUserError
                 if let ierror = error.ierror {
-                    print("CreateUserError: Got internal error: \(ierror.type)")
+                    print("CreateUserError: Got internal error: \(ierror)")
                 } else {
                     print("CreateUserError: \(error.type)")
                 }
