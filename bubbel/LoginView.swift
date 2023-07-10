@@ -6,6 +6,7 @@ struct LoginView: View {
 	@State private var password: String = ""
 	@FocusState private var keyboardFocused: Bool
 	
+	/*
 	init(){
 		for family in UIFont.familyNames {
 			print(family)
@@ -15,7 +16,7 @@ struct LoginView: View {
 			}
 		}
 	}
-	
+	*/
 	func LogIn(){
 		print("Login Button Works")
 	}
