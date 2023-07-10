@@ -12,14 +12,15 @@ struct HomeView: View {
         VStack{
             HStack{
                 Text("Home")
-                    .padding(.bottom, 680)
+                    .padding(.top, -5)
                     .padding(.trailing, 220)
                 Image("Discover")
-                    .padding(.bottom, 680)
+                    .padding(.top, -5)
                 Image("Noti")
-                    .padding(.bottom, 680)
+                    .padding(.top, -5)
                 
             }
+            .padding(.top, 30)
             Spacer()
                 .edgesIgnoringSafeArea(.all)
         }

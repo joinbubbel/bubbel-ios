@@ -29,7 +29,7 @@ struct LoginView: View {
 				let authUserRequest = InAuthUser(username: username, password: password)
 				let response = try await authUserAPIRequest(request: authUserRequest)
 				if let error = response.error {
-				
+					
 					if let dberror = error.dberror {
 						print("AuthUserError: \(dberror.type), \(dberror.uerror ?? "")")
 					} else {
