@@ -28,6 +28,7 @@ struct HomeView: View {
             Text("Welcome, \(username)!")
             Spacer()
                 .edgesIgnoringSafeArea(.all)
+          
             
         }
     }
