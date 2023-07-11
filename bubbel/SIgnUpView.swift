@@ -23,6 +23,7 @@ struct InAuthUser: Codable {
 struct AuthUserError: Codable {
     var type: String
     var ierror: String?
+    var dberror: CreateUserError?
 }
 
 struct ResAuthUser: Codable {
@@ -298,12 +299,12 @@ struct SignUpView: View {
                         
                     }
                     
-                        VStack{
-                            Text("Log In")
-                                .foregroundColor(.blue)
-                                .font(Font.custom("CircularStd-Book", size: 16))
-                        }
-                  
+                    VStack{
+                        Text("Log In")
+                            .foregroundColor(.blue)
+                            .font(Font.custom("CircularStd-Book", size: 16))
+                    }
+                    
                     .padding(.top, 40)
                     
                     Spacer()
