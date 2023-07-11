@@ -15,6 +15,7 @@
 		D2C64B122A5D0F8B00A15989 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C64B112A5D0F8B00A15989 /* Clubs.swift */; };
 		D2C64B142A5D11F900A15989 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C64B132A5D11F900A15989 /* Message.swift */; };
 		D2C64B162A5D125C00A15989 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C64B152A5D125C00A15989 /* Profile.swift */; };
+		D2C64B182A5D1C5500A15989 /* Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C64B172A5D1C5500A15989 /* Select.swift */; };
 		D2DC0BE72A506C1700AF9F68 /* SIgnUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DC0BE62A506C1700AF9F68 /* SIgnUpView.swift */; };
 		D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */; };
 		D2DCB2D72A4F8C1000A4F0F7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2D62A4F8C1000A4F0F7 /* LoginView.swift */; };
@@ -62,6 +63,7 @@
 		D2C64B112A5D0F8B00A15989 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
 		D2C64B132A5D11F900A15989 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D2C64B152A5D125C00A15989 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D2C64B172A5D1C5500A15989 /* Select.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Select.swift; sourceTree = "<group>"; };
 		D2DC0BE62A506C1700AF9F68 /* SIgnUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnUpView.swift; sourceTree = "<group>"; };
 		D2DCB2D12A4F8C1000A4F0F7 /* bubbel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bubbel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelApp.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				D2C64B112A5D0F8B00A15989 /* Clubs.swift */,
 				D2C64B132A5D11F900A15989 /* Message.swift */,
 				D2C64B152A5D125C00A15989 /* Profile.swift */,
+				D2C64B172A5D1C5500A15989 /* Select.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				D2C64B0F2A5D0DE400A15989 /* BottomView.swift in Sources */,
 				D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */,
 				D2DC0BE72A506C1700AF9F68 /* SIgnUpView.swift in Sources */,
+				D2C64B182A5D1C5500A15989 /* Select.swift in Sources */,
 				D206E5792A5B80A90040E62A /* HomeView.swift in Sources */,
 				D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */,
 				D29203482A51E4020051B1DC /* VerificationView.swift in Sources */,

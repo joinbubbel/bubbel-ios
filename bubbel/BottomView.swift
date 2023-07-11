@@ -20,6 +20,10 @@ struct BottomView: View {
                     Image("Clubs")
                 }
             
+            Select()
+                .tabItem{
+                    Image("Add")
+                }
             Message()
                 .badge(5)
                 .tabItem {
