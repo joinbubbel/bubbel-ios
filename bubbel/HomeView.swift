@@ -25,7 +25,7 @@ struct HomeView: View {
             }
             .padding(.top, 30)
             
-            Text("Welcome, \(username)!")
+            Text("The Auth works \(username)!")
             Spacer()
                 .edgesIgnoringSafeArea(.all)
           
