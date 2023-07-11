@@ -47,7 +47,11 @@ struct LoginView: View {
 		}
 	}
 	
-	func LogIn() {
+	func logInAsync() async {
+		await LogIn()
+	}
+	
+	func LogIn() async {
 		let user = User(username: username)
 		isLoggedIn = true
 		setLoginStatus(true)
@@ -122,7 +126,7 @@ struct LoginView: View {
 	}
 	var body: some View {
 		NavigationView {
-			if isLoggedIn || storedUser != nil {
+			if isLoggedIn /*|| storedUser != nil */{
 				HomeView(username: storedUser?.username ?? "")
 					.onAppear {
 						isLoggedIn = true
@@ -209,7 +213,7 @@ struct LoginView: View {
 							}
 						}
 					VStack{
-						Button(action: LogIn){
+						Button(action: { Task { await logInAsync() } }) {
 							Text("Log In")
 								.font(Font.custom("CircularStd-Book", size: 16))
 								.foregroundColor(.white)
