@@ -127,7 +127,7 @@ struct LoginView: View {
 	var body: some View {
 		NavigationView {
 			if isLoggedIn /*|| storedUser != nil */{
-				HomeView(username: storedUser?.username ?? "")
+				HomeView(username: /*storedUser?. */ username  ?? "")
 					.onAppear {
 						isLoggedIn = true
 					}
