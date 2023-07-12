@@ -119,13 +119,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D29203462A51E1A80051B1DC /* Signin */ = {
+		D29203462A51E1A80051B1DC /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				D2DC0BE62A506C1700AF9F68 /* SIgnUpView.swift */,
 				D29203472A51E4020051B1DC /* VerificationView.swift */,
 			);
-			name = Signin;
+			name = SignUp;
 			sourceTree = "<group>";
 		};
 		D29203492A51ECC10051B1DC /* Onboarding */ = {
@@ -189,7 +189,7 @@
 				D2EFA28E2A53364400C29566 /* Font */,
 				D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */,
 				D29203492A51ECC10051B1DC /* Onboarding */,
-				D29203462A51E1A80051B1DC /* Signin */,
+				D29203462A51E1A80051B1DC /* SignUp */,
 				D2DCB2D42A4F8C1000A4F0F7 /* bubbelApp.swift */,
 				D2DCB2D62A4F8C1000A4F0F7 /* LoginView.swift */,
 				D2DCB2D82A4F8C1100A4F0F7 /* Assets.xcassets */,
