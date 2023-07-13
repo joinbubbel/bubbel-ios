@@ -233,6 +233,7 @@ struct SignUpView: View {
                         Image("mail")
                         TextField("johndoe@gmail.com", text: $email)
                             .autocapitalization(.none)
+                            .disableAutocorrection(true)
                             .font(Font.custom("CircularStd-Book", size: 16))
                             .foregroundColor(.black)
                     }
