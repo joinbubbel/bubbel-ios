@@ -47,45 +47,44 @@ struct LoginView: View {
 		}
 	}
 	
-	func LogIn() {
+	func logInAsync() async {
+		await LogIn()
+	}
+	func LogIn() async {
 		let user = User(username: username)
-		isLoggedIn = true
-		setLoginStatus(true)
-		setLoggedInUser(user)
-		Task {
-			do {
-				guard !username.isEmpty && !password.isEmpty else {
-					errorMessage = "Please enter both username and password."
-					return
-				}
-				
-				let authUserRequest = InAuthUser(username: username, password: password)
-				let response = try await authUserAPIRequest(request: authUserRequest)
-				if let error = response.error {
-					if let dberror = error.dberror {
-						errorMessage = "AuthUserError: \(dberror.type), \(dberror.uerror ?? "")"
-					} else {
-						errorMessage = "AuthUserError: \(error.type)"
-					}
-					isLoggedIn = false
-				} else {
-					print("Login successful")
-					isLoggedIn = true
-					errorMessage = ""
-				}
-			} catch {
-				errorMessage = "Error: \(error)"
-				isLoggedIn = false
-				
+		
+		do {
+			guard !username.isEmpty && !password.isEmpty else {
+				errorMessage = "Please enter both username and password."
+				return
 			}
 			
-			if !isLoggedIn {
-				// Redirect to the login screen
-				DispatchQueue.main.async {
-					isLoggedIn = false
-					username = ""
-					password = ""
+			let authUserRequest = InAuthUser(username: username, password: password)
+			let response = try await authUserAPIRequest(request: authUserRequest)
+			
+			if let error = response.error {
+				if let dberror = error.dberror {
+					errorMessage = "AuthUserError: \(dberror.type), \(dberror.ierror ?? "")"
+				} else {
+					errorMessage = "AuthUserError: \(error.type)"
 				}
+				isLoggedIn = false
+			} else {
+				print("Login successful")
+				isLoggedIn = true
+				errorMessage = ""
+				setLoginStatus(true)
+				setLoggedInUser(user)
+			}
+		} catch {
+			errorMessage = "Error: \(error)"
+			isLoggedIn = false
+		}
+		
+		if !isLoggedIn {
+			DispatchQueue.main.async {
+				username = ""
+				password = ""
 			}
 		}
 	}
@@ -123,14 +122,13 @@ struct LoginView: View {
 	var body: some View {
 		NavigationView {
 			if isLoggedIn || storedUser != nil {
-				HomeView(username: storedUser?.username ?? "")
+				BottomView(username: storedUser?.username ?? "")
 					.onAppear {
 						isLoggedIn = true
 					}
 					.onDisappear {
 						isLoggedIn = false
 					}
-				
 			} else {
 				VStack {
 					Text("")
@@ -209,7 +207,7 @@ struct LoginView: View {
 							}
 						}
 					VStack{
-						Button(action: LogIn){
+						Button(action: { Task { await logInAsync() } }) {
 							Text("Log In")
 								.font(Font.custom("CircularStd-Book", size: 16))
 								.foregroundColor(.white)

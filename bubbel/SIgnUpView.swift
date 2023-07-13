@@ -6,14 +6,9 @@ struct InCreateUser: Codable {
     var password: String
 }
 
-struct DatabaseError: Codable {
-    var type: String
-    var uerror: String?
-}
-
 struct CreateUserError: Codable {
     var type: String
-    var dberror: DatabaseError?
+    var ierror: String?
 }
 
 struct ResCreateUser: Codable {
@@ -27,7 +22,8 @@ struct InAuthUser: Codable {
 
 struct AuthUserError: Codable {
     var type: String
-    var dberror: DatabaseError?
+    var ierror: String?
+    var dberror: CreateUserError?
 }
 
 struct ResAuthUser: Codable {
@@ -66,8 +62,8 @@ struct SignUpView: View {
             // Handle the response
             if let error = response.error {
                 // Handle CreateUserError
-                if let dberror = error.dberror {
-                    print("CreateUserError: \(dberror.type), \(dberror.uerror ?? "")")
+                if let ierror = error.ierror {
+                    print("CreateUserError: Got internal error: \(ierror)")
                 } else {
                     print("CreateUserError: \(error.type)")
                 }
@@ -176,7 +172,7 @@ struct SignUpView: View {
     }
     
     var body: some View {
-        NavigationView{
+       
             VStack{
                 Text("")
                     .padding(60)
@@ -303,12 +299,12 @@ struct SignUpView: View {
                         
                     }
                     
-                        VStack{
-                            Text("Log In")
-                                .foregroundColor(.blue)
-                                .font(Font.custom("CircularStd-Book", size: 16))
-                        }
-                  
+                    VStack{
+                        Text("Log In")
+                            .foregroundColor(.blue)
+                            .font(Font.custom("CircularStd-Book", size: 16))
+                    }
+                    
                     .padding(.top, 40)
                     
                     Spacer()
@@ -329,7 +325,6 @@ struct SignUpView: View {
             }
             
         }
-    }
     
     
     struct SignUpView_Previews: PreviewProvider {
