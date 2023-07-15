@@ -14,7 +14,7 @@ struct VerificationView: View {
     @FocusState private var keyboardFocused: Bool
     
     func Resend() {
-        print("Verification Button Clicked")
+        print("Verification Sent!")
     }
     var body: some View {
         NavigationView {
