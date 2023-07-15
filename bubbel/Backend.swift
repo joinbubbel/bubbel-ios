@@ -535,7 +535,7 @@ func newJSONEncoder() -> JSONEncoder {
 let bubbelBathDev = "https://bubbel-bath.onrender.com";
 
 func bubbelApiCreateUser(req: InCreateUser) async throws -> ResCreateUser {
-    let jsonString = try req.jsonString()
+    let json = try req.jsonData()
     
     let url = URL(string: bubbelBathDev + "/api/create_user")!
     var urlRequest = URLRequest(url: url)
@@ -553,7 +553,7 @@ func bubbelApiCreateUser(req: InCreateUser) async throws -> ResCreateUser {
 }
 
 func bubbelApiAuthUser(req: InAuthUser) async throws -> ResAuthUser {
-    let jsonString = try req.jsonString()
+    let json = try req.jsonData()
     
     let url = URL(string: bubbelBathDev + "/api/auth_user")!
     var urlRequest = URLRequest(url: url)
@@ -571,7 +571,7 @@ func bubbelApiAuthUser(req: InAuthUser) async throws -> ResAuthUser {
 }
 
 func bubbelApiDeauthUser(req: InDeauthUser) async throws -> ResDeauthUser {
-    let jsonString = try req.jsonString()
+    let json = try req.jsonData()
     
     let url = URL(string: bubbelBathDev + "/api/deauth_user")!
     var urlRequest = URLRequest(url: url)
@@ -589,7 +589,7 @@ func bubbelApiDeauthUser(req: InDeauthUser) async throws -> ResDeauthUser {
 }
 
 func bubbelApiVerifyAccount(req: InVerifyAccount) async throws -> ResVerifyAccount {
-    let jsonString = try req.jsonString()
+    let json = try req.jsonData()
     
     let url = URL(string: bubbelBathDev + "/api/verify_account")!
     var urlRequest = URLRequest(url: url)
@@ -607,8 +607,7 @@ func bubbelApiVerifyAccount(req: InVerifyAccount) async throws -> ResVerifyAccou
 }
 
 func bubbelApiSetUserProfile(req: InSetUserProfile) async throws -> ResSetUserProfile {
-    let jsonString = try req.jsonString()
-    
+    let json = try req.jsonData()
     let url = URL(string: bubbelBathDev + "/api/set_user_profile")!
     var urlRequest = URLRequest(url: url)
     urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -625,7 +624,7 @@ func bubbelApiSetUserProfile(req: InSetUserProfile) async throws -> ResSetUserPr
 }
 
 func bubbelApiDeleteUser(req: InDeleteUser) async throws -> ResDeleteUser {
-    let jsonString = try req.jsonString()
+    let json = try req.jsonData()
     
     let url = URL(string: bubbelBathDev + "/api/delete_user")!
     var urlRequest = URLRequest(url: url)

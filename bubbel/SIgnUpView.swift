@@ -20,7 +20,8 @@ struct SignUpView: View {
             return
         }
         
-        let createUserRequest = InCreateUser(email: email, username: username, password: password)
+        let createUserRequest = InCreateUser(email: email, password: password, username: username)
+
         do {
             let response = try await createUserAPIRequest(request: createUserRequest)
             // Handle the response

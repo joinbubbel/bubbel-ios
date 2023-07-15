@@ -59,15 +59,13 @@ struct LoginView: View {
 				return
 			}
 			
-			let authUserRequest = InAuthUser(username: username, password: password)
+			let authUserRequest = InAuthUser(password: password, username: username)
+			
 			let response = try await authUserAPIRequest(request: authUserRequest)
 			
 			if let error = response.error {
-				if let dberror = error.dberror {
-					errorMessage = "AuthUserError: \(dberror.type), \(dberror.ierror ?? "")"
-				} else {
-					errorMessage = "AuthUserError: \(error.type)"
-				}
+				errorMessage = "AuthUserError: \(error.type)"
+				
 				isLoggedIn = false
 			} else {
 				print("Login successful")
