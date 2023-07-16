@@ -17,7 +17,7 @@ struct VerificationView: View {
         print("Verification Sent!")
     }
     var body: some View {
-        NavigationView {
+  
             VStack{
                 Text("")
                     .padding(60)
@@ -102,6 +102,7 @@ struct VerificationView: View {
                     
                 }
                 
+                
                 NavigationLink(destination: SignUpView()) {
                     HStack{
                         Image("Back")
@@ -113,13 +114,15 @@ struct VerificationView: View {
                         .padding(50)
                     
                 }
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
             }
             
             Spacer()
             
         }
     }
-}
+
 
 struct VerificationView_Previews: PreviewProvider {
     static var previews: some View {
