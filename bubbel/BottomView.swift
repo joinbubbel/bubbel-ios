@@ -14,10 +14,14 @@ struct BottomView: View {
             HomeView(username: username)
                 .tabItem {
                     Image("Home")
+                        .renderingMode(.template)
+                        .foregroundColor(.blue)
                 }
             Clubs()
                 .tabItem {
                     Image("Clubs")
+                        .renderingMode(.template)
+                        .foregroundColor(.blue)
                 }
             
             Select()
@@ -28,11 +32,14 @@ struct BottomView: View {
                 .badge(5)
                 .tabItem {
                     Image("Message")
+                        .renderingMode(.template)
+                        .foregroundColor(.blue)
                 }
             
             Profile()
                 .tabItem {
                     Image("Profile")
+                    
                 }
         }
     }
