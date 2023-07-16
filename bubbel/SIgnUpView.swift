@@ -10,6 +10,7 @@ struct SignUpView: View {
     @FocusState private var keyboardFocused: Bool
     @State private var verificationCode: String = ""
     @State private var verificationEmailSent = false
+    @State private var showVerificationView = false
     
     func createUser() async {
         do {
@@ -26,35 +27,35 @@ struct SignUpView: View {
                     }
                 }
             } else {
-                // Account created successfully, now send verification email
                 await sendVerificationEmail()
             }
         } catch {
             print("Error: \(error)")
         }
-    }
-    
-    func sendVerificationEmail() async {
-        let verifyAccountRequest = InVerifyAccount(code: verificationCode, userID: 123)
-        
-        do {
-            let verifyAccountResponse = try await bubbelApiVerifyAccount(req: verifyAccountRequest)
+        func sendVerificationEmail() async {
+            let verifyAccountRequest = InVerifyAccount(code: verificationCode, userID: 123)
             
-            if let error = verifyAccountResponse.error {
-                if let ierror = error.ierror {
-                    print("VerifyAccountError: Got internal error: \(ierror)")
+            do {
+                let verifyAccountResponse = try await bubbelApiVerifyAccount(req: verifyAccountRequest)
+                
+                if let error = verifyAccountResponse.error {
+                    if let ierror = error.ierror {
+                        print("VerifyAccountError: Got internal error: \(ierror)")
+                    } else {
+                        print("VerifyAccountError: \(error.type)")
+                    }
                 } else {
-                    print("VerifyAccountError: \(error.type)")
+                    // Verification email sent successfully
+                    verificationEmailSent = true
+                    DispatchQueue.main.async {
+                        showVerificationView = true
+                    }
                 }
-            } else {
-                // Verification email sent successfully
-                verificationEmailSent = true
+            } catch {
+                print("Error: \(error)")
             }
-        } catch {
-            print("Error: \(error)")
         }
     }
-    
     
     
     
@@ -195,6 +196,7 @@ struct SignUpView: View {
                     Button(action: {
                         Task {
                             await createUser()
+                            showVerificationView = true
                         }
                     }) {
                         Text("Sign Up")
@@ -211,11 +213,12 @@ struct SignUpView: View {
                     
                     NavigationLink(
                         destination: VerificationView(),
-                        isActive: $verificationEmailSent,
+                        isActive: $showVerificationView,
                         label: {
                             EmptyView()
                         }
                     )
+                    
                     
                     VStack{
                         Text("Log In")
