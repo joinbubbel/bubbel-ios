@@ -57,6 +57,7 @@ struct SignUpView: View {
     
     
     
+    
     func bubbelApiCreateUser(req: InCreateUser, bath: String) async throws -> ResCreateUser {
         let encoder = JSONEncoder()
         let json = try encoder.encode(req)
@@ -207,15 +208,15 @@ struct SignUpView: View {
                         
                     }
                     
-                  
-                        NavigationLink(
-                            destination: VerificationView(),
-                            isActive: $verificationEmailSent,
-                            label: {
-                                EmptyView()
-                            }
-                        )
-                  
+                    
+                    NavigationLink(
+                        destination: VerificationView(),
+                        isActive: $verificationEmailSent,
+                        label: {
+                            EmptyView()
+                        }
+                    )
+                    
                     VStack{
                         Text("Log In")
                             .foregroundColor(.blue)

@@ -17,7 +17,7 @@ struct VerificationView: View {
         print("Verification Sent!")
     }
     var body: some View {
-  
+        NavigationView{
             VStack{
                 Text("")
                     .padding(60)
@@ -93,12 +93,12 @@ struct VerificationView: View {
                         Text("Resend")
                     }
                     .font(Font.custom("CircularStd-Book", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: 309, height: 56)
-                        .background(Color(red: 0, green: 0.34, blue: 1))
-                        .cornerRadius(10)
-                        .shadow(color: Color(red: 0, green: 0.34, blue: 1).opacity(0.35), radius: 20, x: 0, y: 20)
-                        .padding(.top, 30)
+                    .foregroundColor(.white)
+                    .frame(width: 309, height: 56)
+                    .background(Color(red: 0, green: 0.34, blue: 1))
+                    .cornerRadius(10)
+                    .shadow(color: Color(red: 0, green: 0.34, blue: 1).opacity(0.35), radius: 20, x: 0, y: 20)
+                    .padding(.top, 30)
                     
                 }
                 
@@ -108,10 +108,10 @@ struct VerificationView: View {
                         Image("Back")
                         Text("Change Email")
                     }
-                        .font(Font.custom("CircularStd-Book", size: 16))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
-                        .padding(50)
+                    .font(Font.custom("CircularStd-Book", size: 16))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
+                    .padding(50)
                     
                 }
                 .navigationBarHidden(true)
@@ -122,6 +122,7 @@ struct VerificationView: View {
             
         }
     }
+}
 
 
 struct VerificationView_Previews: PreviewProvider {
