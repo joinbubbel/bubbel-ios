@@ -38,7 +38,7 @@ struct SignUpView: View {
     }
     
     func sendVerificationEmail() async {
-        let sendVerifyRequest = InSendVerify(userID: 131)
+        let sendVerifyRequest = InSendVerify(userID: 139)
         
         do {
             verificationResponse = try await bubbelApiSendVerify(req: sendVerifyRequest)
