@@ -21,7 +21,7 @@ struct VerificationView: View {
     }
     func verifyUser() async {
         do {
-            let userID = 130
+            let userID = 131
             let requestData = InVerifyAccount(code: verify, userID: userID)
             
             let verificationResult = try await bubbelApiVerifyAccount(req: requestData)
@@ -40,7 +40,6 @@ struct VerificationView: View {
     
     
     var body: some View {
-        NavigationView{
             VStack{
                 Text("")
                     .padding(60)
@@ -158,7 +157,7 @@ struct VerificationView: View {
             
         }
     }
-}
+
 
 
 

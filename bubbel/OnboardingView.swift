@@ -29,6 +29,8 @@ struct OnboardingView: View {
             
             
             Spacer()
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
         }
         .edgesIgnoringSafeArea(.all)
     }
