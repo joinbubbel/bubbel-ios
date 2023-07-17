@@ -32,8 +32,9 @@ struct SignUpView: View {
         } catch {
             print("Error: \(error)")
         }
+        
         func sendVerificationEmail() async {
-            let verifyAccountRequest = InVerifyAccount(code: verificationCode, userID: 123)
+            let verifyAccountRequest = InVerifyAccount(code: verificationCode, userID: 112)
             
             do {
                 let verifyAccountResponse = try await bubbelApiVerifyAccount(req: verifyAccountRequest)

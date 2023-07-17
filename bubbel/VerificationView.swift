@@ -17,10 +17,9 @@ struct VerificationView: View {
     func Resend() {
         print("Verification Sent!")
     }
-    
     func verifyUser() async {
         do {
-            let userID = 123
+            let userID = 112
             let requestData = InVerifyAccount(code: verify, userID: userID)
             
             let verificationResult = try await bubbelApiVerifyAccount(req: requestData)
@@ -35,6 +34,7 @@ struct VerificationView: View {
             print("API Error: \(error)")
         }
     }
+    
     
     
     var body: some View {
