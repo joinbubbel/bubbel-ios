@@ -13,8 +13,6 @@ let bubbelBathDev = "https://bubbel-bath.onrender.com"
 //
 //   let bubbelCodegenOut = try BubbelCodegenOut(json)
 
-import Foundation
-
 // MARK: - BubbelCodegenOut
 struct BubbelCodegenOut: Codable {
     let t0: InCreateUser?
@@ -245,6 +243,7 @@ enum PurpleType: String, Codable {
     case invalidPasswordCryto = "InvalidPasswordCryto"
     case invalidUsername = "InvalidUsername"
     case typeInternal = "Internal"
+    case sendVerification = "SendVerification"
 }
 
 // MARK: - InSetUserProfile

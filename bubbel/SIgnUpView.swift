@@ -11,6 +11,9 @@ struct SignUpView: View {
     @State private var verificationCode: String = ""
     @State private var verificationEmailSent = false
     @State private var showVerificationView = false
+    @State private var verificationResponse: ResSendVerify?
+    
+
     
     func createUser() async {
         do {
@@ -32,33 +35,48 @@ struct SignUpView: View {
         } catch {
             print("Error: \(error)")
         }
+    }
+    
+    func sendVerificationEmail() async {
+        let sendVerifyRequest = InSendVerify(userID: 115)
         
-        func sendVerificationEmail() async {
-            let verifyAccountRequest = InVerifyAccount(code: verificationCode, userID: 112)
+        do {
+            verificationResponse = try await bubbelApiSendVerify(req: sendVerifyRequest)
             
-            do {
-                let verifyAccountResponse = try await bubbelApiVerifyAccount(req: verifyAccountRequest)
-                
-                if let error = verifyAccountResponse.error {
-                    if let ierror = error.ierror {
-                        print("VerifyAccountError: Got internal error: \(ierror)")
-                    } else {
-                        print("VerifyAccountError: \(error.type)")
-                    }
+            if let error = verificationResponse?.error {
+                if let ierror = error.ierror {
+                    print("SendVerifyError: Got internal error: \(ierror)")
                 } else {
-                    // Verification email sent successfully
-                    verificationEmailSent = true
-                    DispatchQueue.main.async {
-                        showVerificationView = true
-                    }
+                    print("SendVerifyError: \(error.type)")
                 }
-            } catch {
-                print("Error: \(error)")
+            } else {
+                // Verification email sent successfully
+                verificationEmailSent = true
+                DispatchQueue.main.async {
+                    showVerificationView = true
+                }
             }
+        } catch {
+            print("Error: \(error)")
         }
     }
     
-    
+    func bubbelApiSendVerify(req: InSendVerify) async throws -> ResSendVerify {
+        let json = try JSONEncoder().encode(req)
+        let url = URL(string: bubbelBathDev + "/api/send_verify")!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = json
+        
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+       
+        let result = try decoder.decode(ResSendVerify.self, from: data)
+        return result
+    }
     
     func bubbelApiCreateUser(req: InCreateUser, bath: String) async throws -> ResCreateUser {
         let encoder = JSONEncoder()
