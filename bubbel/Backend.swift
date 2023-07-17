@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import Foundation
-
 let bubbelBathDev = "https://bubbel-bath.onrender.com"
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
@@ -1007,6 +1005,7 @@ enum IndigoType: String, Codable {
     case resendTooSoon = "ResendTooSoon"
     case sendVerification = "SendVerification"
     case typeInternal = "Internal"
+    case userNotFound = "UserNotFound"
 }
 
 // MARK: - Helper functions for creating encoders and decoders
