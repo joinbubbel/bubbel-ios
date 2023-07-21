@@ -12,6 +12,7 @@ struct Profile: View {
     
     @State private var selection = "Online"
     let status = ["Online", "Do not distub", "Offline"]
+    let images = ["online_icon", "dnd_icon", "offline_icon"]
     var body: some View {
         VStack{
             HStack{
@@ -43,11 +44,17 @@ struct Profile: View {
             }
             .padding(.trailing, 180)
             .padding(.top, 10)
-            Form{
-                Section{
+            Form {
+                Section {
                     Picker((selection), selection: $selection) {
-                        ForEach(status, id: \.self) {
-                            Text($0)
+                        ForEach(0..<status.count, id: \.self) { index in
+                            HStack {
+                                Image(images[index])
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                Text(status[index])
+                            }
+                            .tag(status[index])
                         }
                     }
                 }
