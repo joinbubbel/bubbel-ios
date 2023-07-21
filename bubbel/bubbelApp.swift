@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 struct bubbelApp: App {
     @Environment(\.colorScheme) var colorScheme

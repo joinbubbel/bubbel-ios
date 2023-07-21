@@ -2,7 +2,13 @@ import SwiftUI
 
 
 
+
 struct SignUpView: View {
+    
+    struct InSendVerify: Codable {
+        // No need for the verify property here
+    }
+    
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var email: String = ""
@@ -15,6 +21,7 @@ struct SignUpView: View {
     
     
     
+
     func createUser() async {
         do {
             let createUserRequest = InCreateUser(email: email, password: password, username: username)
@@ -30,17 +37,17 @@ struct SignUpView: View {
                     }
                 }
             } else {
+                // User created successfully, now send the verification email
                 await sendVerificationEmail()
             }
         } catch {
             print("Error: \(error)")
         }
     }
-    
+
     func sendVerificationEmail() async {
-        let sendVerifyRequest = InSendVerify(userID: 139)
-        
         do {
+            let sendVerifyRequest = InSendVerify()
             verificationResponse = try await bubbelApiSendVerify(req: sendVerifyRequest)
             
             if let error = verificationResponse?.error {
@@ -60,6 +67,9 @@ struct SignUpView: View {
             print("Error: \(error)")
         }
     }
+    
+    
+    
     
     func bubbelApiSendVerify(req: InSendVerify) async throws -> ResSendVerify {
         let json = try JSONEncoder().encode(req)
@@ -265,13 +275,13 @@ struct SignUpView: View {
         
     }
 }
-    
-    
-    struct SignUpView_Previews: PreviewProvider {
-        static var previews: some View {
-            SignUpView()
-        }
+
+
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpView()
     }
+}
 
 
 

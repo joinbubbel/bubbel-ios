@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+
 struct VerificationView: View {
+    
     @State private var verify: String = ""
     @State private var popup = true
     @State private var emailupdates = false
@@ -21,8 +23,8 @@ struct VerificationView: View {
     }
     func verifyUser() async {
         do {
-            let userID = 139
-            let requestData = InVerifyAccount(code: verify, userID: userID)
+            let requestData = InVerifyAccount(code: verify)
+
             
             let verificationResult = try await bubbelApiVerifyAccount(req: requestData)
             
