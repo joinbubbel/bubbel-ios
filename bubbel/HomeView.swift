@@ -15,6 +15,7 @@ struct HomeView: View {
         VStack{
             HStack{
                 Text("Home")
+                    .font(Font.custom("CircularStd-Book", size: 18))
                     .padding(.top, -5)
                     .padding(.trailing, 220)
                 Image("Discover")

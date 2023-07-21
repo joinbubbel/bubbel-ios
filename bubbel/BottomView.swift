@@ -36,7 +36,7 @@ struct BottomView: View {
                         .foregroundColor(.blue)
                 }
             
-            Profile()
+            Profile(username: username)
                 .tabItem {
                     Image("Profile")
                     
