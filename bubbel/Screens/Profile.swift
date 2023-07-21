@@ -13,6 +13,8 @@ struct Profile: View {
     @State private var selection = "Online"
     let status = ["Online", "Do not distub", "Offline"]
     let images = ["online_icon", "dnd_icon", "offline_icon"]
+    
+
     var body: some View {
         VStack{
             HStack{
@@ -20,8 +22,10 @@ struct Profile: View {
                     .font(Font.custom("CircularStd-Book", size: 18))
                     .padding(.top, -5)
                     .padding(.trailing, 220)
-                Image("setting")
-                    .padding(.top, -5)
+                NavigationLink(destination: Setting()){
+                    Image("setting")
+                        .padding(.top, -5)
+                }
                 
             }
             .padding(.top, 30)

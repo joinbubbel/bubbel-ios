@@ -28,6 +28,7 @@
 		D2DCB2E62A4F8C1100A4F0F7 /* bubbelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2E52A4F8C1100A4F0F7 /* bubbelTests.swift */; };
 		D2DCB2F02A4F8C1100A4F0F7 /* bubbelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2EF2A4F8C1100A4F0F7 /* bubbelUITests.swift */; };
 		D2DCB2F22A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DCB2F12A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift */; };
+		D2E9471B2A6B100C00249AB1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E9471A2A6B100C00249AB1 /* Setting.swift */; };
 		D2EFA28D2A5321D400C29566 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */; };
 		D2EFA2922A533CF400C29566 /* CircularStd-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EFA2912A533CF400C29566 /* CircularStd-BoldItalic.ttf */; };
 		D2EFA2942A533D2400C29566 /* CircularStd-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EFA2932A533D2400C29566 /* CircularStd-Book.ttf */; };
@@ -83,6 +84,7 @@
 		D2DCB2EB2A4F8C1100A4F0F7 /* bubbelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bubbelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2DCB2EF2A4F8C1100A4F0F7 /* bubbelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelUITests.swift; sourceTree = "<group>"; };
 		D2DCB2F12A4F8C1100A4F0F7 /* bubbelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubbelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2E9471A2A6B100C00249AB1 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		D2EFA2912A533CF400C29566 /* CircularStd-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D2EFA2932A533D2400C29566 /* CircularStd-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Book.ttf"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				D2C64B132A5D11F900A15989 /* Message.swift */,
 				D2C64B152A5D125C00A15989 /* Profile.swift */,
 				D2C64B172A5D1C5500A15989 /* Select.swift */,
+				D2E9471A2A6B100C00249AB1 /* Setting.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				D2DC1F372A5F078400D5D254 /* ResVerification.swift in Sources */,
 				D2DC0BE72A506C1700AF9F68 /* SIgnUpView.swift in Sources */,
 				D2C64B182A5D1C5500A15989 /* Select.swift in Sources */,
+				D2E9471B2A6B100C00249AB1 /* Setting.swift in Sources */,
 				D206E5792A5B80A90040E62A /* HomeView.swift in Sources */,
 				D2DC1F392A5F1C2B00D5D254 /* ResPassword.swift in Sources */,
 				D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */,
