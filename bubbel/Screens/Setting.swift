@@ -31,7 +31,7 @@ struct Setting: View {
                 .padding(.trailing, 120)
                 
                 VStack{
-                    NavigationLink(destination: EditProfile()){
+                    NavigationLink(destination: EditProfile(username: Binding.constant(username))){
                         Image("Edit")
                             .padding(.leading, 240)
                     }
