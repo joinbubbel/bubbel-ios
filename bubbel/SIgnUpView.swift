@@ -17,7 +17,7 @@ struct SignUpView: View {
     func createUser() async {
         do {
             let createUserRequest = InCreateUser(email: email, password: password, username: username)
-            let createUserResponse = try await bubbelApiCreateUser(req: createUserRequest, bath: bubbelBathDev)
+            let createUserResponse = try await bubbelApiCreateUser(req: createUserRequest)
             print("heres repsonse",createUserResponse)
             if let error = createUserResponse.error {
                 return
@@ -43,26 +43,6 @@ struct SignUpView: View {
     
     
     
-    
-    func bubbelApiCreateUser(req: InCreateUser, bath: String) async throws -> ResCreateUser {
-        let encoder = JSONEncoder()
-        let json = try encoder.encode(req)
-        let jsonString = String(data: json, encoding: .utf8) ?? ""
-        
-        let url = URL(string: bath + "/api/create_user")!
-        var urlRequest = URLRequest(url: url)
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = "POST"
-        urlRequest.httpBody = json
-        
-        let (data, response) = try await URLSession.shared.data(for: urlRequest)
-        let (dataString) = String(data: data, encoding: .utf8) ?? ""
-        
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let result = try decoder.decode(ResCreateUser.self, from: data)
-        return result
-    }
     
     var body: some View {
         VStack{
