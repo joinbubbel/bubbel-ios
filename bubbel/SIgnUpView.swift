@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct SignUpView: View {
     @State private var username: String = ""
     @State private var password: String = ""
@@ -19,60 +18,31 @@ struct SignUpView: View {
         do {
             let createUserRequest = InCreateUser(email: email, password: password, username: username)
             let createUserResponse = try await bubbelApiCreateUser(req: createUserRequest, bath: bubbelBathDev)
-
+            print("heres repsonse",createUserResponse)
             if let error = createUserResponse.error {
                 return
             } else {
                 // User created successfully, assign the user ID
-                userID = createUserResponse.userID
-                await sendVerificationEmail(userID: 260)
+                // userID = createUserResponse.userID
+                if let userID = createUserResponse.userID {
+                    print("Text Before",userID)
+                    let sendVerifyEmailRequest = InSendVerify(userID: userID)
+                    let sendVerifyEmailResponse = try await bubbelApiSendVerify(req: sendVerifyEmailRequest)
+                } else {
+                    print("Everything fUCKED UP")
+                    // Handle the case where userID is nil (optional was not set in the response)
+                    // Do something appropriate for your use case
+                }
             }
         } catch {
             print("Error: \(error)")
         }
     }
-
-
-      func sendVerificationEmail(userID: Int) async {
-          do {
-              let sendVerifyRequest = InSendVerify(userID: userID)
-              verificationResponse = try await bubbelApiSendVerify(req: sendVerifyRequest)
-
-              if let error = verificationResponse?.error {
-                  if let ierror = error.ierror {
-                      print("SendVerifyError: Got internal error: \(ierror)")
-                  } else {
-                      print("SendVerifyError: \(error.type)")
-                  }
-              } else {
-                  // Verification email sent successfully
-                  verificationEmailSent = true
-                  DispatchQueue.main.async {
-                      showVerificationView = true
-                  }
-              }
-          } catch {
-              print("Error: \(error)")
-          }
-      }
-
-
-    func bubbelApiSendVerify(req: InSendVerify) async throws -> ResSendVerify {
-        let json = try JSONEncoder().encode(req)
-        let url = URL(string: bubbelBathDev + "/api/send_verify")!
-        var urlRequest = URLRequest(url: url)
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = "POST"
-        urlRequest.httpBody = json
-        
-        let (data, response) = try await URLSession.shared.data(for: urlRequest)
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
-        
-        let result = try decoder.decode(ResSendVerify.self, from: data)
-        return result
-    }
+    
+    
+    
+    
+    
     
     func bubbelApiCreateUser(req: InCreateUser, bath: String) async throws -> ResCreateUser {
         let encoder = JSONEncoder()
@@ -261,13 +231,13 @@ struct SignUpView: View {
         
     }
 }
-    
-    
-    struct SignUpView_Previews: PreviewProvider {
-        static var previews: some View {
-            SignUpView()
-        }
+
+
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpView()
     }
+}
 
 
 
