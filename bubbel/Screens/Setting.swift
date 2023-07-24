@@ -7,7 +7,11 @@
 
 import SwiftUI
 
+
 struct Setting: View {
+    @State private var showingAlert = false
+    @State private var logoutConfirmationMessage = ""
+
     var username: String
     var body: some View {
         VStack() {
@@ -88,13 +92,20 @@ struct Setting: View {
                 
                 HStack{
                     Button(action: {
-                        
+                        logoutConfirmationMessage = "Logged in as @\(username)"
+                           showingAlert = true
                     })
                     {
                         Image("logout")
                         Text("Log Out")
                             .font(Font.custom("CircularStd-Book", size: 16))
                             .foregroundColor(Color(red: 1, green: 0, blue: 0))
+                    }
+                    .confirmationDialog("", isPresented: $showingAlert){
+                        Button("Logout") {}
+                           Button("Cancel", role: .cancel) { }
+                    } message: {
+                        Text(logoutConfirmationMessage)
                     }
                 }
                 .padding(.trailing, 250)
