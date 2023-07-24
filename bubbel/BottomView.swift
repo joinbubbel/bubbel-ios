@@ -44,11 +44,6 @@ struct BottomView: View {
                         
                     }
             }
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(width: 400, height: 4)
-                .background(Color(red: 0.93, green: 0.94, blue: 0.95))
-                .padding(.top, -80)
             
         }
     }

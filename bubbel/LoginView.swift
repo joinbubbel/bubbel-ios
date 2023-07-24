@@ -51,41 +51,41 @@ struct LoginView: View {
 		await LogIn()
 	}
 	func LogIn() async {
-		let user = User(username: username)
-		
-		do {
-			guard !username.isEmpty && !password.isEmpty else {
-				errorMessage = "Please enter both username and password."
-				return
-			}
-			
-			let authUserRequest = InAuthUser(password: password, username: username)
-			
-			let response = try await authUserAPIRequest(request: authUserRequest)
-			
-			if let error = response.error {
-				errorMessage = "AuthUserError: \(error.type)"
-				
-				isLoggedIn = false
-			} else {
-				print("Login successful")
-				isLoggedIn = true
-				errorMessage = ""
-				setLoginStatus(true)
-				setLoggedInUser(user)
-			}
-		} catch {
-			errorMessage = "Error: \(error)"
-			isLoggedIn = false
-		}
-		
-		if !isLoggedIn {
-			DispatchQueue.main.async {
-				username = ""
-				password = ""
-			}
-		}
-	}
+		 let user = User(username: username)
+
+		 do {
+			 guard !username.isEmpty && !password.isEmpty else {
+				 errorMessage = "Please enter both username and password."
+				 return
+			 }
+
+			 let authUserRequest = InAuthUser(password: password, username: username)
+
+			 let response = try await authUserAPIRequest(request: authUserRequest)
+
+			 if let error = response.error {
+				 errorMessage = "AuthUserError: \(error.type)"
+				 isLoggedIn = false
+			 } else {
+				 print("Login successful")
+				 isLoggedIn = true
+				 errorMessage = ""
+				 setLoginStatus(true)
+				 setLoggedInUser(user)
+			 }
+		 } catch {
+			 errorMessage = "Error: \(error)"
+			 isLoggedIn = false
+		 }
+
+		 if !isLoggedIn {
+			 DispatchQueue.main.async {
+				 username = ""
+				 password = ""
+			 }
+		 }
+	 }
+	
 	
 	func logOut() {
 		UserDefaults.standard.removeObject(forKey: "user")
@@ -166,7 +166,7 @@ struct LoginView: View {
 						.padding(.leading, 20)
 						Rectangle()
 							.frame(height: 1.0, alignment: .bottom)
-							.foregroundColor(Color.gray)
+							.foregroundColor(errorMessage.isEmpty ? Color.gray : Color.red)
 							.baselineOffset(10)
 							.focused($keyboardFocused)
 							.font(.system(size: 16))
@@ -194,7 +194,7 @@ struct LoginView: View {
 					.padding(.leading, 20)
 					Rectangle()
 						.frame(height: 1.0, alignment: .bottom)
-						.foregroundColor(Color.gray)
+						.foregroundColor(errorMessage.isEmpty ? Color.gray : Color.red)
 						.focused($keyboardFocused)
 						.padding(.trailing, 20)
 						.padding(.leading, 20)
