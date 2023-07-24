@@ -10,6 +10,7 @@ import SwiftUI
 
 struct EditProfile: View {
     @Binding var username: String
+    @State private var displayname: String = ""
     
     var body: some View {
         VStack{
@@ -48,8 +49,30 @@ struct EditProfile: View {
             }
             .padding(.top, 20)
             
+            
+            ZStack{
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 325, height: 60)
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .inset(by: 0.9)
+                            .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
+                    )
+                HStack{
+                    TextField("Display Name", text: $displayname)
+                        .font(Font.custom("CircularStd-Book", size: 18))
+                        .foregroundColor(.black)
+                }
+                .padding(.leading, 50)
+            }
+            .padding(.top, 20)
+            
+            
+            
             Image("pfpupload")
-                .position(x: 225, y: -110)
+                .position(x: 225, y: -200)
         }
         Spacer()
         VStack{

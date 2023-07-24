@@ -71,7 +71,34 @@ struct Setting: View {
                     .font(Font.custom("CircularStd-Book", size: 18))
                     .padding(.top, 20)
                     .padding(.trailing, 240)
+                HStack{
+                    Button(action: {
+                        
+                        
+                    })
+                    {
+                        Image("swaparrow")
+                        Text("Switch to Other Account")
+                            .font(Font.custom("CircularStd-Book", size: 16))
+                            .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
+                    }
+                }
+                .padding(.trailing, 140)
+                .padding(.top, 20)
                 
+                HStack{
+                    Button(action: {
+                        
+                    })
+                    {
+                        Image("logout")
+                        Text("Log Out")
+                            .font(Font.custom("CircularStd-Book", size: 16))
+                            .foregroundColor(Color(red: 1, green: 0, blue: 0))
+                    }
+                }
+                .padding(.trailing, 250)
+                .padding(.top, 10)
                 
             }
             Spacer()
