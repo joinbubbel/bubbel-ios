@@ -102,7 +102,7 @@ struct Setting: View {
                             .foregroundColor(Color(red: 1, green: 0, blue: 0))
                     }
                     .confirmationDialog("", isPresented: $showingAlert){
-                        Button("Logout") {}
+                        Button("Log Out") {}
                            Button("Cancel", role: .cancel) { }
                     } message: {
                         Text(logoutConfirmationMessage)
