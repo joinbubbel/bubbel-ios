@@ -73,6 +73,16 @@ struct Profile: View {
                 }
                 .scrollContentBackground(.hidden)
                 .pickerStyle(.menu)
+                VStack{
+                    Text("My Status")
+                        .font(Font.custom("CircularStd-Book", size: 18))
+                        .foregroundColor(Color(red: 0.32, green: 0.38, blue: 0.5))
+                    HStack{
+                        
+                    }
+                }
+                .padding(.top, -430)
+                .padding(.trailing, 230)
                 Spacer()
             }
         }
