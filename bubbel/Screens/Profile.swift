@@ -77,12 +77,45 @@ struct Profile: View {
                     Text("My Status")
                         .font(Font.custom("CircularStd-Book", size: 18))
                         .foregroundColor(Color(red: 0.32, green: 0.38, blue: 0.5))
-                    HStack{
-                        
-                    }
                 }
                 .padding(.top, -430)
                 .padding(.trailing, 230)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20){
+                        Button(action: {}) {
+                            Text("😴 Away")
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 22)
+                                        .stroke(Color.black, lineWidth: 1.6)
+                                )
+                        }
+                        
+                        Button(action: {}) {
+                            Text("🖥️ At Work")
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 22)
+                                        .stroke(Color.blue, lineWidth: 1.6)
+                                )
+                        }
+                        
+                        Button(action: {}) {
+                            Text("🎮 Gaming")
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 22)
+                                        .stroke(Color.yellow, lineWidth: 1.6)
+                                )
+                        }
+                    }
+                    .padding(.bottom, 5)
+                    .padding(.leading, 35)
+                }
+                .padding(.top, -400)
                 Spacer()
             }
         }
