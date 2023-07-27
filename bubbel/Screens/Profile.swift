@@ -101,15 +101,26 @@ struct Profile: View {
                                         .stroke(Color.blue, lineWidth: 1.6)
                                 )
                         }
-                        
-                        Button(action: {}) {
-                            Text("🎮 Gaming")
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
+                        ZStack{
+                            Button(action: {}) {
+                                Text("🎮 Gaming")
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 22)
+                                            .stroke(Color.yellow, lineWidth: 1.6)
+                                    )
+                            }
+                            
+                            Button(action: {}) {
+                                Image("uiplus")
+                                .frame(width: 44, height: 44)
+                                .background(Color(red: 0, green: 0.34, blue: 1))
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 22)
-                                        .stroke(Color.yellow, lineWidth: 1.6)
+                                .stroke(Color(red: 0, green: 0.34, blue: 1), lineWidth: 8)
                                 )
+                            }
                         }
                     }
                     .padding(.bottom, 5)
