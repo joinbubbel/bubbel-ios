@@ -6,26 +6,40 @@
 //
 
 import SwiftUI
-
+import PhotosUI
 
 struct EditProfile: View {
     @Binding var username: String
     @State private var displayname: String = ""
+    @State private var avatarItem: PhotosPickerItem?
+    @State private var avatarImage: Image? = Image("defaultpfp")
     
     var body: some View {
         VStack{
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(width: 112, height: 112)
-                .background(
-                    Image("defaultpfp")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 112, height: 112)
-                        .clipped()
-                )
-                .cornerRadius(112)
-                .padding(.top, 10)
+            if let avatarImage = avatarImage {
+                avatarImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 112, height: 112)
+                    .clipped()
+                    .cornerRadius(112)
+            }
+            else {
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 112, height: 112)
+                    .background(
+                        Image("defaultpfp")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 112, height: 112)
+                            .clipped()
+                    )
+                    .cornerRadius(112)
+                    .padding(.top, 10)
+            }
+            
+            
             
             ZStack{
                 Rectangle()
@@ -69,10 +83,25 @@ struct EditProfile: View {
             }
             .padding(.top, 20)
             
-            
-            
-            Image("pfpupload")
-                .position(x: 225, y: -200)
+            HStack{
+                PhotosPicker(selection: $avatarItem, matching: .images) {
+                    Label("", image: "pfpupload")
+                }
+                    .position(x: 225, y: -195)
+            }
+           
+        }
+        .onChange(of: avatarItem) { _ in
+            Task {
+                if let data = try? await avatarItem?.loadTransferable(type: Data.self) {
+                    if let uiImage = UIImage(data: data) {
+                        avatarImage = Image(uiImage: uiImage)
+                        return
+                    }
+                }
+                
+                print("Failed")
+            }
         }
         Spacer()
         VStack{
