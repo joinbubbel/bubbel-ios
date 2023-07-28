@@ -63,8 +63,6 @@ struct SignUpView: View {
                     break
                 case .typeInternal:
                     errorMessage = "Internal server error."
-                case .sendVerification:
-                    errorMessage = "Failed to send verification email."
                 }
                 return
             } else {
