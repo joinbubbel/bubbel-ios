@@ -7,9 +7,18 @@
 
 import SwiftUI
 
+struct Club {
+    var name: String
+    var description: String
+}
+
+
+
 struct HomeView: View {
     var username: String
-   
+    
+    @State private var clubs: [Club] = []
+    
     
     var body: some View {
         VStack{
@@ -26,10 +35,18 @@ struct HomeView: View {
             }
             .padding(.top, 30)
             
-            Text("The Auth works \(username)!")
+            List(clubs, id: \.name) { club in
+                VStack(alignment: .leading) {
+                    Text(club.name)
+                    
+                    Text(club.description)
+                    
+                    Text("test text")
+                }
+            }
             Spacer()
                 .edgesIgnoringSafeArea(.all)
-          
+            
             
         }
     }
