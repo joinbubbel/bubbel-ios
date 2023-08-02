@@ -9,15 +9,14 @@ import SwiftUI
 
 struct Club {
     var name: String
-    var description: String
 }
-
-
 
 struct HomeView: View {
     var username: String
     
-    @State private var clubs: [Club] = []
+    @State private var clubs: [Club] = [
+        Club(name: "Test Club"),
+    ]
     
     
     var body: some View {
@@ -35,15 +34,49 @@ struct HomeView: View {
             }
             .padding(.top, 30)
             
-            List(clubs, id: \.name) { club in
-                VStack(alignment: .leading) {
-                    Text(club.name)
-                    
-                    Text(club.description)
-                    
-                    Text("test text")
+            VStack{
+                ForEach(clubs, id: \.name) { club in
+                    ZStack{
+                        VStack(alignment: .leading) {
+                            Text(club.name)
+                        }
+                        .padding(.trailing, 200)
+                        VStack{
+                            Button(action: {
+                                print("Button clicked!")
+                                
+                            })
+                            {
+                                Text("Join")
+                                    .font(Font.custom("CircularStd-Book", size: 16))
+                                    .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
+                            }
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 10)
+                            .background(Color(red: 0.9, green: 0.95, blue: 1))
+                            .cornerRadius(49)
+                            .padding(.leading, 230)
+                        }
+                        
+                        
+                    }
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 375, height: 1)
+                        .background(
+                            EllipticalGradient(
+                                stops: [
+                                    Gradient.Stop(color: Color(red: 0.93, green: 0.93, blue: 0.93), location: 0.00),
+                                    Gradient.Stop(color: Color(red: 0.93, green: 0.93, blue: 0.93).opacity(0), location: 1.00),
+                                ],
+                                center: UnitPoint(x: 0.5, y: 0.5)
+                            )
+                        )
+                        .padding(.top, -20)
                 }
+                .padding(.top, 40)
             }
+            
             Spacer()
                 .edgesIgnoringSafeArea(.all)
             
