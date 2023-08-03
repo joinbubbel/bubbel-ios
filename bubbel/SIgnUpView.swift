@@ -67,7 +67,7 @@ struct SignUpView: View {
                 return
             } else {
                 // User created successfully, assign the user ID
-                if let userID = createUserResponse.userID {
+                if let userID = createUserResponse.res?.userID {
                     print("Text Before", userID)
                     let sendVerifyEmailRequest = InSendVerify(userID: userID)
                     let sendVerifyEmailResponse = try await bubbelApiSendVerify(req: sendVerifyEmailRequest)

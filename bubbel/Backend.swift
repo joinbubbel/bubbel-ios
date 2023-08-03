@@ -10,7 +10,7 @@ let bubbelBathDev = "http://api.joinbubbel.com"
 // To parse the JSON, add this file to your project and do:
 //
 //   let bubbelCodegenOut = try BubbelCodegenOut(json)
-
+import SwiftUI
 import Foundation
 
 // MARK: - BubbelCodegenOut
