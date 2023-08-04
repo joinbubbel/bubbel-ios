@@ -41,6 +41,7 @@
 		D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE412A52214A0035DC62 /* Onboard3.swift */; };
 		D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE432A52221D0035DC62 /* Onboard4.swift */; };
 		D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE452A5225590035DC62 /* OnboardingView.swift */; };
+		D2FCBDAD2A7C9D4300FDFA18 /* CameraUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FCBDAC2A7C9D4300FDFA18 /* CameraUpload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		D2F1BE412A52214A0035DC62 /* Onboard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard3.swift; sourceTree = "<group>"; };
 		D2F1BE432A52221D0035DC62 /* Onboard4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard4.swift; sourceTree = "<group>"; };
 		D2F1BE452A5225590035DC62 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D2FCBDAC2A7C9D4300FDFA18 /* CameraUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUpload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				D206E5782A5B80A90040E62A /* HomeView.swift */,
 				D2C64B0E2A5D0DE400A15989 /* BottomView.swift */,
 				D292BAEE2A62CC2600D10A98 /* Backend.swift */,
+				D2FCBDAC2A7C9D4300FDFA18 /* CameraUpload.swift */,
 			);
 			path = bubbel;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				D2C64B162A5D125C00A15989 /* Profile.swift in Sources */,
 				D2DC1F352A5EF2D300D5D254 /* ForgetPassUser.swift in Sources */,
 				D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */,
+				D2FCBDAD2A7C9D4300FDFA18 /* CameraUpload.swift in Sources */,
 				D292BAEF2A62CC2600D10A98 /* Backend.swift in Sources */,
 				D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */,
 				D2C64B0F2A5D0DE400A15989 /* BottomView.swift in Sources */,
