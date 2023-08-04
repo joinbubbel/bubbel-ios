@@ -46,6 +46,12 @@ struct LoginView: View {
 			UserDefaults.standard.set(encodedData, forKey: "user")
 		}
 	}
+	func logOut() {
+		UserDefaults.standard.removeObject(forKey: "user")
+		isLoggedIn = false
+		setLoginStatus(false)
+	}
+
 	
 	func logInAsync() async {
 		await LogIn()
@@ -87,18 +93,14 @@ struct LoginView: View {
 	 }
 	
 	
-	func logOut() {
-		UserDefaults.standard.removeObject(forKey: "user")
-		isLoggedIn = false
-		setLoginStatus(false)
-	}
+
 	func authUserAPIRequest(request: InAuthUser) async throws -> ResAuthUser {
 		let encoder = JSONEncoder()
 		let json = try encoder.encode(request)
 		let jsonString = String(data: json, encoding: .utf8) ?? ""
 		print(jsonString)
 		
-		let url = URL(string: "https://bubbel-bath.onrender.com/api/auth_user")!
+		let url = URL(string: "https://api.joinbubbel.com/api/auth_user")!
 		var urlRequest = URLRequest(url: url)
 		urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
 		urlRequest.httpMethod = "POST"
