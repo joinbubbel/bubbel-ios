@@ -79,8 +79,8 @@ struct HomeView: View {
             
             Spacer()
                 .edgesIgnoringSafeArea(.all)
-            
-            
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
         }
     }
     

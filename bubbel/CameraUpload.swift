@@ -8,46 +8,69 @@
 import SwiftUI
 
 struct CameraUpload: View {
+    var username: String
     var body: some View {
+        
         VStack{
-            HStack(spacing: 250){
+            HStack(spacing: 240){
                 Text("Post")
-                    .padding(.top, 8)
-                    .padding(.bottom, 8)
+                    .padding(.top, 5)
+                    .padding(.bottom, 5)
                     .padding(.leading, 15)
                     .padding(.trailing, 15)
                     .background(.blue)
-                Image("exit")
+                    .cornerRadius(5)
+                NavigationLink(destination: BottomView(username: username)){
+                    Image("exit")
+                }
             }
             .padding(.top,  -50)
             ZStack(alignment: .bottom){
                 ZStack{
                     HStack(spacing: 50){
-                        Image("flash")
-                        Image("takep")
-                        Image("camswitch")
+                        Button(action: {
+                        }){
+                            Image("flash")
+                        }
+                        Button(action: {
+                            
+                        }){
+                            Image("takep")
+                        }
+                        Button(action: {
+                            
+                        }){
+                            Image("camswitch")
+                        }
                     }
                     ZStack{
                         HStack{
                             Text("Filters")
-                                .font(Font.custom("CircularStd-Book", size: 16))
+                                .foregroundColor(.white)
+                                .font(Font.custom("CircularStd-Book", size: 18))
                         }
                         
                     }
-                    .padding(.top, 120)
+                    .padding(.top, 100)
                     .padding(.trailing, 280)
                 }
-                .padding(.top, 520)
+                .padding(.top, 500)
                 
                 
             }
-            .preferredColorScheme(.dark)
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+           
+            .edgesIgnoringSafeArea(.all)
+            
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black)
     }
 }
 
 struct CameraUpload_Previews: PreviewProvider {
     static var previews: some View {
-        CameraUpload()
+        CameraUpload(username: "John Doe")
     }
 }
