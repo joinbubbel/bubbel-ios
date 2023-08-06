@@ -13,10 +13,8 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set up Xcode
-      uses: actions/setup-xcode@v2
-      with:
-        xcode-version: '12.0'  # You can specify the Xcode version you want to use
+    - name: Install Xcode
+      run: sudo xcode-select --install
 
     - name: Build and Test
       run: |
