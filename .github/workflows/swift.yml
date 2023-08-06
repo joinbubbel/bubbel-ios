@@ -1,0 +1,23 @@
+name: Swift CI/CD
+
+on:
+  push:
+    branches:
+      - main  # You can change this to the branch you want to trigger the workflow on
+
+jobs:
+  build:
+    runs-on: macos-latest  # macOS is needed for Swift development
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Xcode
+      uses: actions/setup-xcode@v2
+      with:
+        xcode-version: '12.0'  # You can specify the Xcode version you want to use
+
+    - name: Build and Test
+      run: |
+        xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 12" CODE_SIGNING_REQUIRED=NO
