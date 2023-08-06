@@ -15,6 +15,6 @@ jobs:
 
       - name: Build and Test
         run: |
-         xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "platform=iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name=iphone 14" CODE_SIGNING_REQUIRED=NO
+         xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "platform=iOS,name=Any iOS Device" CODE_SIGNING_REQUIRED=NO
 
 
