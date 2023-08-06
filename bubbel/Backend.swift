@@ -3892,4 +3892,4 @@ func bubbelApiGetUserClubs(req: InGetUserClubs) async throws -> ResGetUserClubs 
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let result = try decoder.decode(ResGetUserClubs.self, from: data)
             return result
-        }
+}

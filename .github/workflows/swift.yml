@@ -1,0 +1,19 @@
+name: Swift CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build and Test
+        run: |
+         xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "generic/platorm=iOS" CODE_SIGNING_REQUIRED=NO
+
