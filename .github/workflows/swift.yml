@@ -16,4 +16,4 @@ jobs:
 
     - name: Build and Test
       run: |
-        xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 14" CODE_SIGNING_REQUIRED=NO
+        xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 12 Pro Max" CODE_SIGNING_REQUIRED=NO
