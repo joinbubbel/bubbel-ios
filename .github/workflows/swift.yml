@@ -13,8 +13,6 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install Xcode
-      run: sudo xcode-select --install
 
     - name: Build and Test
       run: |
