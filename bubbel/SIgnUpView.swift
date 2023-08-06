@@ -49,11 +49,18 @@ struct SignUpView: View {
             let createUserResponse = try await bubbelApiCreateUser(req: createUserRequest)
 
             if let error = createUserResponse.error {
-               // errors
+                print("user wasnt created")
             } else {
-               
                 if let userID = createUserResponse.res?.userID {
                     self.userID = userID
+                    // Send verification email here
+                    let sendVerifyRequest = InSendVerify(userID: userID)
+                    let sendVerifyResponse = try await bubbelApiSendVerify(req: sendVerifyRequest)
+                    if let error = sendVerifyResponse.error {
+                        print("email didnt send")
+                    } else {
+                        self.showVerificationView = true
+                    }
                 } else {
                     print("Unexpected error: No user ID returned")
                 }
@@ -63,6 +70,10 @@ struct SignUpView: View {
             print("Error: \(error)")
         }
     }
+
+
+
+    
 
     
     
