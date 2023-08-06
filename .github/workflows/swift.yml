@@ -1,37 +1,18 @@
-name: Swift
+name: Swift CI/CD
 
 on:
   push:
-    paths:
-      - '.github/workflows/swift.yml' # File path to this yaml
-      - '**/*.swift'
-  pull_request:
-    paths:
-      - '.github/workflows/swift.yml' # File path to this yaml
-      - '**/*.swift'
+    branches:
+      - main
 
 jobs:
-  swift-on-docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: sinoru/actions-swift@v1
-        with:
-          swift-image-tag: 'latest'
-          args: 'build'
-      - uses: sinoru/actions-swift@v1
-        with:
-          swift-image-tag: 'latest'
-          args: 'test'
+  build:
+    runs-on: macos-latest
 
-  swift-without-docker:
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: sinoru/actions-swift@v1
-        with:
-          swift-version: '5.6.3'
-          args: 'build'
-      - uses: sinoru/actions-swift@v1
-        with:
-          args: 'test'
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build and Test
+        run: |
+         xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "generic/platorm=iOS" CODE_SIGNING_REQUIRED=NO
