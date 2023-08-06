@@ -1,5 +1,3 @@
-import SwiftUI
-
 let bubbelBathDev = "https://api.joinbubbel.com"
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
@@ -3895,15 +3893,3 @@ func bubbelApiGetUserClubs(req: InGetUserClubs) async throws -> ResGetUserClubs 
             let result = try decoder.decode(ResGetUserClubs.self, from: data)
             return result
         }
-struct Backend: View {
-    var body: some View {
-        Text("David i added ur backend file happy? Yes, yes I am.")
-    }
-}
-
-struct Backend_Previews: PreviewProvider {
-    static var previews: some View {
-        Backend()
-    }
-}
-
