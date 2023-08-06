@@ -3,11 +3,11 @@ name: Swift CI/CD
 on:
   push:
     branches:
-      - desired-branch-name
+      - main  # You can change this to the branch you want to trigger the workflow on
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-latest  # macOS is needed for Swift development
 
     steps:
     - name: Checkout Repository
@@ -15,4 +15,4 @@ jobs:
 
     - name: Build and Test
       run: |
-        xcodebuild clean test -project ./bubbel/bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 14 Pro Max" CODE_SIGNING_REQUIRED=NO
+        xcodebuild clean test -project ./bubbel/bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 14" CODE_SIGNING_REQUIRED=NO
