@@ -3,16 +3,31 @@ name: Swift CI/CD
 on:
   push:
     branches:
-      - main  
+      - "main"
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: macos-latest 
+  xcode14:
+    name: "Xcode 14"
+    runs-on: macos-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: [iOS, iOS-Example, Unix, watchOS, tvOS, SPM]
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Run Tests
+        run: CI=1 ./scripts/all-tests.sh "${{ matrix.environment }}"
+  linux:
+    name: "Test (Linux)"
+    runs-on: ubuntu-latest
 
-    - name: Build and Test
-      run: |
-        xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 14" CODE_SIGNING_REQUIRED=NO
+    steps:
+      - name: Swift 5.5 Docker Container
+        uses: docker://swift:5.5.0-slim
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: CI=1 ./scripts/all-tests.sh "Unix"
