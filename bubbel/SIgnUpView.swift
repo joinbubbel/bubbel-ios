@@ -49,7 +49,7 @@ struct SignUpView: View {
             let createUserResponse = try await bubbelApiCreateUser(req: createUserRequest)
 
             if let error = createUserResponse.error {
-                print("user wasnt created")
+               
             } else {
                 if let userID = createUserResponse.res?.userID {
                     self.userID = userID
