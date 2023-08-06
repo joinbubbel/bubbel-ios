@@ -1,19 +1,126 @@
-name: Swift CI/CD
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: macos-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Build and Test
-        run: |
-         xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "generic/platorm=iOS" CODE_SIGNING_REQUIRED=NO
-
+name: mxcl/Xcodebuild
+author: Max Howell
+description: >
+  A continuously resilient `xcodebuild` action.
+  “The best `xcodebuild` action by far.” ―mxcl
+inputs:
+  xcode:
+    description: |
+      A semantic version range, eg. ^10, ~10.3 or 10.3.1
+      Leave unset for the image‑default.
+    required: false
+  swift:
+    description: A semantic version range, eg. ^5, ~5.4 or 5.4.1
+    required: false
+  platform:
+    description: |
+      Either `iOS`, `tvOS`, `macOS`, `watchOS` or (more rarely)
+      `mac-catalyst`
+      Leave unset and `xcodebuild` decides itself.
+    required: false
+  action:
+    description: |
+      * The most common actions are `test`, `build`.
+      * See the `xcodebuild` manual for available actions.
+      * Specifying `none` skips the explicit `xcodebuild` step allowing you
+        to use this (GitHub) Action solely for selecting an Xcode version.
+      * Specifying `''`, `null` or `~` will cause xcodebuild to behave as it
+        does without an action specified (usually `build`)
+    required: false
+    default: test
+  code-coverage:
+    description: Enables code coverage
+    required: false
+    default: 'false'
+  authentication-key-base64:
+    description: |
+      A Base64-encoded authentication key issued by App Store Connect. If
+      specified, `xcodebuild`` will authenticate with the Apple Developer
+      website using this credential. The `authentication-key-id` and
+      `authentication-key-issuer-id` parameters are required. Using this key,
+      `xcodebuild` will register the GitHub Actions runner device and manage
+      code signing certificates for it. Please note that this may cause
+      undesired behavior when using GitHub-hosted runners. For best results, use
+      App Store Connect API keys only on self-hosted runners.
+    required: false
+  authentication-key-id:
+    description: |
+      The key identifier associated with the App Store Conect authentication key
+      specified in `authentication-key-base64`. This string can be located in
+      the users and access details for your provider at
+      "https://appstoreconnect.apple.com". For best results, use App Store
+      Connect API keys only on self-hosted runners.
+    required: false
+  authentication-key-issuer-id:
+    description: |
+      The App Store Connect issuer identifier associated with the authentication
+      key specified in `authentication-key-base64`. This string can be located
+      in the users and access details for your provider at
+      "https://appstoreconnect.apple.com". For best results, use App Store
+      Connect API keys only on self-hosted runners.
+    required: false
+  code-sign-certificate:
+    description: |
+      A Base64-encoded certificate to be installed to the macOS Keychain for
+      code signing. It is removed from the keychain in the post action. This
+      certificate should correspond to the `CODE_SIGN_IDENTITY` specified in
+      your project or to the `code-sign-identity` input. Pass this in as a
+      GitHub Encrypted Secret. Requires macOS and
+      `code-sign-certificate-passphrase`.
+    required: false
+  code-sign-certificate-passphrase:
+    description: |
+      The passphrase used to protect the code signing certificate. Pass this in
+      as a GitHub Encrypted Secret.
+    required: false
+  code-sign-identity:
+    description: |
+      Identity to be used for code signing. If your project specifies a
+      `CODE_SIGN_IDENTITY`, this will override it.
+    required: false
+  mobile-provisioning-profiles-base64:
+    description: |
+      A multiline list of Base64-encoded mobile provisioning profiles.
+    required: false
+  provisioning-profiles-base64:
+    description: |
+      A multiline list of Base64-encoded Mac provisioning profiles.
+    required: false
+  working-directory:
+    description: '…'
+    required: false
+  configuration:
+    description: |
+      Typically `Release` or `Debug`.
+      Leave unset and `xcodebuild` decides itself.
+    required: false
+  scheme:
+    description: |
+      A scheme defined by an Xcode project or workspace.
+      If not specified, xcodebuild builds only the first target.
+    required: false
+  workspace:
+    description: |
+      We try to detect your workspace, but if we fail you can manually specify
+      it with this parameter.
+    required: false
+  warnings-as-errors:
+    description: Fails the build if any warnings in *non test targets*.
+    required: false
+    default: 'false'
+  verbosity:
+    description: One of `xcpretty`, `quiet` or `verbose`.
+    default: xcpretty
+    required: false
+  upload-logs:
+    description: |
+      One of `always` or `on-failure`.
+      Consider `always` if you want access to your coverage-reports.
+      Beware that artifacts count against your GitHub Actions storage limits.
+    default: on-failure
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+  post: 'dist/index.js'
+  post-if: runner.os == 'macOS'
