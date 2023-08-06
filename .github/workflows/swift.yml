@@ -3,11 +3,11 @@ name: Swift CI/CD
 on:
   push:
     branches:
-      - main  # You can change this to the branch you want to trigger the workflow on
+      - main  
 
 jobs:
   build:
-    runs-on: macos-latest  # macOS is needed for Swift development
+    runs-on: macos-latest 
 
     steps:
     - name: Checkout Repository
