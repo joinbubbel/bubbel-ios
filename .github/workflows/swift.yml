@@ -3,16 +3,16 @@ name: Swift CI/CD
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
   build:
-    runs-on: macos-latest 
+    runs-on: macos-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Build and Test
-      run: |
-        xcodebuild clean test -project bubbel-ios/bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 14" CODE_SIGNING_REQUIRED=NO
+      - name: Build and Test
+        run: |
+          xcodebuild clean test -project bubbel.xcodeproj -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 14" CODE_SIGNING_REQUIRED=NO
