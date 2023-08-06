@@ -3738,15 +3738,4 @@ func bubbelApiGetUserClubs(req: InGetUserClubs) async throws -> ResGetUserClubs 
             let result = try decoder.decode(ResGetUserClubs.self, from: data)
             return result
         }
-struct Backend: View {
-    var body: some View {
-        Text("David i added ur backend file happy? Yes, yes I am.")
-    }
-}
-
-struct Backend_Previews: PreviewProvider {
-    static var previews: some View {
-        Backend()
-    }
-}
 
