@@ -47,33 +47,15 @@ struct SignUpView: View {
         do {
             let createUserRequest = InCreateUser(email: email, password: password, username: username)
             let createUserResponse = try await bubbelApiCreateUser(req: createUserRequest)
-            print("heres response", createUserResponse)
+
             if let error = createUserResponse.error {
-                switch error.type {
-                case .emailOrUsernametaken:
-                    errorMessage = "Email or Username is already taken."
-                case .invalidEmail:
-                    errorMessage = "Invalid email format."
-                case .invalidPassword:
-                    errorMessage = "Invalid password format."
-                case .invalidPasswordCryto:
-                    errorMessage = "Password encryption failed."
-                case .invalidUsername:
-                    // No error message for invalid username, do nothing here.
-                    break
-                case .typeInternal:
-                    errorMessage = "Internal server error."
-                }
-                return
+               // errors
             } else {
-                // User created successfully, assign the user ID
+               
                 if let userID = createUserResponse.res?.userID {
-                    print("Text Before", userID)
-                    let sendVerifyEmailRequest = InSendVerify(userID: userID)
-                    let sendVerifyEmailResponse = try await bubbelApiSendVerify(req: sendVerifyEmailRequest)
-                    // Perform any necessary actions after successful signup and verification
+                    self.userID = userID
                 } else {
-                    print("Everything is messed up")
+                    print("Unexpected error: No user ID returned")
                 }
             }
         } catch {
@@ -81,7 +63,7 @@ struct SignUpView: View {
             print("Error: \(error)")
         }
     }
-    
+
     
     
     
@@ -221,7 +203,7 @@ struct SignUpView: View {
                             errorMessage = "Please fill in all the fields."
                         } else if await isUsernameAvailable() {
                             await createUser()
-                            showVerificationView = true
+                            showVerificationView = true // Set to true after user creation
                         } else {
                             errorMessage = "Username or Email is already taken."
                         }
