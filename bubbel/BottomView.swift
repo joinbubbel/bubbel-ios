@@ -33,7 +33,7 @@ struct BottomView: View {
             Message()
                 .badge(5)
                 .tabItem {
-                    Image("Messages")
+                    Image("Message")
                         .renderingMode(.template)
                         .foregroundColor(.blue)
                 }
