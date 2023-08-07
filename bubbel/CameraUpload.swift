@@ -14,7 +14,7 @@ struct CameraUpload: View {
         VStack{
             HStack(spacing: 240){
                 Text("Post")
-                    .padding(.top, 5)
+                    .padding(.top, 10)
                     .padding(.bottom, 5)
                     .padding(.leading, 15)
                     .padding(.trailing, 15)
