@@ -11,7 +11,7 @@ import SwiftUI
 struct Setting: View {
     @State private var showingAlert = false
     @State private var logoutConfirmationMessage = ""
-
+    @State private var navigateToLoginView = false
     var username: String
     var body: some View {
         VStack() {
@@ -102,7 +102,11 @@ struct Setting: View {
                             .foregroundColor(Color(red: 1, green: 0, blue: 0))
                     }
                     .confirmationDialog("", isPresented: $showingAlert){
-                        Button("Log Out") {}
+                        NavigationLink(destination: LoginView()) {
+                            Button("Log Out") {
+                                navigateToLoginView = true
+                            }
+                        }
                            Button("Cancel", role: .cancel) { }
                     } message: {
                         Text(logoutConfirmationMessage)
