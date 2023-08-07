@@ -72,7 +72,7 @@ struct OnboardingView: View {
                     ArrowView()
                 }
                 
-            }
+            }   
             
             Spacer()
                 .navigationBarHidden(true)
