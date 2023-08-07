@@ -65,6 +65,7 @@ struct OnboardingView: View {
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+            
             HStack {
                 
                 if currentPageIndex == 3 {
