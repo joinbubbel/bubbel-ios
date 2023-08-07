@@ -15,7 +15,7 @@ struct HomeView: View {
     var username: String
     
     @State private var clubs: [Club] = [
-        Club(name: "Urmom Club"),
+        Club(name: "Test Club"),
     ]
     
     
