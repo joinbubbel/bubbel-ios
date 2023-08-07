@@ -79,7 +79,6 @@ struct SignUpView: View {
     
     
     var body: some View {
-        NavigationView{
             VStack{
                 Text("")
                     .padding(60)
@@ -270,7 +269,7 @@ struct SignUpView: View {
             
         }
     }
-}
+
 
 
 struct SignUpView_Previews: PreviewProvider {

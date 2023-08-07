@@ -3637,6 +3637,7 @@ func bubbelApiSendVerify(req: InSendVerify) async throws -> ResSendVerify {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let result = try decoder.decode(ResSendVerify.self, from: data)
             return result
+            print(json)
         }
 func bubbelApiSetUserProfile(req: InSetUserProfile) async throws -> ResSetUserProfile {
             let json = try req.jsonData()

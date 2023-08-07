@@ -118,6 +118,8 @@ struct Setting: View {
             }
             Spacer()
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
         .padding(.top, 100)
         .edgesIgnoringSafeArea(.all)
     }
