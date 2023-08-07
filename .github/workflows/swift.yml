@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -15,4 +18,4 @@ jobs:
 
       - name: Build and Test
         run: |
-         xcodebuild clean test -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 13" | xcpretty
+          xcodebuild clean test -scheme bubbel -destination "platform=iOS Simulator,name=iPhone 13" | xcpretty
