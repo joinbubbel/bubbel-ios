@@ -30,105 +30,126 @@ struct ImageUpload: View {
     @State private var PostVideoPlayer: AVPlayer?
     @State private var sliderValue: Float = 0.0
     var body: some View {
-        VStack {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 329, height: 100)
-                    .background(Color(red: 0.89, green: 0.95, blue: 1))
-                    .cornerRadius(15)
-                HStack {
-                    if PostImage != nil {
-                        PostImage?
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 329, height: 411.25)
-                            .clipped()
-                            .cornerRadius(15)
-                            .onTapGesture {
-                                // tapping
-                            }
-                    } else if let player = PostVideoPlayer {
-                        VStack{
-                            VideoPlayer(player: player)
-                                .onAppear() {
-                                    player.play()
-                                }
-                                .disabled(true)
+            VStack {
+                VStack{
+                    NavigationLink(destination: BottomView(username: "John Doe")){
+                        HStack(){
+                            Image("nav")
+                            Text("Post")
+                                .font(Font.custom("CircularStd-Book", size: 18))
+                                .foregroundColor(Color(red: 0.2, green: 0.22, blue: 0.25))
+                            
+                        }
+                    }
+                    .padding(.trailing, 260)
+                    .frame(width: 375, height: 60)
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 375, height: 2)
+                        .background(Color(red: 0.95, green: 0.95, blue: 0.95))
+                }
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 329, height: 100)
+                        .background(Color(red: 0.89, green: 0.95, blue: 1))
+                        .cornerRadius(15)
+                    HStack {
+                        if PostImage != nil {
+                            PostImage?
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: 329, height: 411.25)
+                                .clipped()
                                 .cornerRadius(15)
                                 .onTapGesture {
                                     // tapping
                                 }
-                            HStack{
-                                Controls(player: $PostVideoPlayer)
-                                Slider(value: $sliderValue, in: 0...1, step: 0.01)
-                                    .padding(.horizontal, 20)
-                                    .accentColor(Color(red: 0, green: 0.34, blue: 1))
-                                    .foregroundColor(Color.red)
-                                    .onChange(of: sliderValue) { newValue in
-                                        if let player = PostVideoPlayer {
-                                            let newTime = Double(newValue) * player.currentItem!.duration.seconds
-                                            player.seek(to: CMTime(seconds: newTime, preferredTimescale: 1))
-                                        }
+                        } else if let player = PostVideoPlayer {
+                            VStack{
+                                VideoPlayer(player: player)
+                                    .onAppear() {
+                                        player.play()
                                     }
+                                    .disabled(true)
+                                    .frame(width: 329, height: 411.25)
+                                    .cornerRadius(15)
+                                    .onTapGesture {
+                                        // tapping
+                                    }
+                                HStack{
+                                    Controls(player: $PostVideoPlayer)
+                                    Slider(value: $sliderValue, in: 0...1, step: 0.01)
+                                        .padding(.horizontal, 20)
+                                        .accentColor(Color(red: 0, green: 0.34, blue: 1))
+                                        .foregroundColor(Color.red)
+                                        .onChange(of: sliderValue) { newValue in
+                                            if let player = PostVideoPlayer {
+                                                let newTime = Double(newValue) * player.currentItem!.duration.seconds
+                                                player.seek(to: CMTime(seconds: newTime, preferredTimescale: 1))
+                                            }
+                                        }
+                                }
+                            }
+                        } else {
+                            Image("attach")
+                            PhotosPicker("Attach a file", selection: $PostItem, matching: .any(of: [.images, .videos]))
+                                .font(Font.custom("CircularStd-Book", size: 18))
+                                .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
+                        }
+                    }
+                    
+                    .onChange(of: PostItem) { _ in
+                        Task {
+                            if let data = try? await PostItem?.loadTransferable(type: Data.self) {
+                                if let uiImage = UIImage(data: data) {
+                                    PostImage = Image(uiImage: uiImage)
+                                } else if let videoURL = saveDataAsTemporaryFile(data: data) {
+                                    let avPlayerItem = AVPlayerItem(url: videoURL)
+                                    PostVideoPlayer = AVPlayer(playerItem: avPlayerItem)
+                                } else {
+                                    print("Failed to load media")
+                                }
                             }
                         }
-                    } else {
-                        Image("attach")
-                        PhotosPicker("Attach a file", selection: $PostItem, matching: .any(of: [.images, .videos]))
-                            .font(Font.custom("CircularStd-Book", size: 18))
-                            .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
                     }
                 }
                 
-                .onChange(of: PostItem) { _ in
-                    Task {
-                        if let data = try? await PostItem?.loadTransferable(type: Data.self) {
-                            if let uiImage = UIImage(data: data) {
-                                PostImage = Image(uiImage: uiImage)
-                            } else if let videoURL = saveDataAsTemporaryFile(data: data) {
-                                let avPlayerItem = AVPlayerItem(url: videoURL)
-                                PostVideoPlayer = AVPlayer(playerItem: avPlayerItem)
-                            } else {
-                                print("Failed to load media")
-                            }
-                        }
-                    }
+                .padding(.top, 70)
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 375, height: 1)
+                    .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                    .padding(.top, 30)
+                VStack{
+                    TextField("Write somethig about the post...", text:$posttext, axis: .vertical)
+                        .frame(width: 329, height: 70)
                 }
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 375, height: 1)
+                    .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                    .padding(.top, 40)
+                
+                VStack{
+                    
+                    Toggle("Users can comment", isOn: $comments)
+                        .font(Font.custom("CircularStd-Book", size: 16))
+                        .frame(width: 329, height: 40)
+                        .toggleStyle(SwitchToggleStyle(tint: .blue))
+                    
+                    
             }
             
-            .padding(.top, 70)
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(width: 375, height: 1)
-                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                .padding(.top, 30)
-            VStack{
-                TextField("Write somethig about the post...", text:$posttext, axis: .vertical)
-                    .frame(width: 329, height: 80)
-            }
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(width: 375, height: 1)
-                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                .padding(.top, 40)
-            
-            VStack{
-                
-                Toggle("Users can comment", isOn: $comments)
-                    .font(Font.custom("CircularStd-Book", size: 16))
-                    .frame(width: 329, height: 40)
-                    .toggleStyle(SwitchToggleStyle(tint: .blue))
-                
-                
-            }
             .padding(.top, 20)
             
             Spacer()
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
+
 
 struct Controls: View {
     @Binding var player: AVPlayer?
@@ -158,6 +179,7 @@ struct Controls: View {
         .background(Color.white.opacity(0.8))
     }
 }
+
 
 
 struct ImageUpload_Previews: PreviewProvider {
