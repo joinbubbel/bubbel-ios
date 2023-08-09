@@ -26,7 +26,9 @@ struct HomeView: View {
                     .font(Font.custom("CircularStd-Book", size: 18))
                     .padding(.top, -5)
                     .padding(.trailing, 220)
-                Image("Discover")
+                NavigationLink(destination: Explore()){
+                    Image("Discover")
+                }
                     .padding(.top, -5)
                 Image("Noti")
                     .padding(.top, -5)

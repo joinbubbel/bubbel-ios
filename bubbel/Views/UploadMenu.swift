@@ -29,7 +29,9 @@ struct UploadMenu: View {
                                 NavigationLink(destination: CameraUpload(username: username)){
                                     Image("cam")
                                     }
-                                Image("imge")
+                                NavigationLink(destination: ImageUpload()){
+                                    Image("imge")
+                                }
                                 Image("poll")
                                 Image("file")
                                 Image("text")
