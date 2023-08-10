@@ -12,7 +12,22 @@ struct Explore: View {
     var body: some View {
         NavigationView{
             VStack{
-                
+                VStack{
+                    NavigationLink(destination: BottomView(username: "John Doe")){
+                        HStack(spacing: 220) {
+                            HStack{
+                                Image("nav")
+                                Text("Explore")
+                                    .font(Font.custom("CircularStd-Book", size: 18))
+                                    .foregroundColor(Color(red: 0.2, green: 0.22, blue: 0.25))
+                            }
+                            Image("Noti")
+                        }
+                    }
+                    .padding(.top, 30)
+                    
+                    
+                }
                 ZStack{
                     Rectangle()
                         .foregroundColor(.clear)
@@ -31,6 +46,8 @@ struct Explore: View {
                 Spacer()
             }
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
