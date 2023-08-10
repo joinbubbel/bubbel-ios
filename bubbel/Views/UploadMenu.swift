@@ -28,13 +28,16 @@ struct UploadMenu: View {
                             HStack{
                                 NavigationLink(destination: CameraUpload(username: username)){
                                     Image("cam")
-                                    }
+                                }
                                 NavigationLink(destination: ImageUpload()){
                                     Image("imge")
                                 }
-                                Image("poll")
-                                Image("file")
-                                Image("text")
+                                NavigationLink(destination: PollsUpload()){
+                                    Image("poll")
+                                }
+                                NavigationLink(destination: TextUpload()){
+                                    Image("text")
+                                }
                             }
                             Spacer()
                         }

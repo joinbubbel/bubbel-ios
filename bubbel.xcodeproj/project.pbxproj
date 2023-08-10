@@ -13,6 +13,8 @@
 		D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034A2A51F0090051B1DC /* Onboard1.swift */; };
 		D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034C2A51F01E0051B1DC /* Onboard2.swift */; };
 		D292BAEF2A62CC2600D10A98 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292BAEE2A62CC2600D10A98 /* Backend.swift */; };
+		D2A7F3292A843D0B005A5761 /* TextUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7F3282A843D0B005A5761 /* TextUpload.swift */; };
+		D2A7F32B2A844A23005A5761 /* PollsUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7F32A2A844A23005A5761 /* PollsUpload.swift */; };
 		D2BCB5C52A83CCDF00154AF1 /* Explore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCB5C42A83CCDF00154AF1 /* Explore.swift */; };
 		D2BCB5C82A83D42700154AF1 /* ImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCB5C72A83D42700154AF1 /* ImageUpload.swift */; };
 		D2C64B0F2A5D0DE400A15989 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C64B0E2A5D0DE400A15989 /* BottomView.swift */; };
@@ -70,6 +72,8 @@
 		D292034A2A51F0090051B1DC /* Onboard1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard1.swift; sourceTree = "<group>"; };
 		D292034C2A51F01E0051B1DC /* Onboard2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard2.swift; sourceTree = "<group>"; };
 		D292BAEE2A62CC2600D10A98 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
+		D2A7F3282A843D0B005A5761 /* TextUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUpload.swift; sourceTree = "<group>"; };
+		D2A7F32A2A844A23005A5761 /* PollsUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsUpload.swift; sourceTree = "<group>"; };
 		D2BCB5C42A83CCDF00154AF1 /* Explore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore.swift; sourceTree = "<group>"; };
 		D2BCB5C72A83D42700154AF1 /* ImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUpload.swift; sourceTree = "<group>"; };
 		D2C64B0E2A5D0DE400A15989 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				D206E5782A5B80A90040E62A /* HomeView.swift */,
 				D2FCBDAC2A7C9D4300FDFA18 /* CameraUpload.swift */,
 				D2BCB5C72A83D42700154AF1 /* ImageUpload.swift */,
+				D2A7F3282A843D0B005A5761 /* TextUpload.swift */,
+				D2A7F32A2A844A23005A5761 /* PollsUpload.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				D2DC1F352A5EF2D300D5D254 /* ForgetPassUser.swift in Sources */,
 				D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */,
 				D2FCBDAD2A7C9D4300FDFA18 /* CameraUpload.swift in Sources */,
+				D2A7F32B2A844A23005A5761 /* PollsUpload.swift in Sources */,
 				D292BAEF2A62CC2600D10A98 /* Backend.swift in Sources */,
 				D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */,
 				D2BCB5C82A83D42700154AF1 /* ImageUpload.swift in Sources */,
@@ -424,6 +431,7 @@
 				D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */,
 				D2DC1F372A5F078400D5D254 /* ResVerification.swift in Sources */,
 				D2DC0BE72A506C1700AF9F68 /* SIgnUpView.swift in Sources */,
+				D2A7F3292A843D0B005A5761 /* TextUpload.swift in Sources */,
 				D2E9471B2A6B100C00249AB1 /* Setting.swift in Sources */,
 				D206E5792A5B80A90040E62A /* HomeView.swift in Sources */,
 				D2E9471D2A6B2F0F00249AB1 /* EditProfile.swift in Sources */,
