@@ -18,7 +18,7 @@ struct Setting: View {
             NavigationLink(destination: Profile(username: "John Doe")){
                 HStack(){
                     Image("nav")
-                    Text("Edit Profile")
+                    Text("Setting")
                         .font(Font.custom("CircularStd-Book", size: 18))
                         .foregroundColor(Color(red: 0.2, green: 0.22, blue: 0.25))
                     
