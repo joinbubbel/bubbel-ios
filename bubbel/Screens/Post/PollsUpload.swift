@@ -52,7 +52,7 @@ struct PollsUpload: View {
                         NavigationLink(destination: BottomView(username: "John Doe")) {
                             HStack {
                                 Image("nav")
-                                Text("Post")
+                                Text("Polls")
                                     .font(Font.custom("CircularStd-Book", size: 18))
                                     .foregroundColor(Color(red: 0.2, green: 0.22, blue: 0.25))
                             }
