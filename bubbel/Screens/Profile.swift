@@ -19,14 +19,19 @@ struct Profile: View {
         NavigationView{
             VStack{
                 HStack{
-                    Text("Profile")
-                        .font(Font.custom("CircularStd-Book", size: 18))
-                        .padding(.top, -5)
-                        .padding(.trailing, 220)
+                    HStack(spacing: 245) {
+                        Text("Profile")
+                            .font(Font.custom("CircularStd-Book", size: 18))
+                            .foregroundColor(Color(red: 0.2, green: 0.22, blue: 0.25))
+                  
                     NavigationLink(destination: Setting(username: username)){
                         Image("setting")
-                            .padding(.top, -5)
                     }
+                    }
+                
+            
+            .padding(.top, 30)
+            
                     
                 }
                 .padding(.top, 30)
@@ -71,6 +76,7 @@ struct Profile: View {
                             .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
                     )
                 }
+                .padding(.top, -20)
                 .scrollContentBackground(.hidden)
                 .pickerStyle(.menu)
                 VStack{
@@ -78,7 +84,7 @@ struct Profile: View {
                         .font(Font.custom("CircularStd-Book", size: 18))
                         .foregroundColor(Color(red: 0.32, green: 0.38, blue: 0.5))
                 }
-                .padding(.top, -430)
+                .padding(.top, -420)
                 .padding(.trailing, 230)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20){
@@ -126,10 +132,12 @@ struct Profile: View {
                     .padding(.bottom, 5)
                     .padding(.leading, 35)
                 }
-                .padding(.top, -400)
+                .padding(.top, -390)
                 Spacer()
             }
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
         
     }
 }
