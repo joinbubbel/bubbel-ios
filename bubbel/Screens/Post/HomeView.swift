@@ -9,16 +9,19 @@ import SwiftUI
 
 struct Club {
     var name: String
+    var id: Int
 }
 
 struct HomeView: View {
     var username: String
     
+    @State private var token: String?
+    
     @State private var clubName: String = ""
-
+    
     
     func fetchClubName() {
-        let inGetClubProfile = InGetClubProfile(clubID: 1 , token: "QmlpJeFeQv4yfrVMsLe8VGj052qWRPlJ")
+        let inGetClubProfile = InGetClubProfile(clubID: 1 , token: token)
         
         Task {
             do {
@@ -51,30 +54,34 @@ struct HomeView: View {
             }
             .padding(.top, 30)
             
-            VStack{
-                
-                ZStack{
-                    VStack(alignment: .leading) {
-                        Text(clubName)
-                    }
-                    .padding(.trailing, 200)
-                    VStack{
-                        Button(action: {
-                            print("Button clicked!")
-                            
-                        })
-                        {
-                            Text("Join")
-                                .font(Font.custom("CircularStd-Book", size: 16))
-                                .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
-                        }
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 10)
-                        .background(Color(red: 0.9, green: 0.95, blue: 1))
-                        .cornerRadius(49)
-                        .padding(.leading, 230)
-                    }
+            
+            NavigationLink(destination: ClubProfile(clubName: clubName, username: username)){
+                VStack{
                     
+                    ZStack{
+                        VStack(alignment: .leading) {
+                            Text(clubName)
+                                .font(Font.custom("CircularStd-Book", size: 18))
+                                .foregroundColor(.black)
+                        }
+                        .padding(.trailing, 200)
+                        VStack{
+                            Button(action: {
+                                print("Button clicked!")
+                                
+                            })
+                            {
+                                Text("Join")
+                                    .font(Font.custom("CircularStd-Book", size: 16))
+                                    .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
+                            }
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 10)
+                            .background(Color(red: 0.9, green: 0.95, blue: 1))
+                            .cornerRadius(49)
+                            .padding(.leading, 230)
+                        }
+                    }
                     
                     
                     Rectangle()
