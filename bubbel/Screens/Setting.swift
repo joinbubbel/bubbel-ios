@@ -15,7 +15,7 @@ struct Setting: View {
     var username: String
     var body: some View {
         VStack{
-            NavigationLink(destination: Profile(username: "John Doe")){
+            NavigationLink(destination: Profile(username: username)){
                 HStack(){
                     Image("nav")
                     Text("Setting")

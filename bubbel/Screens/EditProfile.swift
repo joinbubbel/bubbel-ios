@@ -18,7 +18,7 @@ struct EditProfile: View {
     var body: some View {
         VStack{
             VStack{
-                NavigationLink(destination: Setting(username: "John Doe")){
+                NavigationLink(destination: Setting(username: username)){
                     HStack(){
                         Image("nav")
                         Text("Edit Profile")
