@@ -13,6 +13,8 @@
 		D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034A2A51F0090051B1DC /* Onboard1.swift */; };
 		D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034C2A51F01E0051B1DC /* Onboard2.swift */; };
 		D292BAEF2A62CC2600D10A98 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292BAEE2A62CC2600D10A98 /* Backend.swift */; };
+		D2A3AC7C2A85D7C200254941 /* CreateClub.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A3AC7B2A85D7C200254941 /* CreateClub.swift */; };
+		D2A3AC7E2A85D7CE00254941 /* ClubProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A3AC7D2A85D7CE00254941 /* ClubProfile.swift */; };
 		D2A7F3292A843D0B005A5761 /* TextUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7F3282A843D0B005A5761 /* TextUpload.swift */; };
 		D2A7F32B2A844A23005A5761 /* PollsUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7F32A2A844A23005A5761 /* PollsUpload.swift */; };
 		D2BCB5C52A83CCDF00154AF1 /* Explore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCB5C42A83CCDF00154AF1 /* Explore.swift */; };
@@ -72,6 +74,8 @@
 		D292034A2A51F0090051B1DC /* Onboard1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard1.swift; sourceTree = "<group>"; };
 		D292034C2A51F01E0051B1DC /* Onboard2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard2.swift; sourceTree = "<group>"; };
 		D292BAEE2A62CC2600D10A98 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
+		D2A3AC7B2A85D7C200254941 /* CreateClub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClub.swift; sourceTree = "<group>"; };
+		D2A3AC7D2A85D7CE00254941 /* ClubProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubProfile.swift; sourceTree = "<group>"; };
 		D2A7F3282A843D0B005A5761 /* TextUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUpload.swift; sourceTree = "<group>"; };
 		D2A7F32A2A844A23005A5761 /* PollsUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsUpload.swift; sourceTree = "<group>"; };
 		D2BCB5C42A83CCDF00154AF1 /* Explore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explore.swift; sourceTree = "<group>"; };
@@ -158,6 +162,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D2A3AC7A2A85D7A200254941 /* Club */ = {
+			isa = PBXGroup;
+			children = (
+				D2A3AC7B2A85D7C200254941 /* CreateClub.swift */,
+				D2A3AC7D2A85D7CE00254941 /* ClubProfile.swift */,
+			);
+			path = Club;
+			sourceTree = "<group>";
+		};
 		D2BCB5C62A83D34700154AF1 /* Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +195,7 @@
 		D2C64B102A5D0F5000A15989 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D2A3AC7A2A85D7A200254941 /* Club */,
 				D2EFA28C2A5321D400C29566 /* SplashScreenView.swift */,
 				D2DCB2D62A4F8C1000A4F0F7 /* LoginView.swift */,
 				D29203492A51ECC10051B1DC /* Onboarding */,
@@ -423,6 +437,7 @@
 				D2DC1F352A5EF2D300D5D254 /* ForgetPassUser.swift in Sources */,
 				D2DCB2D52A4F8C1000A4F0F7 /* bubbelApp.swift in Sources */,
 				D2FCBDAD2A7C9D4300FDFA18 /* CameraUpload.swift in Sources */,
+				D2A3AC7C2A85D7C200254941 /* CreateClub.swift in Sources */,
 				D2A7F32B2A844A23005A5761 /* PollsUpload.swift in Sources */,
 				D292BAEF2A62CC2600D10A98 /* Backend.swift in Sources */,
 				D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */,
@@ -440,6 +455,7 @@
 				D29203482A51E4020051B1DC /* VerificationView.swift in Sources */,
 				D2EFA28D2A5321D400C29566 /* SplashScreenView.swift in Sources */,
 				D292034D2A51F01E0051B1DC /* Onboard2.swift in Sources */,
+				D2A3AC7E2A85D7CE00254941 /* ClubProfile.swift in Sources */,
 				D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */,
 				D2371EB92A7D541400E4700F /* UploadMenu.swift in Sources */,
 				D2C64B122A5D0F8B00A15989 /* Clubs.swift in Sources */,
