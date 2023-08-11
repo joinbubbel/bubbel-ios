@@ -78,17 +78,21 @@ struct Connections: View {
                         }
                         TextField("Enter URL", text: $link, onEditingChanged: { editing in
                             if !editing && !link.lowercased().hasPrefix("https://") {
-                                link = "https://" + link.lowercased()
+                                link = "https://" + link
                             }
                         })
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                        .disableAutocorrection(true)
                         .onChange(of: link) { newValue in
                             if !link.lowercased().hasPrefix("https://") {
-                                link = "https://" + link.lowercased()
+                                link = "https://" + link
                             }
                             fetchFavicon()
+                        }
+                        .onAppear {
+                            if !link.lowercased().hasPrefix("https://") {
+                                link = "https://"
+                            }
                         }
                     }
                     .padding(.leading, 10)
