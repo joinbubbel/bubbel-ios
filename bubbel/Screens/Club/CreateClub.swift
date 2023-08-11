@@ -58,7 +58,7 @@ struct CreateClub: View {
                     }
                     .padding(.leading, 50)
                 }
-                .padding(.top, -250)
+                .padding(.top, -240)
                 
                 Form {
                     Section {
@@ -80,7 +80,7 @@ struct CreateClub: View {
                             .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
                     )
                 }
-                .padding(.top, -230)
+                .padding(.top, -220)
                 .scrollContentBackground(.hidden)
                 .pickerStyle(.menu)
                 
@@ -105,9 +105,11 @@ struct CreateClub: View {
                 .padding(.top, -240)
                 
                 VStack{
+                  
                     Button(action: {
                         
                     }){
+                        NavigationLink(destination: Connections()){
                         ZStack{
                             
                             Rectangle()
@@ -123,10 +125,11 @@ struct CreateClub: View {
                                 Image("clubright")
                             }
                         }
+                        }
                     }
                     
                 }
-                .padding(.top, -100)
+                .padding(.top, -80)
                 Spacer()
             }
         }

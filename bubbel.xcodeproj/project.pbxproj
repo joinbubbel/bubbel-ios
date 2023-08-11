@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D206E5792A5B80A90040E62A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206E5782A5B80A90040E62A /* HomeView.swift */; };
+		D230A6C02A868EFD00303039 /* Connections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230A6BF2A868EFD00303039 /* Connections.swift */; };
 		D2371EB92A7D541400E4700F /* UploadMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2371EB82A7D541400E4700F /* UploadMenu.swift */; };
 		D29203482A51E4020051B1DC /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29203472A51E4020051B1DC /* VerificationView.swift */; };
 		D292034B2A51F0090051B1DC /* Onboard1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D292034A2A51F0090051B1DC /* Onboard1.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		D206E5782A5B80A90040E62A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D230A6BF2A868EFD00303039 /* Connections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connections.swift; sourceTree = "<group>"; };
 		D2371EB82A7D541400E4700F /* UploadMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadMenu.swift; sourceTree = "<group>"; };
 		D29203472A51E4020051B1DC /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		D292034A2A51F0090051B1DC /* Onboard1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard1.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				D2A3AC7B2A85D7C200254941 /* CreateClub.swift */,
 				D2A3AC7D2A85D7CE00254941 /* ClubProfile.swift */,
+				D230A6BF2A868EFD00303039 /* Connections.swift */,
 			);
 			path = Club;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				D2FCBDAD2A7C9D4300FDFA18 /* CameraUpload.swift in Sources */,
 				D2A3AC7C2A85D7C200254941 /* CreateClub.swift in Sources */,
 				D2A7F32B2A844A23005A5761 /* PollsUpload.swift in Sources */,
+				D230A6C02A868EFD00303039 /* Connections.swift in Sources */,
 				D292BAEF2A62CC2600D10A98 /* Backend.swift in Sources */,
 				D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */,
 				D2BCB5C82A83D42700154AF1 /* ImageUpload.swift in Sources */,
