@@ -122,20 +122,21 @@ struct Connections: View {
                 Button(action: {
                     
                 }){
-                    
-                    ZStack{
-                        
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 309, height: 60)
-                            .background(Color(red: 0, green: 0.34, blue: 1))
-                            .cornerRadius(10)
-                            .shadow(color: Color(red: 0, green: 0.34, blue: 1).opacity(0.35), radius: 20, x: 0, y: 20)
-                        HStack(spacing: 170){
-                            Text("Continue")
-                                .font(Font.custom("CircularStd-Book", size: 16))
-                                .foregroundColor(.white)
-                            Image("clubright")
+                    NavigationLink(destination: InviteMem()){
+                        ZStack{
+                            
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .frame(width: 309, height: 60)
+                                .background(Color(red: 0, green: 0.34, blue: 1))
+                                .cornerRadius(10)
+                                .shadow(color: Color(red: 0, green: 0.34, blue: 1).opacity(0.35), radius: 20, x: 0, y: 20)
+                            HStack(spacing: 170){
+                                Text("Continue")
+                                    .font(Font.custom("CircularStd-Book", size: 16))
+                                    .foregroundColor(.white)
+                                Image("clubright")
+                            }
                         }
                     }
                 }

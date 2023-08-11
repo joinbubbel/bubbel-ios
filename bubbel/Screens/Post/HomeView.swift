@@ -14,9 +14,24 @@ struct Club {
 struct HomeView: View {
     var username: String
     
-    @State private var clubs: [Club] = [
-        Club(name: "Test Club"),
-    ]
+    @State private var clubName: String = ""
+
+    
+    func fetchClubName() {
+        let inGetClubProfile = InGetClubProfile(clubID: 1 , token: "QmlpJeFeQv4yfrVMsLe8VGj052qWRPlJ")
+        
+        Task {
+            do {
+                let result = try await bubbelApiGetClubProfile(req: inGetClubProfile)
+                if let clubProfile = result.res {
+                    clubName = clubProfile.name
+                }
+            } catch {
+                print("Error fetching club profile: \(error)")
+            }
+        }
+    }
+    
     
     
     var body: some View {
@@ -29,7 +44,7 @@ struct HomeView: View {
                 NavigationLink(destination: Explore()){
                     Image("Discover")
                 }
-                    .padding(.top, -5)
+                .padding(.top, -5)
                 Image("Noti")
                     .padding(.top, -5)
                 
@@ -37,31 +52,31 @@ struct HomeView: View {
             .padding(.top, 30)
             
             VStack{
-                ForEach(clubs, id: \.name) { club in
-                    ZStack{
-                        VStack(alignment: .leading) {
-                            Text(club.name)
-                        }
-                        .padding(.trailing, 200)
-                        VStack{
-                            Button(action: {
-                                print("Button clicked!")
-                                
-                            })
-                            {
-                                Text("Join")
-                                    .font(Font.custom("CircularStd-Book", size: 16))
-                                    .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
-                            }
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 10)
-                            .background(Color(red: 0.9, green: 0.95, blue: 1))
-                            .cornerRadius(49)
-                            .padding(.leading, 230)
-                        }
-                        
-                        
+                
+                ZStack{
+                    VStack(alignment: .leading) {
+                        Text(clubName)
                     }
+                    .padding(.trailing, 200)
+                    VStack{
+                        Button(action: {
+                            print("Button clicked!")
+                            
+                        })
+                        {
+                            Text("Join")
+                                .font(Font.custom("CircularStd-Book", size: 16))
+                                .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
+                        }
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 10)
+                        .background(Color(red: 0.9, green: 0.95, blue: 1))
+                        .cornerRadius(49)
+                        .padding(.leading, 230)
+                    }
+                    
+                    
+                    
                     Rectangle()
                         .foregroundColor(.clear)
                         .frame(width: 375, height: 1)
@@ -74,7 +89,7 @@ struct HomeView: View {
                                 center: UnitPoint(x: 0.5, y: 0.5)
                             )
                         )
-                        .padding(.top, -20)
+                        .padding(.top, 60)
                 }
                 .padding(.top, 40)
             }
@@ -83,6 +98,9 @@ struct HomeView: View {
                 .edgesIgnoringSafeArea(.all)
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+        }
+        .onAppear {
+            fetchClubName()
         }
     }
     
