@@ -44,16 +44,19 @@ struct SignUpView: View {
     
     
     func createUser() async {
+        print("cheese2")
         do {
             let createUserRequest = InCreateUser(email: email, password: password, username: username)
             let createUserResponse = try await bubbelApiCreateUser(req: createUserRequest)
 
             if let error = createUserResponse.error {
-               
+               print("cheese3")
+                print(error)
             } else {
                 if let userID = createUserResponse.res?.userID {
                     self.userID = userID
                     // Send verification email here
+                    print("cheese4")
                     let sendVerifyRequest = InSendVerify(userID: userID)
                     let sendVerifyResponse = try await bubbelApiSendVerify(req: sendVerifyRequest)
                     if let error = sendVerifyResponse.error {
