@@ -76,7 +76,7 @@ struct Connections: View {
                 Button(action: {
                     
                 }){
-                    NavigationLink(destination: Connections()){
+                    
                         ZStack{
                             
                             Rectangle()
@@ -93,11 +93,12 @@ struct Connections: View {
                             }
                         }
                     }
-                }
+                
                 
             }
             .padding(.top,-100)
         }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }

@@ -133,6 +133,7 @@ struct CreateClub: View {
                 Spacer()
             }
         }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
