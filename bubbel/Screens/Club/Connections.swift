@@ -9,6 +9,25 @@ import SwiftUI
 
 struct Connections: View {
     @State private var link: String = ""
+    @State private var faviconImage: Image? = nil
+    
+    private func fetchFavicon() {
+        if let url = URL(string: link),
+           let faviconURL = URL(string: "\(url.scheme ?? "https")://\(url.host ?? "")/favicon.ico") {
+            
+            let task = URLSession.shared.dataTask(with: faviconURL) { data, response, error in
+                if let data = data, let uiImage = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.faviconImage = Image(uiImage: uiImage)
+                    }
+                } else {
+                    print("Error fetching favicon: \(error?.localizedDescription ?? "Unknown error")")
+                }
+            }
+            
+            task.resume()
+        }
+    }
     var body: some View {
         VStack{
             NavigationLink(destination: CreateClub()){
@@ -46,8 +65,31 @@ struct Connections: View {
                                 .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
                         )
                     HStack{
-                        Image("globe")
-                        TextField("Enter URL", text:$link)
+                        if let faviconImage = faviconImage {
+                            faviconImage
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .cornerRadius(4)
+                        } else {
+                            Image("globe")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .cornerRadius(4)
+                        }
+                        TextField("Enter URL", text: $link, onEditingChanged: { editing in
+                            if !editing && !link.lowercased().hasPrefix("https://") {
+                                link = "https://" + link.lowercased()
+                            }
+                        })
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .disableAutocorrection(true)
+                        .onChange(of: link) { newValue in
+                            if !link.lowercased().hasPrefix("https://") {
+                                link = "https://" + link.lowercased()
+                            }
+                            fetchFavicon()
+                        }
                     }
                     .padding(.leading, 10)
                     .frame(width: 259, height: 60)
@@ -77,22 +119,22 @@ struct Connections: View {
                     
                 }){
                     
-                        ZStack{
-                            
-                            Rectangle()
-                                .foregroundColor(.clear)
-                                .frame(width: 309, height: 60)
-                                .background(Color(red: 0, green: 0.34, blue: 1))
-                                .cornerRadius(10)
-                                .shadow(color: Color(red: 0, green: 0.34, blue: 1).opacity(0.35), radius: 20, x: 0, y: 20)
-                            HStack(spacing: 170){
-                                Text("Continue")
-                                    .font(Font.custom("CircularStd-Book", size: 16))
-                                    .foregroundColor(.white)
-                                Image("clubright")
-                            }
+                    ZStack{
+                        
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 309, height: 60)
+                            .background(Color(red: 0, green: 0.34, blue: 1))
+                            .cornerRadius(10)
+                            .shadow(color: Color(red: 0, green: 0.34, blue: 1).opacity(0.35), radius: 20, x: 0, y: 20)
+                        HStack(spacing: 170){
+                            Text("Continue")
+                                .font(Font.custom("CircularStd-Book", size: 16))
+                                .foregroundColor(.white)
+                            Image("clubright")
                         }
                     }
+                }
                 
                 
             }
