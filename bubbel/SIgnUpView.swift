@@ -234,7 +234,7 @@ struct SignUpView: View {
                 
                 
                 NavigationLink(
-                    destination: VerificationView(),
+                    destination: VerificationView(username: username),
                     isActive: $showVerificationView,
                     label: {
                         EmptyView()
@@ -242,12 +242,13 @@ struct SignUpView: View {
                 )
                 
                 
-                VStack{
-                    Text("Log In")
-                        .foregroundColor(.blue)
-                        .font(Font.custom("CircularStd-Book", size: 16))
+                NavigationLink(destination: LoginView()){
+                    VStack{
+                        Text("Log In")
+                            .foregroundColor(.blue)
+                            .font(Font.custom("CircularStd-Book", size: 16))
+                    }
                 }
-                
                 .padding(.top, 40)
                 
                 Spacer()

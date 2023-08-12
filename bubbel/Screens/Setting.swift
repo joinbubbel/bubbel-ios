@@ -13,6 +13,24 @@ struct Setting: View {
     @State private var logoutConfirmationMessage = ""
     @State private var navigateToLoginView = false
     var username: String
+    
+    @State private var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isLoggedIn")
+    
+    private func setLoginStatus(_ isLoggedIn: Bool) {
+        self.isLoggedIn = isLoggedIn
+        UserDefaults.standard.set(isLoggedIn, forKey: "isLoggedIn")
+    }
+    
+    func logOut() {
+        UserDefaults.standard.removeObject(forKey: "user")
+        
+        isLoggedIn = false
+        setLoginStatus(false)
+        
+        navigateToLoginView = true
+    }
+
+
     var body: some View {
         VStack{
             NavigationLink(destination: Profile(username: username)){
@@ -107,22 +125,27 @@ struct Setting: View {
                     }
                     .padding(.trailing, 140)
                     .padding(.top, 20)
-                    
+                   
                     HStack{
-                        Button(action: {
-                            logoutConfirmationMessage = "Logged in as @\(username)"
-                            showingAlert = true
-                        })
+                      
+                            Button(action: {
+                                logOut()
+                                navigateToLoginView = true
+                                logoutConfirmationMessage = "Logged in as @\(username)"
+                                showingAlert = true
+                            })
+                       
                         {
                             Image("logout")
                             Text("Log Out")
                                 .font(Font.custom("CircularStd-Book", size: 16))
                                 .foregroundColor(Color(red: 1, green: 0, blue: 0))
                         }
+                    
                         .confirmationDialog("", isPresented: $showingAlert){
-                            NavigationLink(destination: LoginView()) {
+                            NavigationLink(destination: LoginView(), isActive: $navigateToLoginView) {
                                 Button("Log Out") {
-                                    navigateToLoginView = true
+                                 
                                 }
                             }
                             Button("Cancel", role: .cancel) { }

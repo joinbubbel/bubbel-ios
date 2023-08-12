@@ -16,6 +16,7 @@ struct VerificationView: View {
     @FocusState private var keyboardFocused: Bool
     @State private var verificationCodeSent = false
     @State private var isVerified = false
+    var username: String
     
     
     func Resend() {
@@ -135,7 +136,7 @@ struct VerificationView: View {
                     }
                 }
                 VStack{
-                    NavigationLink(destination: OnboardingView(), isActive: $isVerified) {
+                    NavigationLink(destination: OnboardingView(username: username), isActive: $isVerified) {
                         EmptyView()
                     }
                     NavigationLink(destination: SignUpView()) {
@@ -166,6 +167,6 @@ struct VerificationView: View {
 
 struct VerificationView_Previews: PreviewProvider {
     static var previews: some View {
-        VerificationView()
+        VerificationView(username: "John Doe")
     }
 }
