@@ -13,6 +13,8 @@ struct Setting: View {
     @State private var logoutConfirmationMessage = ""
     @State private var navigateToLoginView = false
     var username: String
+    var displayName: String
+    var name: String
     
     @State private var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "isLoggedIn")
     
@@ -33,7 +35,7 @@ struct Setting: View {
 
     var body: some View {
         VStack{
-            NavigationLink(destination: Profile(username: username)){
+            NavigationLink(destination: Profile(username: username, displayName: displayName, name: name)){
                 HStack(){
                     Image("nav")
                     Text("Setting")
@@ -64,9 +66,13 @@ struct Setting: View {
                         .padding(.trailing, 240)
                     
                     VStack {
-                        Text("@\(username)")
-                            .font(Font.custom("CircularStd-Book", size: 16))
+                        Text(name)
+                            .font(Font.custom("CircularStd-Book", size: 20))
                             .foregroundColor(.black)
+                    
+                        Text("@\(displayName)")
+                            .font(Font.custom("CircularStd-Book", size: 16))
+                            .foregroundColor(Color(red: 0.5, green: 0.6, blue: 0.7))
                     }
                     .padding(.trailing, 120)
                     
@@ -169,6 +175,6 @@ struct Setting: View {
 
 struct Setting_Previews: PreviewProvider {
     static var previews: some View {
-        Setting(username: "JohnDoe")
+        Setting(username: "JohnDoe", displayName: "John Doe", name: "jonny")
     }
 }

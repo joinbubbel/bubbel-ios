@@ -14,6 +14,8 @@ struct Club {
 
 struct HomeView: View {
     var username: String
+    var displayName: String
+    var name: String
     
     @State private var token: String?
     
@@ -24,9 +26,11 @@ struct HomeView: View {
     @State private var isUserInClub: Bool = false
     
     
-    init(username: String, clubID: Int) {
+    init(username: String, clubID: Int, displayName: String, name: String) {
         self.username = username
         self.clubID = clubID
+        self.displayName = displayName
+        self.name = name
     }
     func fetchClubName() {
         let inGetClubProfile = InGetClubProfile(clubID: clubID , token: token)
@@ -63,7 +67,7 @@ struct HomeView: View {
             .padding(.top, 30)
             
             
-            NavigationLink(destination: ClubProfile(clubName: clubName, username: username)){
+            NavigationLink(destination: ClubProfile(clubName: clubName, username: username, displayName: displayName, name: name)){
                 VStack{
                     
                     ZStack{
@@ -132,6 +136,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(username: "JohnDoe", clubID: 123)
+        HomeView(username: "JohnDoe", clubID: 123, displayName: "John Doe", name: "jonny")
     }
 }

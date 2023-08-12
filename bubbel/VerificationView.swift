@@ -17,6 +17,8 @@ struct VerificationView: View {
     @State private var verificationCodeSent = false
     @State private var isVerified = false
     var username: String
+    var displayName: String
+    var name: String
     
     
     func Resend() {
@@ -136,7 +138,7 @@ struct VerificationView: View {
                     }
                 }
                 VStack{
-                    NavigationLink(destination: OnboardingView(username: username), isActive: $isVerified) {
+                    NavigationLink(destination: OnboardingView(username: username, displayName: displayName, name: name), isActive: $isVerified) {
                         EmptyView()
                     }
                     NavigationLink(destination: SignUpView()) {
@@ -167,6 +169,6 @@ struct VerificationView: View {
 
 struct VerificationView_Previews: PreviewProvider {
     static var previews: some View {
-        VerificationView(username: "John Doe")
+        VerificationView(username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

@@ -10,9 +10,11 @@ import SwiftUI
 struct BottomView: View {
     
     var username: String
+    var displayName: String
+    var name: String
     var body: some View {
         TabView {
-            HomeView(username: username, clubID: 1)
+            HomeView(username: username, clubID: 1, displayName: displayName, name: name)
                 .tabItem {
                     Image("Home")
                         .renderingMode(.template)
@@ -25,7 +27,7 @@ struct BottomView: View {
                         .foregroundColor(.blue)
                 }
             
-        UploadMenu(username: username)
+        UploadMenu(username: username, displayName: displayName, name: name)
             .tabItem {
                 Image("Add")
             }
@@ -37,7 +39,7 @@ struct BottomView: View {
                         .renderingMode(.template)
                         .foregroundColor(.blue)
                 }
-            Profile(username: username)
+            Profile(username: username, displayName: displayName, name: name)
                 .tabItem {
                     Image("Profile")
                 }
@@ -51,6 +53,6 @@ struct BottomView: View {
 
 struct BottomView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomView(username: "JohnDoe")
+        BottomView(username: "JohnDoe", displayName: "John Doe", name: "jonny")
     }
 }

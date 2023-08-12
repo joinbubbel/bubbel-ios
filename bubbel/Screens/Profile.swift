@@ -9,6 +9,9 @@ import SwiftUI
 
 struct Profile: View {
     var username: String
+    var displayName: String
+    var name: String
+
     
     @State private var selection = "Online"
     let status = ["Online", "Do not distub", "Offline"]
@@ -24,7 +27,7 @@ struct Profile: View {
                             .font(Font.custom("CircularStd-Book", size: 18))
                             .foregroundColor(Color(red: 0.2, green: 0.22, blue: 0.25))
                   
-                    NavigationLink(destination: Setting(username: username)){
+                    NavigationLink(destination: Setting(username: username, displayName: displayName, name: name)){
                         Image("setting")
                     }
                     }
@@ -47,11 +50,17 @@ struct Profile: View {
                                 .clipped()
                         )
                         .cornerRadius(67.16276)
-                    
-                    Text("@\(username)")
-                        .font(Font.custom("CircularStd-Book", size: 16))
-                        .foregroundColor(Color(red: 0.5, green: 0.6, blue: 0.7))
+                    VStack{
+                        Text(name)
+                            .font(Font.custom("CircularStd-Book", size: 20))
+                            .foregroundColor(.black)
+                        
+                        Text("@\(displayName)")
+                            .font(Font.custom("CircularStd-Book", size: 16))
+                            .foregroundColor(Color(red: 0.5, green: 0.6, blue: 0.7))
+                    }
                 }
+                
                 .padding(.trailing, 180)
                 .padding(.top, 10)
                 Form {
@@ -144,6 +153,6 @@ struct Profile: View {
 
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
-        Profile(username: "JohnDoe")
+        Profile(username: "JohnDoe", displayName: "John Doe", name: "jonny")
     }
 }

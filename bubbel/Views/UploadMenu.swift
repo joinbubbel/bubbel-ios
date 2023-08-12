@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UploadMenu: View {
     var username: String
+    var displayName: String
+    var name: String
     @State private var offsets = (top: CGFloat.zero, middle: CGFloat.zero, bottom: CGFloat.zero)
     @State private var offset: CGFloat = .zero
     @State private var lastOffset: CGFloat = .zero
@@ -26,7 +28,7 @@ struct UploadMenu: View {
                                 .background(Color(red: 0.87, green: 0.89, blue: 0.94))
                                 .cornerRadius(4)
                             HStack{
-                                NavigationLink(destination: CameraUpload(username: username)){
+                                NavigationLink(destination: CameraUpload(username: username, displayName: displayName, name: name)){
                                     Image("cam")
                                 }
                                 NavigationLink(destination: ImageUpload()){
@@ -70,6 +72,6 @@ struct UploadMenu: View {
 
 struct UploadMenu_Previews: PreviewProvider {
     static var previews: some View {
-        UploadMenu(username: "John Doe")
+        UploadMenu(username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

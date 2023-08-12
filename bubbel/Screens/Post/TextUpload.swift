@@ -16,7 +16,7 @@ struct TextUpload: View {
     @State private var linkRows: [String] = [""]
     var body: some View {
         VStack{
-            NavigationLink(destination: BottomView(username: "John Doe")){
+            NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")){
                 HStack(){
                     Image("nav")
                     Text("Post")

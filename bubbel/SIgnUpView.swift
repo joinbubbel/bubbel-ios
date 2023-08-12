@@ -2,6 +2,8 @@ import SwiftUI
 
 struct SignUpView: View {
     @State private var username: String = ""
+    @State private var displayName: String = ""
+    @State private var name: String = ""
     @State private var password: String = ""
     @State private var email: String = ""
     @State private var isUsernameAvailable = true
@@ -234,7 +236,7 @@ struct SignUpView: View {
                 
                 
                 NavigationLink(
-                    destination: VerificationView(username: username),
+                    destination: VerificationView(username: username, displayName: displayName, name: name),
                     isActive: $showVerificationView,
                     label: {
                         EmptyView()

@@ -32,7 +32,7 @@ struct ImageUpload: View {
     var body: some View {
             VStack {
                 VStack{
-                    NavigationLink(destination: BottomView(username: "John Doe")){
+                    NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")){
                         HStack(){
                             Image("nav")
                             Text("Post")

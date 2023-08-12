@@ -12,7 +12,8 @@ import SwiftUI
 struct ClubProfile: View {
     var clubName: String
     var username: String
-    
+    var displayName: String
+    var name: String
     
     @State private var club: Club? = nil
     
@@ -39,7 +40,7 @@ struct ClubProfile: View {
     var body: some View {
         VStack {
             VStack{
-                NavigationLink(destination: BottomView(username: username)){
+                NavigationLink(destination: BottomView(username: username, displayName: displayName, name: name)){
                     HStack(){
                         Image("nav")
                         Text("Go Back")
@@ -69,6 +70,6 @@ struct ClubProfile: View {
 
 struct ClubProfile_Previews: PreviewProvider {
     static var previews: some View {
-        ClubProfile(clubName: "Sample Club", username: "John Doe")
+        ClubProfile(clubName: "Sample Club", username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

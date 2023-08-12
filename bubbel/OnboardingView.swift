@@ -15,8 +15,10 @@ struct ArrowView: View {
 
 struct OnboardingView: View {
     @State private var currentPageIndex = 0
-    @State private var isOnboardingCompleted = false // Added state
+    @State private var isOnboardingCompleted = false
     var username: String
+    var displayName: String
+    var name: String
     
  
 
@@ -38,7 +40,7 @@ struct OnboardingView: View {
                 
                 HStack {
                     if currentPageIndex == 3 {
-                        NavigationLink(destination: HomeView(username: username, clubID: 1), isActive: $isOnboardingCompleted) {
+                        NavigationLink(destination: HomeView(username: username, clubID: 1,displayName: displayName, name: name), isActive: $isOnboardingCompleted) {
                             EmptyView()
                         }
                         ArrowView()
@@ -67,6 +69,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(username: "John Doe")
+        OnboardingView(username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

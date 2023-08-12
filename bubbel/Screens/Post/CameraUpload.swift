@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CameraUpload: View {
     var username: String
+    var displayName: String
+    var name: String
     var body: some View {
         
         VStack{
@@ -20,7 +22,7 @@ struct CameraUpload: View {
                     .padding(.trailing, 15)
                     .background(.blue)
                     .cornerRadius(5)
-                NavigationLink(destination: BottomView(username: username)){
+                NavigationLink(destination: BottomView(username: username, displayName: displayName, name: name)){
                     Image("exit")
                 }
             }
@@ -71,6 +73,6 @@ struct CameraUpload: View {
 
 struct CameraUpload_Previews: PreviewProvider {
     static var previews: some View {
-        CameraUpload(username: "John Doe")
+        CameraUpload(username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

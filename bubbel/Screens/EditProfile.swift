@@ -12,13 +12,42 @@ struct EditProfile: View {
     @Binding var username: String
     @State private var displayname: String = ""
     @State private var name: String = ""
+    @State private var bio: String = ""
     @State private var avatarItem: PhotosPickerItem?
     @State private var avatarImage: Image? = Image("defaultpfp")
+    @State private var showAlert = false
+    
+    
+    @State private var token: String?
+    
+    func saveChanges() {
+        let updatedProfile = InSetUserProfile(
+            banner: nil,
+            description: bio,
+            displayName: displayname,
+            name: name,
+            pfp: nil,
+            token: token ?? "token"
+        )
+        
+        Task {
+            do {
+                let response = try await bubbelApiSetUserProfile(req: updatedProfile)
+                
+                print("Profile updated successfully: \(response)")
+                showAlert = true
+            } catch {
+                
+                print("Failed to update profile: \(error)")
+            }
+        }
+    }
+    
     
     var body: some View {
         VStack{
             VStack{
-                NavigationLink(destination: Setting(username: username)){
+                NavigationLink(destination: Setting(username: username, displayName: displayname, name: name)){
                     HStack(){
                         Image("nav")
                         Text("Edit Profile")
@@ -94,6 +123,8 @@ struct EditProfile: View {
                         )
                     HStack{
                         TextField("Name", text: $name)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
                             .font(Font.custom("CircularStd-Book", size: 18))
                             .foregroundColor(.black)
                     }
@@ -113,6 +144,8 @@ struct EditProfile: View {
                         )
                     HStack{
                         TextField("Display Name", text: $displayname)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
                             .font(Font.custom("CircularStd-Book", size: 18))
                             .foregroundColor(.black)
                     }
@@ -131,7 +164,9 @@ struct EditProfile: View {
                                 .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
                         )
                     HStack{
-                        TextField("Bio", text: $displayname)
+                        TextField("Bio", text: $bio)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
                             .font(Font.custom("CircularStd-Book", size: 18))
                             .foregroundColor(.black)
                     }
@@ -163,7 +198,7 @@ struct EditProfile: View {
             Spacer()
             VStack{
                 Button(action: {
-                    
+                    saveChanges()
                 }) {
                     Text("Save changes")
                         .font(Font.custom("CircularStd-Book", size: 16))
@@ -177,6 +212,13 @@ struct EditProfile: View {
                 }
             }
             .padding(.top, -110)
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Profile Updated"),
+                    message: Text("Your profile has been successfully updated."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
             
         }
         .navigationBarHidden(true)

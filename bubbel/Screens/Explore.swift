@@ -13,7 +13,7 @@ struct Explore: View {
         NavigationView{
             VStack{
                 VStack{
-                    NavigationLink(destination: BottomView(username: "John Doe")){
+                    NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")){
                         HStack(spacing: 220) {
                             HStack{
                                 Image("nav")

@@ -49,7 +49,7 @@ struct PollsUpload: View {
             VStack{
                 VStack {
                     VStack {
-                        NavigationLink(destination: BottomView(username: "John Doe")) {
+                        NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")) {
                             HStack {
                                 Image("nav")
                                 Text("Polls")

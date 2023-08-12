@@ -2,11 +2,15 @@ import SwiftUI
 
 struct User: Codable {
 	let username: String
+	let displayName: String
+	let name: String
 }
 
 
 struct LoginView: View {
 	@State private var username: String = ""
+	@State private var displayName: String = ""
+	@State private var name: String = ""
 	@State private var password: String = ""
 	@FocusState private var keyboardFocused: Bool
 	@State private var isLoggedIn: Bool = false
@@ -57,7 +61,7 @@ struct LoginView: View {
 		await LogIn()
 	}
 	func LogIn() async {
-		 let user = User(username: username)
+		let user = User(username: username, displayName: displayName, name: name)
 
 		 do {
 			 guard !username.isEmpty && !password.isEmpty else {
@@ -122,7 +126,7 @@ struct LoginView: View {
 	var body: some View {
 		NavigationView {
 			if isLoggedIn || storedUser != nil {
-				BottomView(username: storedUser?.username ?? "")
+				BottomView(username: storedUser?.username ?? "", displayName: storedUser?.displayName ?? "", name: storedUser?.name ?? "")
 					.onAppear {
 						isLoggedIn = true
 					}
