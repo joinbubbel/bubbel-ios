@@ -21,6 +21,8 @@ struct HomeView: View {
     
     @State private var clubName: String = ""
     
+    @State private var isUserInClub: Bool = false
+    
     
     init(username: String, clubID: Int) {
         self.username = username
@@ -74,18 +76,21 @@ struct HomeView: View {
                         VStack{
                             Button(action: {
                                 print("Button clicked!")
-                                
-                            })
-                            {
-                                Text("Join")
+                                // Toggle the join/leave status here
+                                if isUserInClub {
+                                    // Handle leave club action
+                                } else {
+                                    // Handle join club action
+                                }
+                            }) {
+                                Text(isUserInClub ? "Leave" : "Join")
                                     .font(Font.custom("CircularStd-Book", size: 16))
                                     .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
-                            }
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 10)
-                            .background(Color(red: 0.9, green: 0.95, blue: 1))
-                            .cornerRadius(49)
-                            .padding(.leading, 230)
+                            }                            .padding(.horizontal, 18)
+                                .padding(.vertical, 10)
+                                .background(Color(red: 0.9, green: 0.95, blue: 1))
+                                .cornerRadius(49)
+                                .padding(.leading, 230)
                         }
                     }
                     
@@ -114,6 +119,8 @@ struct HomeView: View {
         }
         .onAppear {
             fetchClubName()
+            
+            isUserInClub = true
         }
     }
     
