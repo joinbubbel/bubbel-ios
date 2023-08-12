@@ -14,11 +14,27 @@ struct CreateClub: View {
     @State private var clubname: String = ""
     @State private var clubbio: String = ""
     @State private var selection = "Education"
+    
+    var token: String
     let status = ["Education","Sports", "Entertainment", "Art & Culture"]
     
     @State private var selectedBannerItem: PhotosPickerItem?
     @State private var bannerImage: Image? = Image("clubdefault")
     
+  
+    
+    func createClub() {
+           let clubData = InCreateClub(name: clubname, token: token)
+
+           do {
+               let jsonData = try clubData.jsonData()
+               if let jsonString = String(data: jsonData, encoding: .utf8) {
+                   print(jsonString)
+               }
+           } catch {
+               print("Error encoding club data:", error)
+           }
+       }
     
     var body: some View {
         VStack{
@@ -170,6 +186,6 @@ struct CreateClub: View {
 
 struct CreateClub_Previews: PreviewProvider {
     static var previews: some View {
-        CreateClub()
+        CreateClub(token: "token")
     }
 }

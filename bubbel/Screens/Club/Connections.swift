@@ -30,7 +30,7 @@ struct Connections: View {
     }
     var body: some View {
         VStack{
-            NavigationLink(destination: CreateClub()){
+            NavigationLink(destination: CreateClub(token: "token")){
                 HStack(){
                     Image("nav")
                     Text("Connections")
@@ -122,7 +122,7 @@ struct Connections: View {
                 Button(action: {
                     
                 }){
-                    NavigationLink(destination: InviteMem()){
+                    NavigationLink(destination: InviteMem(token: "token", clubname: "sample club")){
                         ZStack{
                             
                             Rectangle()

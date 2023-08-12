@@ -30,7 +30,7 @@ struct Clubs: View {
                     
                 }){
                     
-                    NavigationLink(destination: CreateClub()){
+                    NavigationLink(destination: CreateClub(token: "token")){
                         ZStack{
                             Rectangle()
                                 .foregroundColor(.clear)

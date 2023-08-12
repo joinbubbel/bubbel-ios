@@ -8,6 +8,23 @@
 import SwiftUI
 
 struct InviteMem: View {
+    @State private var showAlert = false
+    @State private var clubCreated = false
+    let token: String
+        let clubname: String
+    
+    func createClub() {
+           let clubData = InCreateClub(name: clubname, token: token)
+
+           do {
+               let jsonData = try clubData.jsonData()
+               if let jsonString = String(data: jsonData, encoding: .utf8) {
+                   print(jsonString)
+               }
+           } catch {
+               print("Error encoding club data:", error)
+           }
+       }
     var body: some View {
         VStack{
             NavigationLink(destination: Connections()){
@@ -30,7 +47,10 @@ struct InviteMem: View {
             VStack{
                 
                 Button(action: {
-                    
+                    showAlert = true
+                    clubCreated = true
+                    createClub()
+
                 }){
                     
                     ZStack{
@@ -57,11 +77,20 @@ struct InviteMem: View {
         .toolbar(.hidden, for: .tabBar)
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Club Created"),
+                message: Text("The club has been successfully created."),
+                dismissButton: .default(Text("OK")) {
+                    showAlert = false
+                }
+            )
+        }
     }
 }
 
 struct InviteMem_Previews: PreviewProvider {
     static var previews: some View {
-        InviteMem()
+        InviteMem(token: "token", clubname: "sample club")
     }
 }
