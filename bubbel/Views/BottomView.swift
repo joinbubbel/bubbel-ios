@@ -12,7 +12,7 @@ struct BottomView: View {
     var username: String
     var body: some View {
         TabView {
-            HomeView(username: username)
+            HomeView(username: username, clubID: 1)
                 .tabItem {
                     Image("Home")
                         .renderingMode(.template)

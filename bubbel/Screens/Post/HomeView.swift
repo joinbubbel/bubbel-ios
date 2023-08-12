@@ -17,11 +17,17 @@ struct HomeView: View {
     
     @State private var token: String?
     
+    @State private var clubID: Int
+    
     @State private var clubName: String = ""
     
     
+    init(username: String, clubID: Int) {
+        self.username = username
+        self.clubID = clubID
+    }
     func fetchClubName() {
-        let inGetClubProfile = InGetClubProfile(clubID: 1 , token: token)
+        let inGetClubProfile = InGetClubProfile(clubID: clubID , token: token)
         
         Task {
             do {
@@ -119,6 +125,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(username: "JohnDoe")
+        HomeView(username: "JohnDoe", clubID: 123)
     }
 }
