@@ -3554,6 +3554,8 @@ class JSONAny: Codable {
 }
 
 func bubbelApiCreateUser(req: InCreateUser) async throws -> ResCreateUser {
+    print("ajajajajaja")
+    print(try req.jsonString())
     let json = try req.jsonData()
     
     let url = URL(string: bubbelBathDev + "/api/create_user")!
@@ -3566,7 +3568,7 @@ func bubbelApiCreateUser(req: InCreateUser) async throws -> ResCreateUser {
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResCreateUser.self, from: data)
     return result
 }
@@ -3583,7 +3585,7 @@ func bubbelApiAuthUser(req: InAuthUser) async throws -> ResAuthUser {
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResAuthUser.self, from: data)
     return result
 }
@@ -3600,7 +3602,7 @@ func bubbelApiDeauthUser(req: InDeauthUser) async throws -> ResDeauthUser {
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResDeauthUser.self, from: data)
     return result
 }
@@ -3617,7 +3619,7 @@ func bubbelApiVerifyAccount(req: InVerifyAccount) async throws -> ResVerifyAccou
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResVerifyAccount.self, from: data)
     return result
 }
@@ -3634,10 +3636,14 @@ func bubbelApiSendVerify(req: InSendVerify) async throws -> ResSendVerify {
     
     let (data, response) = try await URLSession.shared.data(for: urlRequest)
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
+    print("cheese 10")
+    print(dataString)
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResSendVerify.self, from: data)
+    print("cheese 11")
+    print(result)
     return result
 }
 func bubbelApiSetUserProfile(req: InSetUserProfile) async throws -> ResSetUserProfile {
@@ -3653,7 +3659,7 @@ func bubbelApiSetUserProfile(req: InSetUserProfile) async throws -> ResSetUserPr
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResSetUserProfile.self, from: data)
     return result
 }
@@ -3670,7 +3676,7 @@ func bubbelApiGetUserProfile(req: InGetUserProfile) async throws -> ResGetUserPr
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResGetUserProfile.self, from: data)
     return result
 }
@@ -3687,7 +3693,7 @@ func bubbelApiDeleteUser(req: InDeleteUser) async throws -> ResDeleteUser {
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResDeleteUser.self, from: data)
     return result
 }
@@ -3704,7 +3710,7 @@ func bubbelApiCreateClub(req: InCreateClub) async throws -> ResCreateClub {
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResCreateClub.self, from: data)
     return result
 }
@@ -3721,7 +3727,7 @@ func bubbelApiGetClubProfile(req: InGetClubProfile) async throws -> ResGetClubPr
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResGetClubProfile.self, from: data)
     return result
 }
@@ -3738,7 +3744,7 @@ func bubbelApiSetClubProfile(req: InSetClubProfile) async throws -> ResSetClubPr
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResSetClubProfile.self, from: data)
     return result
 }
@@ -3755,7 +3761,7 @@ func bubbelApiDeleteClub(req: InDeleteClub) async throws -> ResDeleteClub {
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResDeleteClub.self, from: data)
     return result
 }
@@ -3772,7 +3778,7 @@ func bubbelApiGetUserProfileWithUsername(req: InGetUserProfileWithUsername) asyn
     let (dataString) = String(data: data, encoding: .utf8) ?? ""
     
     let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    
     let result = try decoder.decode(ResGetUserProfileWithUsername.self, from: data)
     return result
 }
