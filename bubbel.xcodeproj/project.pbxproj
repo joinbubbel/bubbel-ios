@@ -184,7 +184,6 @@
 				D2BCB5C72A83D42700154AF1 /* ImageUpload.swift */,
 				D2A7F3282A843D0B005A5761 /* TextUpload.swift */,
 				D2A7F32A2A844A23005A5761 /* PollsUpload.swift */,
-				D2F082DE2A8864DA00B45C99 /* HomeView.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -194,6 +193,7 @@
 			children = (
 				D2371EB82A7D541400E4700F /* UploadMenu.swift */,
 				D2C64B0E2A5D0DE400A15989 /* BottomView.swift */,
+				D2F082DE2A8864DA00B45C99 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
