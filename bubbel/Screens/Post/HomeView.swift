@@ -105,7 +105,7 @@ struct HomeView: View {
                                 center: UnitPoint(x: 0.5, y: 0.5)
                             )
                         )
-                        .padding(.top, 60)
+                        .padding(.top, 10)
                 }
                 .padding(.top, 40)
             }
