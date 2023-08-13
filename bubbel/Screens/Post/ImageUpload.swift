@@ -22,6 +22,9 @@ func saveDataAsTemporaryFile(data: Data) -> URL? {
     }
 }
 struct ImageUpload: View {
+    var username: String
+    var displayName: String
+    var name: String
     
     @State private var posttext: String = ""
     @State private var comments = true
@@ -32,7 +35,7 @@ struct ImageUpload: View {
     var body: some View {
             VStack {
                 VStack{
-                    NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")){
+                    NavigationLink(destination: BottomView(username: username, displayName: displayName, name: name)){
                         HStack(){
                             Image("nav")
                             Text("Post")
@@ -184,6 +187,6 @@ struct Controls: View {
 
 struct ImageUpload_Previews: PreviewProvider {
     static var previews: some View {
-        ImageUpload()
+        ImageUpload(username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

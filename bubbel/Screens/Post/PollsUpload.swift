@@ -40,6 +40,9 @@ struct PollsUpload: View {
     @State private var selectedDays = 0
     @State private var selectedHours = 0
     @State private var selectedMinutes = 0
+    var username: String
+    var displayName: String
+    var name: String
     
     let daysRange = 0..<31
     let hoursRange = 0..<24
@@ -49,7 +52,7 @@ struct PollsUpload: View {
             VStack{
                 VStack {
                     VStack {
-                        NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")) {
+                        NavigationLink(destination: BottomView(username: username, displayName: displayName, name: name)) {
                             HStack {
                                 Image("nav")
                                 Text("Polls")
@@ -247,6 +250,6 @@ struct PollsUpload: View {
 
 struct PollsUpload_Previews: PreviewProvider {
     static var previews: some View {
-        PollsUpload()
+        PollsUpload(username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

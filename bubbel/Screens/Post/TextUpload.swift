@@ -12,11 +12,14 @@ struct TextUpload: View {
     @State private var link: String = ""
     @State private var link2: String = ""
     @State private var comments = true
+    var username: String
+    var displayName: String
+    var name: String
     
     @State private var linkRows: [String] = [""]
     var body: some View {
         VStack{
-            NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")){
+            NavigationLink(destination: BottomView(username: username, displayName: displayName, name: name)){
                 HStack(){
                     Image("nav")
                     Text("Post")
@@ -132,6 +135,6 @@ struct TextUpload: View {
 
 struct TextUpload_Previews: PreviewProvider {
     static var previews: some View {
-        TextUpload()
+        TextUpload(username: "John Doe", displayName: "John Doe", name: "jonny")
     }
 }

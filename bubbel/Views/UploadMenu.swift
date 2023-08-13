@@ -31,13 +31,13 @@ struct UploadMenu: View {
                                 NavigationLink(destination: CameraUpload(username: username, displayName: displayName, name: name)){
                                     Image("cam")
                                 }
-                                NavigationLink(destination: ImageUpload()){
+                                NavigationLink(destination: ImageUpload(username: username, displayName: displayName, name: name)){
                                     Image("imge")
                                 }
-                                NavigationLink(destination: PollsUpload()){
+                                NavigationLink(destination: PollsUpload(username: username, displayName: displayName, name: name)){
                                     Image("poll")
                                 }
-                                NavigationLink(destination: TextUpload()){
+                                NavigationLink(destination: TextUpload(username: username, displayName: displayName, name: name)){
                                     Image("text")
                                 }
                             }
