@@ -27,7 +27,7 @@ struct EditProfile: View {
             displayName: displayname,
             name: name,
             pfp: nil,
-            token: token ?? "token"
+            token: "have to implement token: token soon"
         )
         
         Task {

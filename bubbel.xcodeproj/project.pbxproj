@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D206E5792A5B80A90040E62A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206E5782A5B80A90040E62A /* HomeView.swift */; };
 		D230A6C02A868EFD00303039 /* Connections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230A6BF2A868EFD00303039 /* Connections.swift */; };
 		D2371EB92A7D541400E4700F /* UploadMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2371EB82A7D541400E4700F /* UploadMenu.swift */; };
 		D29203482A51E4020051B1DC /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29203472A51E4020051B1DC /* VerificationView.swift */; };
@@ -46,6 +45,7 @@
 		D2EFA29A2A533D5000C29566 /* CircularStd-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EFA2992A533D5000C29566 /* CircularStd-Black.ttf */; };
 		D2EFA29C2A533D6200C29566 /* CircularStd-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EFA29B2A533D6200C29566 /* CircularStd-BlackItalic.ttf */; };
 		D2EFA2A32A534A6000C29566 /* CircularStd-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2EFA29D2A533D6A00C29566 /* CircularStd-Bold.ttf */; };
+		D2F082DF2A8864DA00B45C99 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F082DE2A8864DA00B45C99 /* HomeView.swift */; };
 		D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE412A52214A0035DC62 /* Onboard3.swift */; };
 		D2F1BE442A52221D0035DC62 /* Onboard4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE432A52221D0035DC62 /* Onboard4.swift */; };
 		D2F1BE462A5225590035DC62 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1BE452A5225590035DC62 /* OnboardingView.swift */; };
@@ -70,7 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D206E5782A5B80A90040E62A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D230A6BF2A868EFD00303039 /* Connections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connections.swift; sourceTree = "<group>"; };
 		D2371EB82A7D541400E4700F /* UploadMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadMenu.swift; sourceTree = "<group>"; };
 		D29203472A51E4020051B1DC /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		D2EFA2992A533D5000C29566 /* CircularStd-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Black.ttf"; sourceTree = "<group>"; };
 		D2EFA29B2A533D6200C29566 /* CircularStd-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-BlackItalic.ttf"; sourceTree = "<group>"; };
 		D2EFA29D2A533D6A00C29566 /* CircularStd-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularStd-Bold.ttf"; sourceTree = "<group>"; };
+		D2F082DE2A8864DA00B45C99 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D2F1BE412A52214A0035DC62 /* Onboard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard3.swift; sourceTree = "<group>"; };
 		D2F1BE432A52221D0035DC62 /* Onboard4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard4.swift; sourceTree = "<group>"; };
 		D2F1BE452A5225590035DC62 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -180,11 +180,11 @@
 		D2BCB5C62A83D34700154AF1 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				D206E5782A5B80A90040E62A /* HomeView.swift */,
 				D2FCBDAC2A7C9D4300FDFA18 /* CameraUpload.swift */,
 				D2BCB5C72A83D42700154AF1 /* ImageUpload.swift */,
 				D2A7F3282A843D0B005A5761 /* TextUpload.swift */,
 				D2A7F32A2A844A23005A5761 /* PollsUpload.swift */,
+				D2F082DE2A8864DA00B45C99 /* HomeView.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -454,8 +454,8 @@
 				D2DC1F372A5F078400D5D254 /* ResVerification.swift in Sources */,
 				D2DC0BE72A506C1700AF9F68 /* SIgnUpView.swift in Sources */,
 				D2A7F3292A843D0B005A5761 /* TextUpload.swift in Sources */,
+				D2F082DF2A8864DA00B45C99 /* HomeView.swift in Sources */,
 				D2E9471B2A6B100C00249AB1 /* Setting.swift in Sources */,
-				D206E5792A5B80A90040E62A /* HomeView.swift in Sources */,
 				D2E9471D2A6B2F0F00249AB1 /* EditProfile.swift in Sources */,
 				D2DC1F392A5F1C2B00D5D254 /* ResPassword.swift in Sources */,
 				D2F1BE422A52214A0035DC62 /* Onboard3.swift in Sources */,
