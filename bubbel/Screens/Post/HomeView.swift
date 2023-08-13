@@ -79,15 +79,9 @@ struct HomeView: View {
                         .padding(.trailing, 200)
                         VStack{
                             Button(action: {
-                                print("Button clicked!")
-                                // Toggle the join/leave status here
-                                if isUserInClub {
-                                    // Handle leave club action
-                                } else {
-                                    // Handle join club action
-                                }
+                                
                             }) {
-                                Text(isUserInClub ? "Leave" : "Join")
+                                Text("Join")
                                     .font(Font.custom("CircularStd-Book", size: 16))
                                     .foregroundColor(Color(red: 0, green: 0.34, blue: 1))
                             }                            .padding(.horizontal, 18)
