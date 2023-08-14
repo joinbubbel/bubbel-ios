@@ -33,7 +33,6 @@ struct BottomView: View {
             }
           
             Message()
-                .badge(5)
                 .tabItem {
                     Image("Message")
                         .renderingMode(.template)
