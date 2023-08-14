@@ -99,9 +99,6 @@ struct EditProfile: View {
                                 .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
                         )
                     HStack{
-                        Text("@")
-                            .font(Font.custom("CircularStd-Book", size: 20))
-                            .foregroundColor(Color(red: 0.75, green: 0.77, blue: 0.8))
                         TextField("", text: $username)
                             .font(Font.custom("CircularStd-Book", size: 18))
                             .foregroundColor(.black)
@@ -122,7 +119,10 @@ struct EditProfile: View {
                                 .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
                         )
                     HStack{
-                        TextField("Name", text: $name)
+                        Text("@")
+                            .font(Font.custom("CircularStd-Book", size: 20))
+                            .foregroundColor(Color(red: 0.75, green: 0.77, blue: 0.8))
+                        TextField("edwardlarry", text: $displayname)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                             .font(Font.custom("CircularStd-Book", size: 18))
@@ -143,7 +143,7 @@ struct EditProfile: View {
                                 .stroke(Color(red: 0.92, green: 0.93, blue: 0.94), lineWidth: 1.8)
                         )
                     HStack{
-                        TextField("Display Name", text: $displayname)
+                        TextField("Edward Larry", text: $name)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                             .font(Font.custom("CircularStd-Book", size: 18))
