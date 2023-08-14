@@ -9,11 +9,14 @@ import SwiftUI
 
 struct Explore: View {
     @State private var search: String = ""
+    var username: String
+    var displayName: String
+    var name: String
     var body: some View {
         NavigationView{
             VStack{
                 VStack{
-                    NavigationLink(destination: BottomView(username: "John Doe", displayName: "John Doe", name: "jonny")){
+                    NavigationLink(destination: BottomView(username: username, displayName: displayName, name: name)){
                         HStack(spacing: 220) {
                             HStack{
                                 Image("nav")
@@ -53,6 +56,6 @@ struct Explore: View {
 
 struct Explore_Previews: PreviewProvider {
     static var previews: some View {
-        Explore()
+        Explore(username: "John DOe", displayName: "John DOe", name: "jonnny")
     }
 }

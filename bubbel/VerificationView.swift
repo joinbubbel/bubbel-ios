@@ -121,7 +121,7 @@ struct VerificationView: View {
                 }) {
                     HStack {
                         Image("resend")
-                        Text(verificationCodeSent ? "Verify" : "Resend")
+                        Text("Verify")
                     }
                     .font(Font.custom("CircularStd-Book", size: 16))
                     .foregroundColor(.white)

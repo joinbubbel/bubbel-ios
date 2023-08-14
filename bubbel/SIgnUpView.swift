@@ -42,6 +42,7 @@ struct SignUpView: View {
         }
     }
     
+
     
     func createUser() async {
         print("cheese2")
@@ -63,6 +64,11 @@ struct SignUpView: View {
                         print("email didnt send")
                     } else {
                         self.showVerificationView = true
+                        
+                        let newUser = User(username: username, displayName: displayName, name: name)
+
+                                   // Store the user information in UserDefaults
+                                   setLoggedInUser(newUser)
                     }
                 } else {
                     print("Unexpected error: No user ID returned")
@@ -76,6 +82,11 @@ struct SignUpView: View {
     
     
     
+    private func setLoggedInUser(_ user: User) {
+           if let encodedData = try? JSONEncoder().encode(user) {
+               UserDefaults.standard.set(encodedData, forKey: "user")
+           }
+       }
     
     
     

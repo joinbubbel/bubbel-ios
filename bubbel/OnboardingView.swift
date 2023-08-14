@@ -40,7 +40,7 @@ struct OnboardingView: View {
                 
                 HStack {
                     if currentPageIndex == 3 {
-                        NavigationLink(destination: HomeView(username: username, clubID: 1,displayName: displayName, name: name), isActive: $isOnboardingCompleted) {
+                        NavigationLink(destination: BottomView(username: username,displayName: displayName, name: name), isActive: $isOnboardingCompleted) {
                             EmptyView()
                         }
                         ArrowView()
