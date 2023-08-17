@@ -18,7 +18,8 @@ struct EditProfile: View {
     @State private var showAlert = false
     
     
-    @State private var token: String?
+    
+  
     
     func saveChanges() {
         let updatedProfile = InSetUserProfile(
@@ -27,7 +28,7 @@ struct EditProfile: View {
             displayName: displayname,
             name: name,
             pfp: nil,
-            token: "have to implement token: token soon"
+            token: ""
         )
         
         Task {
