@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CircularStd-BoldItalic.ttf</string>
+		<string>CircularStd-Bold.ttf</string>
+		<string>CircularStd-BlackItalic.ttf</string>
+		<string>CircularStd-Black.ttf</string>
+		<string>CircularStd-Medium.ttf</string>
+		<string>CircularStd-BookItalic.ttf</string>
+		<string>CircularStd-Book</string>
+	</array>
+</dict>
+</plist>
